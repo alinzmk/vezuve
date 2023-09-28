@@ -1,0 +1,880 @@
+$primary01: rgba(85, 112, 241, 0.1);
+$primary03: rgba(85, 112, 241, 0.3);
+$primary10: rgba(85, 112, 241, 1);
+$secondary: #FA58B6;
+$black10: rgba(28, 29, 34, 1);
+$black08: rgba(28, 29, 34, 0.8);
+$black06: rgba(28, 29, 34, 0.6);
+$black01: rgba(28, 29, 34, 0.1);
+$positive: rgba(81, 156, 102,1);
+$negative: rgba(204, 95, 95,1);
+$white: white;
+
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(2%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideInFromUp {
+    0% {
+      transform: translateY(20%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+  }
+  
+  .fadeIn{
+    animation: fadeInAnimation ease 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  .slideleft{
+    animation: 1s ease-in-out 0s 1 slideInFromLeft;
+  }
+  .slideup{
+    animation: 1s ease-in-out 0s 1 slideInFromUp;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+  }
+  
+  
+  html{
+    height: 100%;
+  }
+  body{
+    height: 100%;
+    background-color: $primary01;
+    background-repeat: repeat;
+    background-size: cover;
+    overflow-x: hidden;
+    overflow-y:auto;
+    color: $black08;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  ::selection{
+    background: rgba(28, 21, 59, 0.162);
+  }
+  img{
+      user-select: none;
+      -webkit-user-drag: none;
+  }
+  
+  a, a:hover{
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .purple{
+    color:$black10 !important;
+  }
+  .white{
+    color: white !important;
+  }
+  
+  .radius{
+    border-radius: 10px;
+  }
+
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other elements */
+  }
+  
+  
+  
+  /** LOGIN REGISTER **/
+  .login-container{
+    max-width: 440px;
+    padding: 0 20px;
+    margin: 170px auto;
+  }
+  .wrapper{
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
+  }
+  .wrapper .title{
+    height: 90px;
+    background: $primary10;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .wrapper form{
+    padding: 30px 25px 25px 25px;
+  }
+  .wrapper form .row{
+    height: 45px;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  .wrapper form .row input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 60px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  form .row input:focus{
+    border-color: $primary10;
+    box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
+  }
+  form .row input::placeholder{
+    color: #999;
+  }
+  .wrapper form .row i{
+    position: absolute;
+    width: 47px;
+    height: 100%;
+    color: #fff;
+    font-size: 18px;
+    background: $primary10;
+    border: 1px solid $primary10;
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .wrapper form .pass{
+    margin: -8px 0 20px 0;
+  }
+  .wrapper form .pass a{
+    color: $primary10;
+    font-size: 17px;
+    text-decoration: none;
+  }
+  .wrapper form .pass a:hover{
+    text-decoration: underline;
+  }
+  .wrapper form .button input{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 0px;
+    background: $primary10;
+    border: 1px solid $primary10;
+    cursor: pointer;
+  }
+  form .button input:hover{
+    background: #FA58B6;
+    border: none;
+    color: $primary10;
+  }
+  .wrapper form .signup-link{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+    color: $primary10 !important;
+  }
+  .wrapper form .signup-link a{
+    color: $primary10 !important;
+    text-decoration: none;
+  }
+  form .signup-link a:hover{
+    text-decoration: underline;
+  }
+  
+  .login-logo{
+    width: 15rem;
+  }
+  
+  #togglePassword{
+    color: #001B48;
+    border: none;
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  /** LOGIN REGISTER FINISH**/
+  
+  /** SIDEBAR**/
+  
+  .sidebar2{
+    position: fixed;
+    display: flex;
+    max-width: 133px;
+  }
+  
+  .sidebar-wrapper2{
+    position: absolute;
+    z-index: 99;
+    min-height: 100vh;
+    float: left;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 50px 10px 0 0;
+    background-color: $white;
+    border-right: 1px solid rgba(28, 29, 34, 0.2);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-ul2{
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+  }
+  
+  .sidebar-li2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    padding: 0;
+    margin: 1.5rem 0;
+    transition: 0.5s;
+  }
+  
+  .sidebar-logo{
+    display: flex;
+    max-width: 20rem !important;
+    height: auto;
+    margin: auto 0 auto auto;
+    float: right;
+  }
+  
+  .sidebar-link{
+    color: rgba(28, 29, 34, 0.5);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 100;
+    /** 1.3 **/
+  }
+  
+  .sidebar-li2:hover{
+    color: rgba(12, 18, 17, 1);
+  }
+  .small-logo{
+    max-width: 50px;
+  }
+  
+  .side-active {
+    @extend .radius;
+    border: 1px solid $primary10; /* Set the border color and width */
+    background-color: $primary10;
+     /* Create a circular border */
+    margin: 1.5rem auto;
+    width: 36px; /* Set the width of the square */
+    height: 36px; /* Set the height of the square */
+  }
+  .side-active a{
+    
+    font-size: 1.2rem;
+    color: $white;
+  }
+  
+  
+  /** SIDEBAR bitiş**/
+  
+  /** ANA EKRAN**/
+  
+  .trans{
+    transition: 0.3s;
+  }
+  .mainhov:hover{
+    scale: 1.01;
+    background-color: transparent !important;
+    color: #001B48;
+  }
+  
+  .dashboard{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    max-height: 100vh;
+  }
+  
+  %dashboard1{
+    background-color: $white;
+    border-radius: 10px;
+    width: 32%;
+    margin: 0 0rem 0 0;
+  }
+
+  #total-sales{
+    @extend %dashboard1;
+    padding: 1rem 0 1rem  2rem;
+    
+  }
+  #total-purchases{
+    @extend %dashboard1;
+    padding: 1rem 0 1rem 2rem;
+  }
+  #total-orders{
+    @extend %dashboard1;
+    padding: 1rem 0 1rem  2rem;
+  }
+
+  #total-growth{
+    background-color: $white;
+    border-radius: 10px;
+    width: 100%;
+    margin: 1rem 3rem 1rem 0;
+    padding: 1rem 31% 1rem 31%;
+  }
+  .aylık{
+    font-size: 0.9rem !important;
+    color: rgba(28, 29, 34, 0.7);
+  }
+  .plus{
+    border-radius: 500px;
+    background-color: $positive;
+    width: 50%;
+    padding: 0 0 0 1rem;
+    position: relative;
+    top: 0;
+    margin: 0;
+  }
+  .minus{
+    border-radius: 500px;
+    background-color: $negative;
+    width: 50%;
+    padding: 0 0 0 1rem;
+    position: relative;
+    top: 0;
+    margin: 0;
+  }
+  .plus2{
+    border-radius: 40px;
+    background-color: $positive;
+    width: 50%;
+    padding: 0 0 0 1rem;
+    position: absolute;
+    left: -70%;
+    bottom: 15%;
+    margin: 0;
+    font-size: 2rem;
+  }
+  .minus2{
+    border-radius: 40px;
+    background-color: $negative;
+    width: 50%;
+    padding: 0 0 0 1rem;
+    position: absolute;
+    left: -70%;
+    bottom: 15%;
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  
+  #graph{
+    background-color: $white;
+    border-radius: 10px;
+    height: auto;
+  }
+  .chart-wrapper{
+    
+  }
+  #status{
+    font-size: 1rem;
+    background-color: $white;
+    border-radius: 10px;
+    height: 23rem;
+  }
+  #customer-info{
+    height: auto;
+    font-size: 1rem;
+    background-color: $white;
+    border-radius: 10px;
+  }
+  .main-info{
+    color: $black06;
+    font-weight: 300;
+    margin: 0.5rem 0 0.5rem 0;
+  
+  }
+  .main-info2{
+    color: $black10;
+    font-size: 1.4rem;
+    font-weight: 300;
+  }
+  
+  .info-hr{
+    margin-right: 40%;
+  }
+  
+  
+  
+  /** ana ekran bitiş**/
+  
+  /** PROFİL SEKMESİ**/
+  .right{
+      position: relative;
+      max-width: 90%;
+      left: 3rem;
+  }
+  
+  .pbg{
+    background-color: $white;
+    border-radius: 10px;
+    border: 1px solid $white;
+  }
+  
+  .profile-title{
+    font-size: 13px;
+    border-bottom: 1px solid $primary03;
+    padding: 0.7rem 0 0.7rem 0.5rem;
+  }
+  
+  .profile-info{
+    padding: 0.5rem 0 1rem 1rem;
+  }
+  
+  #profile-photo{
+      position: relative;
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #FA58B6;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+  }
+  
+  #profile-name{
+    position: absolute;
+    top:27px;
+    left: 27px;
+  }
+
+  .buton2{
+    padding: 0.7rem;
+    background-color: transparent;
+    border: 1px solid #270082;
+    color: #270082;
+    border-radius: 10px;
+  
+  }
+  .buton2:hover{
+    padding: 0.7rem 1rem;
+    background-color: transparent;
+    border: 1px solid #FA58B6;
+    color: #FA58B6;
+    border-radius: 10px;
+  }
+  
+  .add-product{
+    cursor: pointer;
+  }
+  
+  
+  
+  
+  
+  /** PROFİL BİTİŞ **/
+  
+  /** MODAL BAŞLANGIÇ**/
+  
+  input[type=button] {
+    border: none;
+    outline: none !important;
+  }
+  
+  .modalContainer {
+    z-index: 50;
+    width: 70vw;
+    height: 90vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background-color: $white;
+    box-shadow: 0px 0px 18px 0px rgba(0,0, 0, 0.75);
+    border-radius: 20px;
+    padding: 2rem;
+  }
+  
+  .closeBtn, .closeBtn:hover{
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    color: rgba(12, 18, 17, 1);
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  
+  .closeBtn:focus{
+    outline: none !important;
+  }
+  
+  .service-img{
+    width: 400px;
+  }
+  .modal-logo{
+    width: 200px;
+  }
+  .purchase-btn{
+    transition: 0.5s;
+    background-color: rgba(85, 112, 241, 0.1);
+    border-radius: 25px;
+    font-size: 1.4rem;
+    padding: 10px 25px;
+  }
+  .purchase-btn:hover{
+    border-radius: 25px;
+    font-size: 1.4rem;
+    padding: 10px 35px;
+  }
+  
+  /** modal bitiş**/
+  
+  /** BELGELER **/
+  
+  .buton3{
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+    margin: 0 2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 3rem;
+    background-color: transparent;
+    color: $black10;
+    border-radius: 10px;
+    border: none;
+  }
+  .buton4{
+    @extend .buton3;
+    border: 1px solid $black10;
+  }
+  
+  .trans{
+  }
+  .hov{
+    scale: 1;
+  }
+  .buton3:hover{
+    scale: 0.95;
+    color: #FA58B6;
+    background-color: $black10;
+  }
+  .buton4:hover{
+    scale: 1.05;
+    color: #FA58B6;
+    background-color: $black10;
+  }
+  
+  .dropdown2:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* remove the gap so it doesn't close */
+  }
+  .info-btn{
+    font-size: 1rem;
+    pointer-events: none;
+    background-color: transparent;
+    border: none;
+  }
+
+  .info{
+    padding-left: 10px;
+    padding-right: 10px;
+    inset: auto auto auto auto !important;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    max-width: 400px;
+  
+  }
+  
+
+  
+  /** belgeler bitiş**/
+  
+  /** ürünler **/
+  
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+      outline: none;
+  }
+  
+  .product-input{
+    max-width: 70%;
+    border-radius: 20px;
+    padding: 0.1rem 1rem;
+    border: 1px solid $black10;
+    transition: 0.5s;
+  }
+  .product-input:focus, .product-input:focus-visible{
+    max-width: 100%;
+    border-radius: 20px;
+    padding: 0.1rem 1rem;
+  }
+  .p-search{
+    font-size: 1.1rem;
+  }
+  
+  .product-list{
+    list-style: none;
+    padding: 0;
+  }
+  
+  .product-item{
+    cursor: pointer;
+    width: auto;
+    padding: 1rem;
+  }
+  
+  .product-active{
+    background-color: $primary10;
+    color: $white;
+  }
+  
+  #product-image{
+    width: 200px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 1px $black10;
+  }
+  
+  .product-list-container {
+    min-height: 60vh;
+    max-height: 60vh; /* Adjust the height as needed */
+    overflow-y: auto;
+  }
+  #add-product-info{
+    max-width: 800px;
+    max-height: 500px;
+    object-fit: contain;
+  }
+  .product-btn {
+    background-color: transparent;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgba(12, 18, 17, 1);
+    display: flex; /* Add this to use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  
+  .product-btn i {
+    margin: 0; /* Remove any default margin */
+  }
+  .dropdown-toggle::after {
+    display: none;
+  }
+  
+  .product-dropdown{
+    margin: 10px 0 10px 0px;
+  }
+  
+  .upload{
+    transition: 1s;
+    inset: 3px -200px auto auto !important;
+    width: 400px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  /* ÜRÜNLER BİTİŞ */
+  /* HİZMETLER */
+  
+  .hizmet-wrap{
+    background-color: transparent;
+    padding: 25px 25px 25px 25px;
+  }
+  .hizmet{
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+    height: 150px;
+    border: 1px solid rgba(28, 21, 59, 1);
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+  
+  .amazon{
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.192);
+  }
+  .allegro{
+    box-shadow: 0px 0px 10px 1px rgba(172, 123, 0, 0.192);
+  }
+  .walmart{
+    box-shadow: 0px 0px 5px 1px rgba(0, 106, 172, 0.192);
+  }
+  .wayfair{
+    box-shadow: 0px 0px 5px 1px rgba(109, 0, 172, 0.192);
+  }
+  .ozon{
+    box-shadow: 0px 0px 5px 1px rgba(0, 53, 244, 0.192);
+  }
+  .vezu{
+    box-shadow: 0px 0px 5px 1px rgba(109, 0, 172, 0.192);
+  }
+  .amazon:hover{
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.192);
+  }
+  .allegro:hover{
+    box-shadow: 0px 0px 10px 5px rgba(172, 123, 0, 0.192);
+  }
+  .walmart:hover{
+    box-shadow: 0px 0px 5px 5px rgba(0, 106, 172, 0.192);
+  }
+  .wayfair:hover{
+    box-shadow: 0px 0px 5px 5px rgba(109, 0, 172, 0.192);
+  }
+  .ozon:hover{
+    box-shadow: 0px 0px 5px 3px rgba(0, 72, 255, 0.192);
+  }
+  .vezu:hover{
+    box-shadow: 0px 0px 5px 5px rgba(109, 0, 172, 0.192);
+  }
+  .hizmet-isim{
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .hizmet-tür{
+    margin-bottom: 5px;
+    color: rgba(28, 29, 34, 0.8)
+  }
+  .hizmet-ücret{
+    color: rgba(28, 29, 34, 0.5)
+  }
+  .hizmet-img{
+    position: absolute;
+    bottom: 0px;
+    right: -30px;
+    opacity: 0.1;
+    rotate: -15deg;
+    max-width: 200px;
+  }
+  .hizmet-img2{
+    position: absolute;
+    bottom: 5px;
+    right: -40px;
+    opacity: 0.1;
+    rotate: -10deg;
+    max-width: 250px;
+  }
+  .nav-link{
+    color: rgba(28, 29, 34, 0.6) ;
+  }
+  .nav-tabs .nav-link.active{
+    color: $primary10;
+  }
+  .service-info{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+  /* HİZMETLER BİTİŞ */
+  
+/* MARKETFINDER BAŞLANGIC */
+
+
+
+.finder-wrapper{
+}
+
+.finder-submit{
+    transition: 0.5s;
+    border-radius: 10px;
+    padding: 10px 35px;
+    &:hover{
+        padding: 10px 40px ;
+    }
+    color: $white;
+    background: rgb(26,33,66);
+    background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+    background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+    background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1a2142",endColorstr="#fa58b6",GradientType=1);
+    border:none;
+}
+
+%finder-arrow{
+  cursor: pointer;
+  position: absolute;
+  height: auto;
+  width: auto;
+  font-size: 1.5rem;
+  background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+.next-arrow{
+  @extend %finder-arrow;
+  right: 0;
+}
+
+.prev-arrow{
+  @extend %finder-arrow;
+  left: 0;
+
+}
+
+.swiper-slide{
+
+}
+
+
+/* MARKETFINDER BİTİŞ */
+  
+  
+  @media only screen and (max-width: 1200px) {
+    body {
+  
+    }
+    .chart-wrapper{
+      padding: auto;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    body {
+  
+    }
+    .chart-wrapper{
+      padding: auto;
+    }
+  }
