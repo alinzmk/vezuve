@@ -1,14 +1,9 @@
 import '../App.css';
 import logo from "../Assets/logo-renkli.png"
-import { Link } from 'react-router-dom';
-import Sidebar from "../Modals/Sidebar";
-import { ResponsiveLine } from '@nivo/line';
-import LineChart from '../Modals/Linechart';
 import { useState } from 'react';
-import { UserData } from '../Assets/Mockdata';
 import Sidebar2 from '../Modals/Sidebar2';
 import { useNavigate } from 'react-router-dom';
-import Swiper1 from '../Modals/swiper';
+import Finder from '../Modals/Finder-App';
 
 function MarketFinder() {
 
@@ -59,7 +54,7 @@ function MarketFinder() {
                         <div className="finder-wrapper">
                             <div className="row slideleft ">
                                 <div className="col-6 ps-0 pe-4 d-none">
-                                    <div className="pbg p-5">
+                                    <div className="pbg">
                                         <form onSubmit={handleSubmit}>
                                             <div className='col-12'>
                                                 <label>Çalışan Sayınız: </label>
@@ -150,8 +145,8 @@ function MarketFinder() {
                                 </div>
 
                                 <div className="col-4 ps-0 pe-4">
-                                    <div className="pbg p-5">
-                                        <Swiper1/>
+                                    <div className="pbg py-5 px-3">
+                                        <Finder/>
                                     </div>
                                 </div>
 

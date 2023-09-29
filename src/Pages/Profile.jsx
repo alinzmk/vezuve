@@ -1,9 +1,7 @@
 import '../App.css';
 import { useState } from 'react';
 import logo from "../Assets/logo-renkli.png"
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import Sidebar from "../Modals/Sidebar";
-import { ResponsiveLine } from '@nivo/line';
+import { useNavigate } from 'react-router-dom';
 import Plan from '../Modals/Plan';
 import { UserData } from '../Assets/Mockdata';
 import Sidebar2 from '../Modals/Sidebar2';

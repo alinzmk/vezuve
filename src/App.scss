@@ -817,6 +817,10 @@ $white: white;
 }
 
 .finder-submit{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 1.2rem;
     transition: 0.5s;
     border-radius: 10px;
     padding: 10px 35px;
@@ -841,22 +845,88 @@ $white: white;
   background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  bottom: 5px;
   
 }
 .next-arrow{
   @extend %finder-arrow;
-  right: 0;
+  right: 10px;
 }
 
 .prev-arrow{
   @extend %finder-arrow;
-  left: 0;
+  left: 10px;
 
 }
 
-.swiper-slide{
-
+.slide{
+  margin-top: 5rem !important;
+  min-height: 10rem;
 }
+
+.swiper-slide {
+  height: 450px !important;
+}
+
+.swiper-pagination-progressbar-fill {
+  background-image: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%) !important; /* Replace with your desired gradient colors */
+}
+
+.custom-radio {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.custom-radio input[type="radio"] {
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 25px; /* Adjust the size as needed */
+  height: 25px; /* Adjust the size as needed */
+  border: 2px solid rgb(61, 77, 157); /* Border color */
+  border-radius: 50%; /* Make it circular */
+  outline: none;
+  cursor: pointer;
+  position: relative; /* Add relative positioning */
+}
+
+.custom-radio input[type="radio"]::before {
+  content: "";
+  position: absolute;
+  width: 80%; /* Adjust the size of the inner circle */
+  height: 80%; /* Adjust the size of the inner circle */
+  background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%); /* Inner circle color */
+  border-radius: 50%; /* Make it circular */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center it */
+  opacity: 0; /* Initially hidden */
+}
+
+.custom-radio input[type="radio"]:checked::before {
+  opacity: 1; /* Show inner circle when checked */
+}
+
+.radio-label {
+  cursor: pointer;
+  padding-left: 10px; /* Adjust the spacing between the radio button and label */
+  font-size: 22px; /* Adjust the font size as needed */
+}
+
+.custom-select {
+  padding: 8px;
+  font-size: 18px; /* Adjust the font size as needed */
+  border: none;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%); /* Replace with your desired gradient colors */
+  color: white;
+  option{
+    color: $black10;
+  }
+}
+
 
 
 /* MARKETFINDER BİTİŞ */

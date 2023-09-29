@@ -89,7 +89,7 @@ function Dashboard() {
                                                 <h1>{growth}₺<span className='aylık'>/aylık</span></h1>
                                                 <p className='plus2' >+%7</p>
                                         </div>
-                                    </div>                        
+                                    </div>
                                 </div>
                             </div>
                             <div className="col-6 mb-3 d-flex justify-content-between" id='customer-info'>                           

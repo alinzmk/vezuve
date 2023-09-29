@@ -30,13 +30,10 @@ function Products() {
       
           const productsArray = jsonData.map((row, index) => ({
             id: index, // Add a unique identifier for each product
-            manufacturer: row['Üretici'],
-            brand: row['Marka'],
             productName: row['Ürün Adı'],
-            category: row['Kategori'],
             price: row['Fiyat'],
             description: row['Açıklama'],
-            productID: row['Ürün ID'],
+            productID: row['Firma Stok Kodu'],
             image: row['Fotoğraf'],
           }));
       
@@ -123,7 +120,7 @@ function Products() {
                                         {products.length === 0 && <img src={info} alt="" className='fadeIn' id='add-product-info'/>}
                                          {(selectedProduct || selectedProduct === 0) && (
                                              <div className='slideleft'>
-                                            <p className='profile-title'>Üretici: {products[selectedProduct].manufacturer}</p>
+                                            <p className='profile-title'>Firma Stok Kodu: {products[selectedProduct].productID}</p>
                                             <div className="row ps-3">
                                                 <div className="col-3 image-wrap">
                                                     <img id="product-image" src={products[selectedProduct].image} alt="" />
@@ -131,11 +128,9 @@ function Products() {
                                                 <div className="col-9 ps-5">
                                                     <div>
                                                         <h4 className='mb-1' > {products[selectedProduct].productName}</h4>
+                                                        <h5 className='my-3'>{products[selectedProduct].price}₺</h5>
                                                         <hr style={{margin:"0 15rem 1rem 0"}}/>
-                                                        <h5 className='my-4'>ID: {products[selectedProduct].productID}</h5>
-                                                        <h5 className='my-4'>Fiyat: {products[selectedProduct].price}₺</h5>
-                                                        <h6 className='my-4'>Başlık: {products[selectedProduct].productName}</h6>
-                                                        <h6 className='my-4'>Açıklama: {products[selectedProduct].description}</h6>
+                                                        <h6 className='my-4'>{products[selectedProduct].description}</h6>
                                                     </div>
                                                 </div>
                                             </div>
