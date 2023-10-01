@@ -94,7 +94,7 @@ a, a:hover {
 
 .wrapper .title {
   height: 90px;
-  background: #5570f1;
+  background: #270082;
   border-radius: 5px 5px 0 0;
   color: #fff;
   font-size: 30px;
@@ -117,12 +117,12 @@ a, a:hover {
   outline: none;
   padding-left: 60px;
   border-radius: 5px;
-  border: 1px solid lightgrey;
+  border: 1px solid #270082;
   font-size: 16px;
   transition: all 0.3s ease; }
 
 form .row input:focus {
-  border-color: #5570f1;
+  border-color: #270082;
   box-shadow: inset 0px 0px 2px 2px rgba(26, 188, 156, 0.25); }
 
 form .row input::placeholder {
@@ -134,8 +134,8 @@ form .row input::placeholder {
   height: 100%;
   color: #fff;
   font-size: 18px;
-  background: #5570f1;
-  border: 1px solid #5570f1;
+  background: #270082;
+  border: 1px solid #270082;
   border-radius: 5px 0 0 5px;
   display: flex;
   align-items: center;
@@ -145,7 +145,7 @@ form .row input::placeholder {
   margin: -8px 0 20px 0; }
 
 .wrapper form .pass a {
-  color: #5570f1;
+  color: #270082;
   font-size: 17px;
   text-decoration: none; }
 
@@ -157,23 +157,23 @@ form .row input::placeholder {
   font-size: 20px;
   font-weight: 500;
   padding-left: 0px;
-  background: #5570f1;
-  border: 1px solid #5570f1;
+  background: #270082;
+  border: 1px solid #270082;
   cursor: pointer; }
 
 form .button input:hover {
   background: #FA58B6;
   border: none;
-  color: #5570f1; }
+  color: #270082; }
 
 .wrapper form .signup-link {
   text-align: center;
   margin-top: 20px;
   font-size: 17px;
-  color: #5570f1 !important; }
+  color: #270082 !important; }
 
 .wrapper form .signup-link a {
-  color: #5570f1 !important;
+  color: #270082 !important;
   text-decoration: none; }
 
 form .signup-link a:hover {
@@ -272,7 +272,7 @@ form .signup-link a:hover {
   transition: 0.3s; }
 
 .mainhov:hover {
-  scale: 1.01;
+  scale: 1.1;
   background-color: transparent !important;
   color: #001B48; }
 
@@ -704,6 +704,21 @@ button:focus {
   top: 10px;
   right: 15px; }
 
+.satin-al {
+  font-size: 1.2rem;
+  transition: 0.5s;
+  border-radius: 10px;
+  padding: 10px 35px;
+  color: white;
+  background: #1a2142;
+  background: -moz-linear-gradient(122deg, #3e4fa2 12%, #5570f1 75%, #fa58b6 100%);
+  background: -webkit-linear-gradient(122deg, #3d4d9d 12%, #5570f1 75%, #fa58b6 100%);
+  background: linear-gradient(122deg, #4050a3 12%, #5570f1 75%, #fa58b6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1a2142",endColorstr="#fa58b6",GradientType=1);
+  border: none; }
+  .satin-al:hover {
+    padding: 10px 40px; }
+
 /* HİZMETLER BİTİŞ */
 /* MARKETFINDER BAŞLANGIC */
 .finder-submit {
@@ -815,6 +830,11 @@ button:focus {
   color: white; }
   .custom-select option {
     color: #1c1d22; }
+
+.finder-text {
+  height: 450px;
+  font-size: 1.3rem;
+  font-weight: 300; }
 
 /* MARKETFINDER BİTİŞ */
 @media only screen and (max-width: 1200px) {

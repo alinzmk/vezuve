@@ -150,17 +150,21 @@ function MarketFinder() {
                                     </div>
                                 </div>
 
-                                <div className="col-8 pbg p-4 pb-5 ">
-                                    <div className="col-12 px-5 my-auto h-100">
-                                        <p className='mt-5 mx-auto'>    
-                                            Market Finder aracımızla ürünlerin için en uygun olan hedef ülkeyi ve pazaryerini belirleyebileceksiniz. 
-                                            Markef Finder, sizin işletmenizle alakali verdiginiz bilgileri yapay zeka ve kendi veritabanları ile
-                                            harmanlayarak size hızlı ve etkili bir pazar önerisi sunar.
-                                        </p>
-                                        <h6 className='mt-5'>    
-                                            Sizin ise tek yapmanız gereken şirketinizin bilgilerini doğru şekilde girerek şirketiniz için en
-                                            doğru pazarı bulmak.
-                                        </h6>
+                                <div className="col-8 ps-0 h-100">
+                                    <div className="pbg p-5 ">   
+                                        <div className="row finder-text">
+                                            <div className="col-12 my-auto text-center">
+                                                <p className=''>    
+                                                    Market Finder aracımızla ürünlerin için en uygun olan hedef ülkeyi ve pazaryerini belirleyebileceksiniz. 
+                                                    Markef Finder, sizin işletmenizle alakali verdiginiz bilgileri yapay zeka ve kendi veritabanları ile
+                                                    harmanlayarak size hızlı ve etkili bir pazar önerisi sunar.
+                                                </p>
+                                                <h5 className='mt-4'>    
+                                                    Sizin ise tek yapmanız gereken şirketinizin bilgilerini doğru şekilde girerek şirketiniz için en
+                                                    doğru pazarı bulmak.
+                                                </h5>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>             

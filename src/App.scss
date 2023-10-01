@@ -124,7 +124,7 @@ $white: white;
   }
   .wrapper .title{
     height: 90px;
-    background: $primary10;
+    background: #270082;
     border-radius: 5px 5px 0 0;
     color: #fff;
     font-size: 30px;
@@ -147,12 +147,12 @@ $white: white;
     outline: none;
     padding-left: 60px;
     border-radius: 5px;
-    border: 1px solid lightgrey;
+    border: 1px solid #270082;
     font-size: 16px;
     transition: all 0.3s ease;
   }
   form .row input:focus{
-    border-color: $primary10;
+    border-color: #270082;
     box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
   }
   form .row input::placeholder{
@@ -164,8 +164,8 @@ $white: white;
     height: 100%;
     color: #fff;
     font-size: 18px;
-    background: $primary10;
-    border: 1px solid $primary10;
+    background: #270082;
+    border: 1px solid #270082;
     border-radius: 5px 0 0 5px;
     display: flex;
     align-items: center;
@@ -175,7 +175,7 @@ $white: white;
     margin: -8px 0 20px 0;
   }
   .wrapper form .pass a{
-    color: $primary10;
+    color: #270082;
     font-size: 17px;
     text-decoration: none;
   }
@@ -187,23 +187,23 @@ $white: white;
     font-size: 20px;
     font-weight: 500;
     padding-left: 0px;
-    background: $primary10;
-    border: 1px solid $primary10;
+    background: #270082;
+    border: 1px solid #270082;
     cursor: pointer;
   }
   form .button input:hover{
     background: #FA58B6;
     border: none;
-    color: $primary10;
+    color: #270082;
   }
   .wrapper form .signup-link{
     text-align: center;
     margin-top: 20px;
     font-size: 17px;
-    color: $primary10 !important;
+    color: #270082 !important;
   }
   .wrapper form .signup-link a{
-    color: $primary10 !important;
+    color: #270082 !important;
     text-decoration: none;
   }
   form .signup-link a:hover{
@@ -317,7 +317,7 @@ $white: white;
     transition: 0.3s;
   }
   .mainhov:hover{
-    scale: 1.01;
+    scale: 1.1;
     background-color: transparent !important;
     color: #001B48;
   }
@@ -807,6 +807,23 @@ $white: white;
     top: 10px;
     right: 15px;
   }
+  .satin-al{
+    font-size: 1.2rem;
+    transition: 0.5s;
+    border-radius: 10px;
+    padding: 10px 35px;
+    &:hover{
+        padding: 10px 40px ;
+    }
+    color: $white;
+    background: rgb(26,33,66);
+    background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+    background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+    background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1a2142",endColorstr="#fa58b6",GradientType=1);
+    border:none;
+  }
+
   /* HİZMETLER BİTİŞ */
   
 /* MARKETFINDER BAŞLANGIC */
@@ -927,7 +944,11 @@ $white: white;
   }
 }
 
-
+.finder-text{
+  height: 450px;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
 
 /* MARKETFINDER BİTİŞ */
   

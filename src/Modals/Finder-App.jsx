@@ -87,7 +87,7 @@ export default function App() {
                       checked={hasWebsite === 'yes'}
                       onChange={() => setHasWebsite('yes')}
                     />
-                    <span className="radio-label">Var.</span>
+                    <span className="radio-label">Evet, Var.</span>
                   </label>
                   <label className="custom-radio d-flex justify-content-center">
                     <input
@@ -96,7 +96,7 @@ export default function App() {
                       checked={hasWebsite === 'no'}
                       onChange={() => setHasWebsite('no')}
                     />
-                    <span className="radio-label">Yok.</span>
+                    <span className="radio-label">Hayır, Yok.</span>
                   </label>
 
 

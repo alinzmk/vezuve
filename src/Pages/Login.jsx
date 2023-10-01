@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { UserData } from '../Assets/Mockdata';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
-import logo from "../Assets/logo-renkli.png";
+import logo from "../Assets/logo-beyaz.png";
 import Sidebar2 from '../Modals/Sidebar';
 
 function Login() {

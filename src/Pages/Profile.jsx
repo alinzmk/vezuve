@@ -50,14 +50,11 @@ function Profile() {
                         <div className="col-12 mb-0">                           
                             <div className="row mb-4 me-5 d-flex justify-content-between">
                                 <h2 className='purple w-auto mt-3'>Profil</h2>
-                                <img src={logo} className='sidebar-logo' alt="" />
+                                <img src={logo} className='sidebar-logo ' alt="" />
                             </div>
                         </div>
                         <div className="col-9 mb-4">
-                           <div className="row ps-5 my-3 slideup">
-                                <div id="profile-photo" className="col-5">
-                                    <h1 id='profile-name'>AS</h1>
-                                </div>
+                           <div className="row ps-0 my-3 slideup ">
                                 <div className="col-9 my-auto">
                                     <div className="col-12">
                                         <h3 className='ms-4 purple'>Hoş geldiniz<i class="fa-solid fa-hands"></i>, Sayın {name}.</h3>
