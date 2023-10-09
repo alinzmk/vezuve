@@ -26,8 +26,13 @@ const Plan1 = ({isOpen,onClose,selectedItem, serviceItems }) => {
                    </div>
                    <div className="col-6 mt-5 ps-5">
                         <img className='modal-logo ' src={require(`../Assets/${selectedItem.logo}`)} alt="" />
-                        <h3 className='modal-info-1 mt-4'>{selectedItem.name}</h3>
-                        <h4 className='modal-info-2 mt-4'>{selectedItem.price}₺</h4>
+                            <h3 className='modal-info-1 mt-4'>{selectedItem.name}</h3>
+                        <div className="mt-4">
+                                {selectedItem.firstPrice && (
+                                    <h4 className='modal-info-2'>{selectedItem.firstPrice}₺</h4>
+                                )}
+                            <h4 className='modal-info-4'>{selectedItem.price}₺{selectedItem.month && (<span className='month'>/aylık</span>)}</h4>
+                        </div>
                         <ul className='mt-4 ps-3'>
                             {selectedItem.info1 && (
                                 <li>

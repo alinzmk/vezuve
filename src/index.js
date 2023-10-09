@@ -16,6 +16,7 @@ import Documents from './Pages/Documents';
 import Products from './Pages/Products';
 import Services from './Pages/Services';
 import MarketFinder from './Pages/MarketFinder';
+import Task from './Pages/Tasks';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
   {
     path: "/MarketFinder",
     element: <MarketFinder />, 
+  },
+  {
+    path: "/Proje",
+    element: <Task />, 
   },
 ]);
 

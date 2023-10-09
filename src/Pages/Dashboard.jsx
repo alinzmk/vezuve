@@ -23,6 +23,7 @@ function Dashboard() {
     var growth = selectedUser.totalGrowth;
     var plan = selectedUser.currentPlan;
     var expert = selectedUser.expert;
+    var expertmail = selectedUser.expertmail;
 
     }
     else {
@@ -98,7 +99,7 @@ function Dashboard() {
                                     <hr className='info-hr' />
                                     <h5 className='main-info' >E-Ticaret Uzmanınız <i class="fa-regular fa-user"></i> : <span className='main-info2' >{expert}</span></h5>  
                                     <hr  className='info-hr'/>                                  
-                                    <h5 className='main-info' >Uzman İletişim Bilgileri <i class="fa-regular fa-user"></i> : <span className='main-info2' >burak@vezuve.com</span></h5>  
+                                    <h5 className='main-info' >Uzman İletişim Bilgileri <i class="fa-regular fa-user"></i> : <span className='main-info2' >{expertmail}</span></h5>  
                                     <hr className='info-hr' />
                                     <h5 className='main-info' >Kalan Abonelik Süreniz <i class="fa-regular fa-clock"></i> : <span className='main-info2' > 25 gün</span></h5>
                                 </div>

@@ -1,38 +1,17 @@
 import '../App.css';
 import logo from "../Assets/logo-renkli.png"
 import { useState } from 'react';
-import Sidebar2 from '../Modals/Sidebar2';
 import { useNavigate } from 'react-router-dom';
+import Sidebar2 from '../Modals/Sidebar2';
 import Finder from '../Modals/Finder-App';
+import map from "../Assets/worldmap.png"
 
 function MarketFinder() {
 
-    const navigate = useNavigate();
-    const [employeeCount, setEmployeeCount] = useState('');
-    const [productCategory, setProductCategory] = useState('');
-    const [hasWebsite, setHasWebsite] = useState(null);
-    const [hasTurkeySales, setHasTurkeySales] = useState(null);
-    const [hasInternationalSales, setHasInternationalSales] = useState(null);
-    const [TurkeySalesVolume, setTurkeySalesVolume] = useState('');
-    const [hasStore, setHasStore] = useState(null);
+    const [selectedData, setSelectedData] = useState(null);
 
-
-  // Define a function to handle form submission
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        // Perform any actions you need with the form data here
-        console.log({
-        employeeCount,
-        productCategory,
-        hasWebsite,
-        hasInternationalSales
-        });
-        setEmployeeCount('');
-        setProductCategory('');
-        setHasWebsite(null);
-        setHasInternationalSales(null);
-        navigate("/Hizmetler");
+    const handleSelectData = (data) => {
+        setSelectedData(data);
     };
 
 
@@ -44,130 +23,61 @@ function MarketFinder() {
         <Sidebar2/>
                 </div>
                 <div className="container mt-4 slideleft right">
-                    <div className="row d-flex justify-content-between me-5">
+                    <div className="row d-flex justify-content-between">
                         <div className="col-12 ">
-                            <div className="row mb-4 d-flex justify-content-between">
+                            <div className="row mb-4 d-flex justify-content-between me-5">
                                 <h2 className='purple w-auto mt-3'>Market Finder (BETA)</h2>
                                 <img src={logo} className='sidebar-logo' alt="" />
                             </div>
                         </div>
+
                         <div className="finder-wrapper">
                             <div className="row slideleft ">
-                                <div className="col-6 ps-0 pe-4 d-none">
-                                    <div className="pbg">
-                                        <form onSubmit={handleSubmit}>
-                                            <div className='col-12'>
-                                                <label>Çalışan Sayınız: </label>
-                                                <select className='ms-3' value={employeeCount} onChange={(e) => setEmployeeCount(e.target.value)}>
-                                                    <option value="1-10">1-10</option>
-                                                    <option value="11-50">11-50</option>
-                                                    <option value="51-100">51-100</option>
-                                                    <option value="101+">101+</option>
-                                                </select>
-                                            </div>
-                                            <hr className='finder-line'/>
-                                            <div className='col-12'>
-                                                <label>Ürün Kategorisi: </label>
-                                                <select className='ms-3' required value={productCategory} onChange={(e) => setProductCategory(e.target.value)}>
-                                                    <option value="Mobilya">Mobilya</option>
-                                                    <option value="Kozmetik">Kozmetik</option>
-                                                    <option value="Takı">Takı</option>
-                                                    <option value="Ev-Dekor">Ev-Dekor</option>
-                                                    <option value="Gıda">Gıda</option>
-                                                    <option value="Kıyafet">Kıyafet</option>
-                                                    <option value="Oyuncak">Oyuncak</option>
-                                                    <option value="Takviye-Besin">Takviye-Besin</option>
-                                                    <option value="İnşaat-Otomotiv">İnşaat-Otomotiv</option>
-                                                    <option value="Plastik">Plastik</option>
-                                                </select>
-                                            </div>
-                                            <hr className='finder-line'/>
-                                            <div className='col-12'>
-                                                <label>Yayında olan bir web siteniz var mı?</label>
-                                                <label>
-                                                <input className='ms-3' type="radio" value="yes" checked={hasWebsite === 'yes'} onChange={() => setHasWebsite('yes')} />
-                                                Var
-                                                </label>
-                                                <label>
-                                                <input className='ms-3' type="radio" value="no" checked={hasWebsite === 'no'} onChange={() => setHasWebsite('no')} />
-                                                Yok
-                                                </label>
-                                            </div>
-                                            <hr className='finder-line'/>
-                                            <div className='col-12'>
-                                                <label>Türkiye'de E-Ticaret yapıyor musunuz?</label>
-                                                <label>
-                                                <input className='ms-3' type="radio" value="yes" checked={hasTurkeySales === 'yes'} onChange={() => setHasTurkeySales('yes')} />
-                                                Evet
-                                                </label>
-                                                <label>
-                                                <input className='ms-3' type="radio" value="no" checked={hasTurkeySales === 'no'} onChange={() => setHasTurkeySales('no')} />
-                                                Hayır
-                                                </label>
-                                            </div>
-                                            <hr className='finder-line'/>
-                                            <div className='col-12'>
-                                                <label>Yurtdışı satışınız var mı?</label>
-                                                <label>
-                                                <input className='ms-3' type="radio" value="yes" checked={hasInternationalSales === 'yes'} onChange={() => setHasInternationalSales('yes')} />
-                                                Evet
-                                                </label>
-                                                <label>
-                                                <input className='ms-3' type="radio" value="no" checked={hasInternationalSales === 'no'} onChange={() => setHasInternationalSales('no')} />
-                                                Hayır
-                                                </label>
-                                            </div>
-                                            <hr className='finder-line'/>
-                                            <div className='col-12'>
-                                                <label>Türkiye Satış Hacminiz: </label>
-                                                <select className='ms-3'defaultValue="100.000-250.000" value={TurkeySalesVolume} onChange={(e) => setTurkeySalesVolume(e.target.value)}>
-                                                <option value="100.000-250.000">100.000₺-250.000₺</option>
-                                                <option value="250.000-500.000">250.000₺-500.000₺</option>
-                                                <option value="500.000-1.000.000">500.000₺-1.000.000₺</option>
-                                                <option value="1.000.000+">1.000.000₺+</option>
-                                                </select>
-                                            </div>
-                                            <hr className='finder-line'/>
-                                            <div className='col-12'>
-                                                <label>Fiziksel Satış Mağazanız bulunuyor mu?</label>
-                                                <label>
-                                                <input className='ms-3' type="radio" value="yes" checked={hasStore === 'yes'} onChange={() => setHasStore('yes')} />
-                                                Evet
-                                                </label>
-                                                <label>
-                                                <input className='ms-3' type="radio" value="no" checked={hasStore === 'no'} onChange={() => setHasStore('no')} />
-                                                Hayır
-                                                </label>
-                                            </div>
-                                            <button className='finder-submit mt-4' type="submit">Gönder<i class="fa-solid fa-chevron-right ms-2"></i></button>
-                                        </form>
-                                    </div>
-                                </div>
 
                                 <div className="col-4 ps-0 pe-4">
                                     <div className="pbg py-5 px-3">
-                                        <Finder/>
+                                        <Finder onSelectData={handleSelectData}/>
                                     </div>
                                 </div>
 
                                 <div className="col-8 ps-0 h-100">
-                                    <div className="pbg p-5 ">   
-                                        <div className="row finder-text">
+                                    <div className="pbg p-5">   
+                                        <div className={`row finder-text ${selectedData ? 'd-none' : ''}`}>
                                             <div className="col-12 my-auto text-center">
                                                 <p className=''>    
                                                     Market Finder aracımızla ürünlerin için en uygun olan hedef ülkeyi ve pazaryerini belirleyebileceksiniz. 
                                                     Markef Finder, sizin işletmenizle alakali verdiginiz bilgileri yapay zeka ve kendi veritabanları ile
                                                     harmanlayarak size hızlı ve etkili bir pazar önerisi sunar.
                                                 </p>
+                                                <img className='map' src={map} alt="" />
                                                 <h5 className='mt-4'>    
                                                     Sizin ise tek yapmanız gereken şirketinizin bilgilerini doğru şekilde girerek şirketiniz için en
                                                     doğru pazarı bulmak.
                                                 </h5>
                                             </div>
                                         </div>
+                                        <div>
+                                            {selectedData && <ResultComponent
+                                                logo={selectedData.logo}
+                                                title={selectedData.title}
+                                                items={selectedData.items}
+                                                flag={selectedData.flag}
+                                                flag2={selectedData.flag2}
+                                                flag3={selectedData.flag3}
+                                                flag4={selectedData.flag4}
+                                                flag5={selectedData.flag5}
+                                                social={selectedData.social}
+                                                social2={selectedData.social2}
+                                                social3={selectedData.social3}
+                                                social4={selectedData.social4}
+                                                title2={selectedData.title2}
+                                                items2={selectedData.items2}
+                                                buttonText={selectedData.buttonText}
+                                            />}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>             
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -178,3 +88,48 @@ function MarketFinder() {
 }
 
 export default MarketFinder;
+
+const ResultComponent = ({ logo, items, flag, flag2, flag3, flag4, flag5, social, social2, social3, social4, items2, buttonText }) => (
+    <div className='row finder-result slideUp fadeIn'>
+        <div className="col-6 mt-2">
+            <img className='result-logo' src={require(`../Assets/${logo}`)} alt="" />
+            <h5>İstatistikler</h5>
+            <ul className='finder-ul mb-1'>
+                {items.map((item, index) => (
+                    <li className='finder-li' key={index}>
+                        <p>{item}</p>
+                    </li>
+                ))}
+                <li className='finder-li'>
+                    <p className='mt-2'>Sosyal Medya Yüzdeliği;</p>
+                </li>
+            </ul>
+            <div className='ms-4 mb-3 social' style={{ display: 'flex', justifyContent: '' }}>
+                <div title={social.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/social/${social.name}`)})`, opacity: social.opacity, flex: '1' }}></div>
+                <div title={social2.title} className="circle2" style={{ backgroundImage: `url(${require(`../Assets/social/${social2.name}`)})`, opacity: social2.opacity, flex: '1' }}></div>
+                <div title={social3.title} className="circle3" style={{ backgroundImage: `url(${require(`../Assets/social/${social3.name}`)})`, opacity: social3.opacity, flex: '1' }}></div>
+                <div title={social4.title} className="circle4" style={{ backgroundImage: `url(${require(`../Assets/social/${social4.name}`)})`, opacity: social4.opacity, flex: '1' }}></div>
+            </div>
+        </div>
+        <div className="col-6 mt-2">
+            <div className='mb-3 flag' style={{ display: 'flex', justifyContent: '' }}>
+                <div title={flag.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/flags/${flag.name}`)})`, opacity: flag.opacity, flex: '1' }}></div>
+                <div title={flag2.title} className="circle2" style={{ backgroundImage: `url(${require(`../Assets/flags/${flag2.name}`)})`, opacity: flag2.opacity, flex: '1' }}></div>
+                <div title={flag3.title} className="circle3" style={{ backgroundImage: `url(${require(`../Assets/flags/${flag3.name}`)})`, opacity: flag3.opacity, flex: '1' }}></div>
+                <div title={flag4.title} className="circle4" style={{ backgroundImage: `url(${require(`../Assets/flags/${flag4.name}`)})`, opacity: flag4.opacity, flex: '1' }}></div>
+                <div title={flag5.title} className="circle5" style={{ backgroundImage: `url(${require(`../Assets/flags/${flag5.name}`)})`, opacity: flag5.opacity, flex: '1' }}></div>
+            </div>
+
+            
+            <h5>Pazaryeri Gereksinimleri</h5>
+            <ul className='finder-ul'>
+                {items2.map((item2, index) => (
+                    <li className='finder-li' key={index}>
+                        <p>{item2}</p>
+                    </li>
+                ))}
+            </ul>
+            {buttonText && <button className='satin-al'>{buttonText}</button>}
+        </div>
+    </div>
+);
