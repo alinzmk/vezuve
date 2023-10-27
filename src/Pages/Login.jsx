@@ -49,9 +49,6 @@ function Login() {
 
   return (
     <div className="App">
-      <div className="d-none">
-        <Sidebar2/>
-      </div>
       <div className="login-container">
         <div className="wrapper">
           <div className="title"><img src={logo} className="login-logo" alt="VevüzeLogo" /></div>

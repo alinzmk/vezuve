@@ -111,13 +111,27 @@ $white: white;
   
   
   /** LOGIN REGISTER **/
+
+  .App{
+    background-image: url("Assets/login.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100vw;
+  }
+
   .login-container{
+    position: relative;
+    height: 100vh;
     max-width: 440px;
     padding: 0 20px;
-    margin: 170px auto;
+    margin:auto;
   }
   .wrapper{
-    width: 100%;
+    position: absolute;
+    top: 20%;
+    width: 400px;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
@@ -547,7 +561,7 @@ $white: white;
     width: 400px;
   }
   .modal-logo{
-    width: 200px;
+    width: 150px;
   }
   .purchase-btn{
     transition: 0.5s;
@@ -561,17 +575,35 @@ $white: white;
     font-size: 1.4rem;
     padding: 10px 35px;
   }
-
+  .modal-info-1{
+    color: $black10;
+    margin: 0;
+  }
   .modal-info-2{
+    font-size: 3rem !important;
     text-decoration: line-through;
+    color: $black08;
+    margin: auto 0;
   }
   .modal-info-4{
+    color: $black10;
     font-weight: 700;
     font-size: 2rem;
+    margin: 6px 0;
     .month{
       font-weight: 500;
       font-size: 1.6rem;
     }
+  }
+
+  .discount{
+    font-size: 3rem !important;
+    color: $primary10;
+    vertical-align: middle;
+    margin: auto 0 auto 15px;
+    border: 1px solid $primary10;
+    border-radius: 10px;
+    padding: 3px 10px;
   }
   
   /** modal bitiş**/
@@ -611,8 +643,9 @@ $white: white;
   
   .dropdown2:hover .dropdown-menu {
     display: block;
-    margin-top: 0; /* remove the gap so it doesn't close */
+    margin-top: 0; 
   }
+
   .info-btn{
     font-size: 1rem;
     pointer-events: none;
@@ -735,6 +768,24 @@ $white: white;
       border: 1px solid rgba(28, 21, 59, 0.5);
       border-radius: 10px;
       transition: 0.5s;
+      
+      .info-btn{
+        font-size: 1rem;
+        pointer-events: none;
+        background-color: transparent;
+        border: none;
+      }
+    
+      .info{
+        padding-left: 10px;
+        padding-right: 10px;
+        inset: auto auto auto auto !important;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 10px;
+        max-width: 400px;
+      
+      }
+      
     }
     
     .amazon{
@@ -786,14 +837,6 @@ $white: white;
       rotate: -15deg;
       max-width: 200px;
     }
-    .hizmet-img2{
-      position: absolute;
-      bottom: 5px;
-      right: -40px;
-      opacity: 0.1;
-      rotate: -10deg;
-      max-width: 250px;
-  }
   }
   .nav-link{
     color: rgba(28, 29, 34, 0.6) ;
@@ -827,11 +870,18 @@ $white: white;
   .hizmet-wrap-vezu{
     background-color: transparent;
     padding: 25px 25px 25px 25px;
+    .accordion-header{
+      cursor: pointer;
+    }
+    .accordion-item, .accordion-button, .accordion, .accordion-header, .accordion-button:focus{
+      background-color: transparent;
+      box-shadow: none;
+    }
+    
     .hizmet{
       overflow: hidden;
       position: relative;
-      padding: 25px;
-      height: 260px;
+      padding: 0px;
       border: 1px solid rgba(28, 21, 59, 1);
       border-radius: 10px;
       transition: 0.5s;
@@ -843,8 +893,13 @@ $white: white;
       box-shadow: 0px 0px 5px 5px rgba(109, 0, 172, 0.192);
     }
     .hizmet-isim{
+      transition: 1s;
+      color: $black10;
       font-size: 20px;
-      margin-bottom: 5px;
+      margin-bottom: 0;
+      &::after{
+      }
+
     }
     .hizmet-tür{
       margin-bottom: 5px;
@@ -862,6 +917,7 @@ $white: white;
       max-width: 250px;
     }
     .hizmet-buton{
+      margin: 0 0 10px 20px;
       cursor: pointer;
       transition: 0.3s;
       font-size: 1rem;
@@ -1021,28 +1077,16 @@ $white: white;
       overflow: hidden;
       background-size: cover;
       background-position: center;
+      display: inline-flex
     }
     .circle1{
       @extend .circle;
-      max-width: 30px;
-      max-height: 30px;
-    }
-    .circle2{
-      @extend .circle;
-      max-width: 28px;
-      max-height: 28px;
-    }
-    .circle3{
-      @extend .circle;
-      max-width: 27px;
-      max-height: 27px;
-    }
-    .circle4{
-      @extend .circle;
-      max-width: 26px;
-      max-height: 26px;
+      max-width: 20px;
+      max-height: 20px;
     }
   }
+
+
   .flag{
     .circle{
       border: 1px solid $black01;
@@ -1094,6 +1138,22 @@ $white: white;
       margin: 0;
     }
   }
+  .satin-al{
+    float: right;
+    transition: 0.3s;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 5px 15px;
+    color: $white;
+    background: rgb(26,33,66);
+    background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+    background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+    background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+    border:none;
+    &:hover{
+      padding: 5px 20px;
+  }
+}
 }
 
 
@@ -1113,20 +1173,23 @@ $white: white;
     .task-li{
       font-size: 1.1rem;
       @extend .pbg;
+      position: relative;
       padding: 0.5rem;
       margin: 1.5rem auto;
       .task-title{
         font-size: 18px;
         margin: 0;
-        padding: 10px 30px 0px 10px;
+        padding: 5px 20px 5px 5px;
       }
       .task-description{
         @extend .task-title;
         font-size: 13px;
       }
       .task-icon{
+        position: absolute;
         text-align: end;
-        margin: 0 10px 0 0;
+        top: 15px;
+        right: 10px;
       }
     }
   }

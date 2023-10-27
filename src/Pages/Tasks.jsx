@@ -7,12 +7,13 @@ const tasksData = [
     { status: "plan", title: "15 ürün listeleme", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
     { status: "plan", title: "15 ürün listeleme", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
 
-    { status: "plan", title: "15 ürün listeleme", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", title: "15 ürün listeleme", description: ""},
 
     { status: "plan", title: "5 infografik görsel", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
     { status: "process", title: "5 a görsel", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
     { status: "finished", title: "5 infografik görsel", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
   ];
+
 function Products() {
 
     const planTasks = tasksData.filter(task => task.status === 'plan');
@@ -20,9 +21,9 @@ function Products() {
     const finishedTasks = tasksData.filter(task => task.status === 'finished');
 
     const boxShadowColors = [
-            ['rgba(85, 112, 241, 1)', '#FA58B6', '#270082', '#FF6B33', '#6B33FF'],
-            ['#FA58B6', '#33FF6B', '#336BFF', '#FF6B33', '#6B33FF'],
-            ['#FF5733', '#33FF6B', '#336BFF', '#FF6B33', '#6B33FF']
+            ['#FA58B6'],
+            ['yellow', '#33FF6B', '#336BFF', '#FF6B33', '#6B33FF'],
+            ['#270082', '#33FF6B', '#336BFF', '#FF6B33', '#6B33FF'], 
         ];
 
 
@@ -46,9 +47,8 @@ function Products() {
                                         <h5 className='task-status'><i class="fa-solid fa-list-check ms-2 my-auto"></i> Planlandı</h5>
                                         <ul id="plan" className="task-ul">
                                             {planTasks.map((task, index) => (
-                                                <li className="task-li" key={index} style={{ boxShadow: `0px 0px 5px 1px ${boxShadowColors[0][index]}`}}>
+                                                <li className="task-li" key={index} style={{ boxShadow: `0px 0px 5px 1px #FA58B6`}}>
                                                     <p className='task-title' >{task.title}</p>
-                                                    <p className='task-description' >{task.description}</p>
                                                         <div className='task-icon'>
                                                             <i class="fa-solid fa-list-check ms-2 my-auto"></i>
                                                         </div>
@@ -62,9 +62,8 @@ function Products() {
                                         <h5 className='task-status'><i class="fa-regular fa-clock ms-2 my-auto"></i> Süreç İşliyor</h5>
                                         <ul id="process" className="task-ul">
                                             {processTasks.map((task, index) => (
-                                                <li className="task-li" key={index} style={{ boxShadow: `0 0 5px 1px ${boxShadowColors[1][index]}`}}>
+                                                <li className="task-li" key={index} style={{ boxShadow: `0 0 5px 1px yellow`}}>
                                                     <p className='task-title' >{task.title}</p>
-                                                    <p className='task-description' >{task.description}</p>
                                                         <div className='task-icon'>
                                                             <i class="fa-regular fa-clock ms-2 my-auto"></i>
                                                         </div>
@@ -78,9 +77,8 @@ function Products() {
                                         <h5 className='task-status'><i class="fa-solid fa-check-double ms-2 my-auto"></i> Tamamlandı</h5>
                                         <ul id="finished" className="task-ul">
                                             {finishedTasks.map((task, index) => (
-                                                <li className="task-li" key={index } style={{ boxShadow: `0 0 5px 1px ${boxShadowColors[2][index]}`}}>
+                                                <li className="task-li" key={index } style={{ boxShadow: `0 0 5px 1px #270082`}}>
                                                     <p className='task-title' >{task.title}</p>
-                                                    <p className='task-description' >{task.description}</p>
                                                         <div className='task-icon'>
                                                             <i class="fa-solid fa-check-double ms-2 my-auto"></i>
                                                         </div>

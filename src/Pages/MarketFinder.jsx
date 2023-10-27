@@ -100,24 +100,24 @@ const ResultComponent = ({ logo, items, flag, flag2, flag3, flag4, flag5, social
                         <p>{item}</p>
                     </li>
                 ))}
-                <li className='finder-li'>
-                    <p className='mt-2'>Sosyal Medya Yüzdeliği;</p>
-                </li>
+                    <li className='finder-li'>
+                        <div className='social' style={{ display: 'flex', justifyContent: '' }}>
+                            <p className='mt-auto me-2'>Popüler Pazaryerleri: </p>
+                            <div title={social.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/social/${social.name}`)})`, opacity: social.opacity, flex: '1' }}></div>
+                            <div title={social2.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/social/${social2.name}`)})`, opacity: social2.opacity, flex: '1' }}></div>
+                            <div title={social3.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/social/${social3.name}`)})`, opacity: social3.opacity, flex: '1' }}></div>
+                            <div title={social4.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/social/${social4.name}`)})`, opacity: social4.opacity, flex: '1' }}></div>
+                        </div>
+                    </li>
+                    <li className='finder-li'>
+                        <p>Daha fazla bilgi almak için <strong><a target='_blank' href={flag}>TIKLAYINIZ</a></strong>.</p>
+                    </li>
             </ul>
-            <div className='ms-4 mb-3 social' style={{ display: 'flex', justifyContent: '' }}>
-                <div title={social.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/social/${social.name}`)})`, opacity: social.opacity, flex: '1' }}></div>
-                <div title={social2.title} className="circle2" style={{ backgroundImage: `url(${require(`../Assets/social/${social2.name}`)})`, opacity: social2.opacity, flex: '1' }}></div>
-                <div title={social3.title} className="circle3" style={{ backgroundImage: `url(${require(`../Assets/social/${social3.name}`)})`, opacity: social3.opacity, flex: '1' }}></div>
-                <div title={social4.title} className="circle4" style={{ backgroundImage: `url(${require(`../Assets/social/${social4.name}`)})`, opacity: social4.opacity, flex: '1' }}></div>
-            </div>
         </div>
         <div className="col-6 mt-2">
             <div className='mb-3 flag' style={{ display: 'flex', justifyContent: '' }}>
                 <div title={flag.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/flags/${flag.name}`)})`, opacity: flag.opacity, flex: '1' }}></div>
-                <div title={flag2.title} className="circle2" style={{ backgroundImage: `url(${require(`../Assets/flags/${flag2.name}`)})`, opacity: flag2.opacity, flex: '1' }}></div>
-                <div title={flag3.title} className="circle3" style={{ backgroundImage: `url(${require(`../Assets/flags/${flag3.name}`)})`, opacity: flag3.opacity, flex: '1' }}></div>
-                <div title={flag4.title} className="circle4" style={{ backgroundImage: `url(${require(`../Assets/flags/${flag4.name}`)})`, opacity: flag4.opacity, flex: '1' }}></div>
-                <div title={flag5.title} className="circle5" style={{ backgroundImage: `url(${require(`../Assets/flags/${flag5.name}`)})`, opacity: flag5.opacity, flex: '1' }}></div>
+                <div title={flag2.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/flags/${flag2.name}`)})`, opacity: flag2.opacity, flex: '1' }}></div>
             </div>
 
             
@@ -129,7 +129,12 @@ const ResultComponent = ({ logo, items, flag, flag2, flag3, flag4, flag5, social
                     </li>
                 ))}
             </ul>
-            {buttonText && <button className='satin-al'>{buttonText}</button>}
+            <div className='' style={{float: 'right;', textAlign: "right"}}>
+                 <p style={{fontSize:"1rem"}} className='mb-1'>
+                    {buttonText}
+                </p>
+                {buttonText && <button className='satin-al'>Satışa Başla</button>}
+            </div>
         </div>
     </div>
 );

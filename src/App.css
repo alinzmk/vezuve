@@ -81,13 +81,25 @@ a, a:hover {
   /* Ensure it's above other elements */ }
 
 /** LOGIN REGISTER **/
+.App {
+  background-image: url("Assets/login.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100vw; }
+
 .login-container {
+  position: relative;
+  height: 100vh;
   max-width: 440px;
   padding: 0 20px;
-  margin: 170px auto; }
+  margin: auto; }
 
 .wrapper {
-  width: 100%;
+  position: absolute;
+  top: 20%;
+  width: 400px;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1); }
@@ -468,7 +480,7 @@ input[type=button] {
   width: 400px; }
 
 .modal-logo {
-  width: 200px; }
+  width: 150px; }
 
 .purchase-btn {
   transition: 0.5s;
@@ -482,15 +494,33 @@ input[type=button] {
   font-size: 1.4rem;
   padding: 10px 35px; }
 
+.modal-info-1 {
+  color: #1c1d22;
+  margin: 0; }
+
 .modal-info-2 {
-  text-decoration: line-through; }
+  font-size: 3rem !important;
+  text-decoration: line-through;
+  color: rgba(28, 29, 34, 0.8);
+  margin: auto 0; }
 
 .modal-info-4 {
+  color: #1c1d22;
   font-weight: 700;
-  font-size: 2rem; }
+  font-size: 2rem;
+  margin: 6px 0; }
   .modal-info-4 .month {
     font-weight: 500;
     font-size: 1.6rem; }
+
+.discount {
+  font-size: 3rem !important;
+  color: #5570f1;
+  vertical-align: middle;
+  margin: auto 0 auto 15px;
+  border: 1px solid #5570f1;
+  border-radius: 10px;
+  padding: 3px 10px; }
 
 /** modal bitiş**/
 /** BELGELER **/
@@ -523,8 +553,7 @@ input[type=button] {
 
 .dropdown2:hover .dropdown-menu {
   display: block;
-  margin-top: 0;
-  /* remove the gap so it doesn't close */ }
+  margin-top: 0; }
 
 .info-btn {
   font-size: 1rem;
@@ -636,6 +665,18 @@ button:focus {
     border: 1px solid rgba(28, 21, 59, 0.5);
     border-radius: 10px;
     transition: 0.5s; }
+    .hizmet-wrap .hizmet .info-btn {
+      font-size: 1rem;
+      pointer-events: none;
+      background-color: transparent;
+      border: none; }
+    .hizmet-wrap .hizmet .info {
+      padding-left: 10px;
+      padding-right: 10px;
+      inset: auto auto auto auto !important;
+      background-color: white;
+      border-radius: 10px;
+      max-width: 400px; }
   .hizmet-wrap .amazon {
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.192); }
   .hizmet-wrap .allegro {
@@ -671,13 +712,6 @@ button:focus {
     opacity: 0.1;
     rotate: -15deg;
     max-width: 200px; }
-  .hizmet-wrap .hizmet-img2 {
-    position: absolute;
-    bottom: 5px;
-    right: -40px;
-    opacity: 0.1;
-    rotate: -10deg;
-    max-width: 250px; }
 
 .nav-link {
   color: rgba(28, 29, 34, 0.6); }
@@ -709,11 +743,15 @@ button:focus {
 .hizmet-wrap-vezu {
   background-color: transparent;
   padding: 25px 25px 25px 25px; }
+  .hizmet-wrap-vezu .accordion-header {
+    cursor: pointer; }
+  .hizmet-wrap-vezu .accordion-item, .hizmet-wrap-vezu .accordion-button, .hizmet-wrap-vezu .accordion, .hizmet-wrap-vezu .accordion-header, .hizmet-wrap-vezu .accordion-button:focus {
+    background-color: transparent;
+    box-shadow: none; }
   .hizmet-wrap-vezu .hizmet {
     overflow: hidden;
     position: relative;
-    padding: 25px;
-    height: 260px;
+    padding: 0px;
     border: 1px solid #1c153b;
     border-radius: 10px;
     transition: 0.5s; }
@@ -722,8 +760,10 @@ button:focus {
   .hizmet-wrap-vezu .vezu:hover {
     box-shadow: 0px 0px 5px 5px rgba(109, 0, 172, 0.192); }
   .hizmet-wrap-vezu .hizmet-isim {
+    transition: 1s;
+    color: #1c1d22;
     font-size: 20px;
-    margin-bottom: 5px; }
+    margin-bottom: 0; }
   .hizmet-wrap-vezu .hizmet-tür {
     margin-bottom: 5px;
     color: rgba(28, 29, 34, 0.6); }
@@ -737,6 +777,7 @@ button:focus {
     rotate: -10deg;
     max-width: 250px; }
   .hizmet-wrap-vezu .hizmet-buton {
+    margin: 0 0 10px 20px;
     cursor: pointer;
     transition: 0.3s;
     font-size: 1rem;
@@ -875,26 +916,18 @@ button:focus {
   height: 450px;
   font-size: 1.3rem;
   font-weight: 300; }
-  .finder-result .social .circle, .finder-result .social .circle1, .finder-result .social .circle2, .finder-result .social .circle3, .finder-result .social .circle4, .finder-result .social .flag .circle5, .finder-result .flag .social .circle5 {
+  .finder-result .social .circle, .finder-result .social .circle1, .finder-result .social .flag .circle2, .finder-result .flag .social .circle2, .finder-result .social .flag .circle3, .finder-result .flag .social .circle3, .finder-result .social .flag .circle4, .finder-result .flag .social .circle4, .finder-result .social .flag .circle5, .finder-result .flag .social .circle5 {
     border: 1px solid rgba(28, 29, 34, 0.1);
     margin: auto 5px auto 0;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
     background-size: cover;
-    background-position: center; }
+    background-position: center;
+    display: inline-flex; }
   .finder-result .social .circle1 {
-    max-width: 30px;
-    max-height: 30px; }
-  .finder-result .social .circle2 {
-    max-width: 28px;
-    max-height: 28px; }
-  .finder-result .social .circle3 {
-    max-width: 27px;
-    max-height: 27px; }
-  .finder-result .social .circle4 {
-    max-width: 26px;
-    max-height: 26px; }
+    max-width: 20px;
+    max-height: 20px; }
   .finder-result .flag .circle, .finder-result .flag .circle1, .finder-result .flag .circle2, .finder-result .flag .circle3, .finder-result .flag .circle4, .finder-result .flag .circle5 {
     border: 1px solid rgba(28, 29, 34, 0.1);
     margin: auto 5px auto 0;
@@ -925,6 +958,20 @@ button:focus {
     font-size: 1rem; }
     .finder-result .finder-ul p {
       margin: 0; }
+  .finder-result .satin-al {
+    float: right;
+    transition: 0.3s;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 5px 15px;
+    color: white;
+    background: #1a2142;
+    background: -moz-linear-gradient(122deg, #3e4fa2 12%, #5570f1 75%, #fa58b6 100%);
+    background: -webkit-linear-gradient(122deg, #3d4d9d 12%, #5570f1 75%, #fa58b6 100%);
+    background: linear-gradient(122deg, #4050a3 12%, #5570f1 75%, #fa58b6 100%);
+    border: none; }
+    .finder-result .satin-al:hover {
+      padding: 5px 20px; }
 
 /* MARKETFINDER BİTİŞ */
 /* PROJE ALANI BAŞLANGIC */
@@ -938,17 +985,20 @@ button:focus {
   padding: 0 3rem; }
   .task-wrapper .task-ul .task-li {
     font-size: 1.1rem;
+    position: relative;
     padding: 0.5rem;
     margin: 1.5rem auto; }
     .task-wrapper .task-ul .task-li .task-title, .task-wrapper .task-ul .task-li .task-description {
       font-size: 18px;
       margin: 0;
-      padding: 10px 30px 0px 10px; }
+      padding: 5px 20px 5px 5px; }
     .task-wrapper .task-ul .task-li .task-description {
       font-size: 13px; }
     .task-wrapper .task-ul .task-li .task-icon {
+      position: absolute;
       text-align: end;
-      margin: 0 10px 0 0; }
+      top: 15px;
+      right: 10px; }
 .task-wrapper .task-seperator {
   min-height: 30vh;
   max-height: 82vh;
