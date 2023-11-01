@@ -48,11 +48,16 @@ export let UserData = [
     },
     {
       id: 2,
+      uniqueID: "1231231",
       email: "bertay@hotmail.com",
       password: "12345",
       name: "Ali Bertay Solak",
       year: 2017,
       currentPlan: "Premium Pack",
+      expert: "Seyda Hanım",
+      expertmail: "seyda@vezuve.com",
+      startDate: "2020-12-31T12:00:00Z",
+      finishDate: "2023-01-01T12:00:00Z", 
       accountName: "Ali Bertay",
       companyTitle: "Chief Executive Officer",
       taxAdmin: "ISTANBUL",
@@ -64,13 +69,13 @@ export let UserData = [
       totalOrder: 89,
       totalGrowth: 999989,
       reportGraph: [
-        { month: 'January', value: 500 },
-        { month: 'February', value: 467 },
-        { month: 'March', value: 231 },
+        { month: 'January', value: 100 },
+        { month: 'February', value: 167 },
+        { month: 'March', value: 131 },
         { month: 'April', value: 333 },
         { month: 'May', value: 672 },
         { month: 'June', value: 981 },
-        { month: 'July', value: 467 },
+        { month: 'July', value: 1067 },
         { month: 'August', value: 999 },
         { month: 'September', value: 1231 }
       ],
@@ -88,12 +93,9 @@ export let UserData = [
     const userIndex = UserData.findIndex(data => data.id === id);
   
     if (userIndex !== -1) {
-      // Loop through each key in newData object
       for (const key in newData) {
         if (newData.hasOwnProperty(key)) {
-          // Check if the value is a File object
           if (newData[key] instanceof File) {
-            // Update the field in UserData with the corresponding key
             UserData[userIndex][key] = true;
           }
         }

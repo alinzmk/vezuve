@@ -4,14 +4,21 @@ import logo from "../Assets/logo-renkli.png"
 import Sidebar2 from '../Modals/Sidebar2';
 
 const tasksData = [
-    { status: "plan", title: "15 ürün listeleme", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "plan", title: "15 ürün listeleme", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-
-    { status: "plan", title: "15 ürün listeleme", description: ""},
-
-    { status: "plan", title: "5 infografik görsel", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "process", title: "5 a görsel", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "finished", title: "5 infografik görsel", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "process", title: "Fba depolarına gönderim", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "process", title: "Lojistik Firmasını belirlemek", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "process", title: "Giveaway çalışması", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "process", title: "Kupon ve indirimler", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", title: "Amazon PPC Reklamları", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", title: "Amazon Marka Kaydı", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", title: "A+ Content ", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", title: "Amazon Store Tasarımı", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", title: "Request Review", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", title: "Stok Yenileme", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", title: "Ürün Listeleme", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", title: "Gümrük Kaydı ve Gümrük Müşaviri", description: ""},
+    { status: "plan", title: "Gs1 Barkodlarının Alınması", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "finished", title: "Amazon Mağaza Açılışı", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "finished", title: "Amazon Pazar Araştırması", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
   ];
 
 function Products() {

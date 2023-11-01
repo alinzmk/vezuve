@@ -530,7 +530,7 @@ $white: white;
   
   .modalContainer {
     z-index: 50;
-    width: 70vw;
+    width: 50vw;
     height: auto;
     position: fixed;
     top: 50%;
@@ -562,6 +562,8 @@ $white: white;
   }
   .modal-logo{
     width: 150px;
+    display: flex;
+    justify-content: center;
   }
   .purchase-btn{
     transition: 0.5s;
@@ -575,21 +577,22 @@ $white: white;
     font-size: 1.4rem;
     padding: 10px 35px;
   }
+  
   .modal-info-1{
     color: $black10;
-    margin: 0;
+    margin: 0 0;
   }
   .modal-info-2{
-    font-size: 3rem !important;
+    font-size: 1.2rem !important;
     text-decoration: line-through;
     color: $black08;
-    margin: auto 0;
+    margin: 13px 0;
   }
   .modal-info-4{
     color: $black10;
     font-weight: 700;
     font-size: 2rem;
-    margin: 6px 0;
+    margin: 0 0 13px 0;
     .month{
       font-weight: 500;
       font-size: 1.6rem;
@@ -597,13 +600,12 @@ $white: white;
   }
 
   .discount{
-    font-size: 3rem !important;
     color: $primary10;
     vertical-align: middle;
-    margin: auto 0 auto 15px;
+    margin: auto 0 auto 5px;
     border: 1px solid $primary10;
     border-radius: 10px;
-    padding: 3px 10px;
+    padding: 2px 7px;
   }
   
   /** modal bitiş**/
@@ -855,7 +857,7 @@ $white: white;
     transition: 0.3s;
     font-size: 1.2rem;
     border-radius: 10px;
-    padding: 10px 35px;
+    padding: 5px 35px;
     color: $white;
     background: rgb(26,33,66);
     background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
@@ -863,7 +865,7 @@ $white: white;
     background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
     border:none;
     &:hover{
-      padding: 10px 37px;
+      padding: 5px 40px;
   }
   }
 
@@ -922,7 +924,7 @@ $white: white;
       transition: 0.3s;
       font-size: 1rem;
       border-radius: 10px;
-      padding: 7px 25px;
+      padding: 3px 20px;
       color: $white;
       background: rgb(26,33,66);
       background: -moz-linear-gradient(122deg, rgba(62, 79, 162, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
@@ -930,7 +932,7 @@ $white: white;
       background: linear-gradient(122deg, rgba(64, 80, 163, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
       border:none;
       &:hover{
-        padding: 7px 27px;
+        padding: 3px 25px;
       }
   }
 }
@@ -1066,25 +1068,8 @@ $white: white;
 
 .finder-result{
   height: 450px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 300;
-  .social{
-    .circle{
-      border: 1px solid $black01;
-      margin:  auto 5px auto 0;
-      border-radius: 50%;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-      display: inline-flex
-    }
-    .circle1{
-      @extend .circle;
-      max-width: 20px;
-      max-height: 20px;
-    }
-  }
 
 
   .flag{
@@ -1107,21 +1092,6 @@ $white: white;
       max-width: 52px;
       max-height: 52px;
     }
-    .circle3{
-      @extend .circle;
-      max-width: 50px;
-      max-height: 50px;
-    }
-    .circle4{
-      @extend .circle;
-      max-width: 45px;
-      max-height: 45px;
-    }
-    .circle5{
-      @extend .circle;
-      max-width: 45px !important;
-      max-height: 45px !important;
-    }
   }
   
   
@@ -1132,16 +1102,14 @@ $white: white;
   .finder-ul{
     font-size: 1rem;
     .finder-li{
-
+      
     }
     p{
       margin: 0;
     }
   }
   .satin-al{
-    float: right;
     transition: 0.3s;
-    font-size: 1rem;
     border-radius: 10px;
     padding: 5px 15px;
     color: $white;
@@ -1168,6 +1136,7 @@ $white: white;
     font-size: 1.4rem;
   }
   .task-ul{
+    margin-bottom: 3rem;
     list-style: none;
     padding: 0 3rem;
     .task-li{

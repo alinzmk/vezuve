@@ -1,7 +1,7 @@
 import '../App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import logo from "../Assets/logo-renkli.png"
-import { Link } from 'react-router-dom';
+import {  useNavigate  } from 'react-router-dom';
 import Sidebar2 from '../Modals/Sidebar2';
 import amazon from "../Assets/amazon.png";
 import allegro from "../Assets/allegro.png";
@@ -27,9 +27,6 @@ function Services() {
             setIsModalOpen(false);    
             document.body.classList.remove('modal-open');
         }
-
-    
-        
 
         const serviceItems = [
                 { name: 'Amazon Business', type: 'Business', firstPrice:"95.000",  month: false, price: '80.000', logo: "amazon.png", image: "amazon_business.png", 
@@ -114,6 +111,17 @@ function Services() {
             {name: "GÜMRÜK" ,  price:"deneme", description:"İhracat süreçlerinizi tamamlamak, beyannamelerinizi hazırlamak için partner gümrük şirketlerinden teklif alın.",},
             {name: "SERTİFİKASYON BELGELENDİRME" ,  price:"deneme", description:"Ürünlerinizin yurtdışına çıkabilmesi için bazı sertifikalara ihtiyacı olabilir. FDA, MSDS gibi belgelendirme süreçlerini hızla tamamlayın.",},
         ];
+
+        const [activeTab, setActiveTab] = useState('amazon'); // Initialize with the default active tab
+
+        useEffect(() => {
+            const storedTab = JSON.parse(localStorage.getItem("tab"));
+            if (storedTab) {
+                setActiveTab(storedTab);
+            }
+            localStorage.setItem("tab", JSON.stringify(""));
+        }, []);
+        
         
         return (
             <>
@@ -149,19 +157,19 @@ function Services() {
                                                 <div className="row">
                                                     <nav>
                                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                                            <button class="nav-link active" id="amazon-tab" data-bs-toggle="tab" data-bs-target="#amazon" type="button" role="tab" aria-controls="amazon" aria-selected="true">Amazon</button>
-                                                            <button class="nav-link" id="amazonHandmade-tab" data-bs-toggle="tab" data-bs-target="#amazonHandmade" type="button" role="tab" aria-controls="amazonHandmade" aria-selected="true">Amazon Handmade</button>
-                                                            <button class="nav-link" id="etsy-tab" data-bs-toggle="tab" data-bs-target="#etsy" type="button" role="tab" aria-controls="etsy" aria-selected="false">Etsy</button>
+                                                            <button className={`nav-link ${activeTab === 'amazon' ? 'active' : ''}`} id="amazon-tab" data-bs-toggle="tab" data-bs-target="#amazon" type="button" role="tab" aria-controls="amazon" aria-selected={activeTab === 'amazon' ? 'true' : 'false'}>Amazon</button>
+                                                            <button className={`nav-link ${activeTab === 'handmade' ? 'active' : ''}`} id="amazonHandmade-tab" data-bs-toggle="tab" data-bs-target="#amazonHandmade" type="button" role="tab" aria-controls="amazonHandmade" aria-selected={activeTab === 'handmade' ? 'true' : 'false'}>Amazon Handmade</button>
+                                                            <button className={`nav-link ${activeTab === 'etsy' ? 'active' : ''}`} id="etsy-tab" data-bs-toggle="tab" data-bs-target="#etsy" type="button" role="tab" aria-controls="etsy" aria-selected="true">Etsy</button>
                                                             <button class="nav-link" id="allegro-tab" data-bs-toggle="tab" data-bs-target="#allegro" type="button" role="tab" aria-controls="allegro" aria-selected="false">Allegro</button>
-                                                            <button class="nav-link" id="trendyol-tab" data-bs-toggle="tab" data-bs-target="#trendyol" type="button" role="tab" aria-controls="trendyol" aria-selected="true">Trendyol</button>
+                                                            <button class="nav-link" id="trendyol-tab" data-bs-toggle="tab" data-bs-target="#trendyol" type="button" role="tab" aria-controls="trendyol" aria-selected="false">Trendyol</button>
                                                             <button class="nav-link" id="walmart-tab" data-bs-toggle="tab" data-bs-target="#walmart" type="button" role="tab" aria-controls="walmart" aria-selected="false">Walmart</button>
                                                             <button class="nav-link" id="wayfair-tab" data-bs-toggle="tab" data-bs-target="#wayfair" type="button" role="tab" aria-controls="wayfair" aria-selected="false">Wayfair</button>
-                                                            <button class="nav-link" id="emag-tab" data-bs-toggle="tab" data-bs-target="#emag" type="button" role="tab" aria-controls="emag" aria-selected="true">Emag</button>
+                                                            <button class="nav-link" id="emag-tab" data-bs-toggle="tab" data-bs-target="#emag" type="button" role="tab" aria-controls="emag" aria-selected="false">Emag</button>
                                                             <button class="nav-link" id="ozon-tab" data-bs-toggle="tab" data-bs-target="#ozon" type="button" role="tab" aria-controls="ozon" aria-selected="false">Ozon</button>
                                                         </div>
                                                     </nav>
                                                     <div class="tab-content" id="nav-tabContent">
-                                                        <div class="tab-pane fade show active" id="amazon" role="tabpanel" aria-labelledby="amazon-tab">
+                                                        <div className={`tab-pane fade ${activeTab === 'amazon' ? 'show active' : ''}`} id="amazon" role="tabpanel" aria-labelledby="amazon-tab">
                                                             <div className="row mt-4">
                                                                 <div className="col-3 mb-4">
                                                                         <div  onClick={() => openModal(serviceItems[0])} className="hizmet amazon">
@@ -192,7 +200,7 @@ function Services() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade " id="amazonHandmade" role="tabpanel" aria-labelledby="amazonHandmade-tab">
+                                                        <div className={`tab-pane fade ${activeTab === 'handmade' ? 'show active' : ''}`} id="amazonHandmade" role="tabpanel" aria-labelledby="amazonHandmade-tab">
                                                             <div className="row mt-4">
                                                                 <div className="col-3 mb-4">
                                                                     
@@ -216,7 +224,7 @@ function Services() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="etsy" role="tabpanel" aria-labelledby="etsy-tab">
+                                                        <div className={`tab-pane fade ${activeTab === 'etsy' ? 'show active' : ''}`} id="etsy" role="tabpanel" aria-labelledby="etsy-tab">
                                                             <div className="row mt-4">
                                                                 <div className="col-3 mb-4">
                                                                     
@@ -414,11 +422,11 @@ function Services() {
                                                                         </button>
                                                                     </h2>
                                                                     <div id={`panelsStayOpen-collapse-${index}`} className="accordion-collapse collapse" aria-labelledby={`panelsStayOpen-heading-${index}`}>      
-                                                                        <div class="accordion-body">
+                                                                        <div class="accordion-body pt-0">
                                                                             <p className='hizmet-tür'>{service.description}</p>
                                                                         </div>
                                                                     </div>
-                                                            <button className='hizmet-buton satin-al'>Teklif Alın</button>
+                                                            <button className='hizmet-buton'>Teklif Alın</button>
                                                             <img className='hizmet-img' src={logo} alt="" />
                                                                 </div>
                                                             </div>

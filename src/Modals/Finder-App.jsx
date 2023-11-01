@@ -35,12 +35,8 @@ export default function App(props) {
     const [hasInternationalSales, setHasInternationalSales] = useState(null);
     const [hasStore, setHasStore] = useState(null);
 
-
-  // Define a function to handle form submission
   const handleSubmit = (e) => {
       e.preventDefault();
-
-      // Perform any actions you need with the form data here
       console.log({
       employeeCount,
       productCategory,
@@ -55,8 +51,6 @@ export default function App(props) {
       setHasInternationalSales(null);
       setHasTurkeySales(null);
       setHasStore(null);
-
-      // Market Finder
       onSelectData(data[1]);
   };
 
@@ -290,9 +284,11 @@ const data =
       logo: 'etsy.png',
       items: [
         'Aylık Trafik: 454.2M',
-        'Satıcı Sayısı: 7,5 MİLYON. ',
-        "Yıllık CİRO: 2,6 milyar ABD doları ",
-        "Komisyon oranı: her ürün için alınan 0,20$ listeleme ücreti,  Her satıştan alınan %6.5'luk bir satış komisyonu. Son olarak Etsy Payments kullanan satıcılar işlem başına %6.5+3TL bir ödeme yapması gerekir.",
+        'Satıcı Sayısı: 7,5M',
+        "Yıllık Ciro: 2,6 milyar ABD doları ",
+        "Komisyon oranı: %6,5+3 tl Etsy paymet %6,5 satış komisyonu %1.1 Ülke kesintisi ",
+        "Popüler Pazaryerleri: Pinterest, YouTube"
+
       ],
       flag: {
         name: 'us.png',
@@ -300,42 +296,17 @@ const data =
       },
       flag2: {
         name: 'uk.png',
-        opacity: 1 ,
+        opacity: 0.1 ,
       },
-      flag3: {
-        name: 'canada.png',
-        opacity: 0.4 ,
-      },
-      flag4: {
-        name: 'germany.png',
-        opacity: 0.4 ,
-      },
-      flag5: {
-        name: 'us.png',
-        opacity: 0 ,
-      },
-      social: {
-        title: "Facebook",
-        name: 'facebook.png',
-        opacity: 1 ,
-      },
-      social2: {
-        name: 'pinterest.png',
-        opacity: .5 ,
-      },
-      social3: {
-        name: 'instagram.png',
-        opacity: .4 ,
-      },
-      social4: {
-        name: 'facebook.png',
-        opacity: 0.4 ,
-      },city: 0 ,
+      
+      city: 0 ,
       items2: [
-        "ETSY'DE Satış yapmak için herhangi bir sınırlama yoktur. Herhangi bir ülkenin kimlik kartına sahip olmanız yeterli. Ancak profesyonel bir iş için tüzel kişilikle satış yapmak daha doğrudur.",
-        "Ürünleriniz el yapımı olmak zorundadır. Doğrudan veya dolaylı olarak üretiminde insan eli değmiş olmalıdır. Fabrikasyon ürünler satılamaz."
+        "Şirket Vergi Levhası",
+        "Şahıs Kimliği",
+        "El yapımı ürün ",
+        "Uluslararası Kargo",
       ],
-      buttonText: "Etsy'de Satışa Başla"
+      buttonText: "Uzman Ekibimiz ile Hemen Etsy'de"
     }
 ];
 

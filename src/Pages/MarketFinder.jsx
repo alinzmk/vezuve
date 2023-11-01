@@ -1,7 +1,8 @@
 import '../App.css';
+
 import logo from "../Assets/logo-renkli.png"
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Sidebar2 from '../Modals/Sidebar2';
 import Finder from '../Modals/Finder-App';
 import map from "../Assets/worldmap.png"
@@ -14,6 +15,12 @@ function MarketFinder() {
         setSelectedData(data);
     };
 
+    const navigate = useNavigate();
+
+    const handleClick = (tabId) => {
+        localStorage.setItem("tab", JSON.stringify(tabId.name));
+        navigate(`/Hizmetler`);
+    };
 
   return (
       <>
@@ -58,21 +65,16 @@ function MarketFinder() {
                                         </div>
                                         <div>
                                             {selectedData && <ResultComponent
+                                                name={selectedData.name}
                                                 logo={selectedData.logo}
                                                 title={selectedData.title}
                                                 items={selectedData.items}
                                                 flag={selectedData.flag}
                                                 flag2={selectedData.flag2}
-                                                flag3={selectedData.flag3}
-                                                flag4={selectedData.flag4}
-                                                flag5={selectedData.flag5}
-                                                social={selectedData.social}
-                                                social2={selectedData.social2}
-                                                social3={selectedData.social3}
-                                                social4={selectedData.social4}
                                                 title2={selectedData.title2}
                                                 items2={selectedData.items2}
                                                 buttonText={selectedData.buttonText}
+                                                handleClick={handleClick}
                                             />}
                                         </div>
                                     </div>
@@ -89,7 +91,12 @@ function MarketFinder() {
 
 export default MarketFinder;
 
-const ResultComponent = ({ logo, items, flag, flag2, flag3, flag4, flag5, social, social2, social3, social4, items2, buttonText }) => (
+
+
+const ResultComponent = ({ name, logo, items, flag, flag2, items2, buttonText, setActiveTab, handleClick }) => (
+    
+   
+
     <div className='row finder-result slideUp fadeIn'>
         <div className="col-6 mt-2">
             <img className='result-logo' src={require(`../Assets/${logo}`)} alt="" />
@@ -100,15 +107,6 @@ const ResultComponent = ({ logo, items, flag, flag2, flag3, flag4, flag5, social
                         <p>{item}</p>
                     </li>
                 ))}
-                    <li className='finder-li'>
-                        <div className='social' style={{ display: 'flex', justifyContent: '' }}>
-                            <p className='mt-auto me-2'>Popüler Pazaryerleri: </p>
-                            <div title={social.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/social/${social.name}`)})`, opacity: social.opacity, flex: '1' }}></div>
-                            <div title={social2.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/social/${social2.name}`)})`, opacity: social2.opacity, flex: '1' }}></div>
-                            <div title={social3.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/social/${social3.name}`)})`, opacity: social3.opacity, flex: '1' }}></div>
-                            <div title={social4.title} className="circle1" style={{ backgroundImage: `url(${require(`../Assets/social/${social4.name}`)})`, opacity: social4.opacity, flex: '1' }}></div>
-                        </div>
-                    </li>
                     <li className='finder-li'>
                         <p>Daha fazla bilgi almak için <strong><a target='_blank' href={flag}>TIKLAYINIZ</a></strong>.</p>
                     </li>
@@ -129,12 +127,12 @@ const ResultComponent = ({ logo, items, flag, flag2, flag3, flag4, flag5, social
                     </li>
                 ))}
             </ul>
-            <div className='' style={{float: 'right;', textAlign: "right"}}>
-                 <p style={{fontSize:"1rem"}} className='mb-1'>
+        </div>
+            <div className='' style={{textAlign: "center", fontSize: "1.2rem"}} >
+                 <p  className=' mb-2'>
                     {buttonText}
                 </p>
-                {buttonText && <button className='satin-al'>Satışa Başla</button>}
+                {buttonText && <button className='satin-al' onClick={() => handleClick({name})}>Satışa Başla</button>}
             </div>
-        </div>
     </div>
 );

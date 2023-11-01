@@ -452,7 +452,7 @@ input[type=button] {
 
 .modalContainer {
   z-index: 50;
-  width: 70vw;
+  width: 50vw;
   height: auto;
   position: fixed;
   top: 50%;
@@ -480,7 +480,9 @@ input[type=button] {
   width: 400px; }
 
 .modal-logo {
-  width: 150px; }
+  width: 150px;
+  display: flex;
+  justify-content: center; }
 
 .purchase-btn {
   transition: 0.5s;
@@ -496,31 +498,30 @@ input[type=button] {
 
 .modal-info-1 {
   color: #1c1d22;
-  margin: 0; }
+  margin: 0 0; }
 
 .modal-info-2 {
-  font-size: 3rem !important;
+  font-size: 1.2rem !important;
   text-decoration: line-through;
   color: rgba(28, 29, 34, 0.8);
-  margin: auto 0; }
+  margin: 13px 0; }
 
 .modal-info-4 {
   color: #1c1d22;
   font-weight: 700;
   font-size: 2rem;
-  margin: 6px 0; }
+  margin: 0 0 13px 0; }
   .modal-info-4 .month {
     font-weight: 500;
     font-size: 1.6rem; }
 
 .discount {
-  font-size: 3rem !important;
   color: #5570f1;
   vertical-align: middle;
-  margin: auto 0 auto 15px;
+  margin: auto 0 auto 5px;
   border: 1px solid #5570f1;
   border-radius: 10px;
-  padding: 3px 10px; }
+  padding: 2px 7px; }
 
 /** modal bitiş**/
 /** BELGELER **/
@@ -730,7 +731,7 @@ button:focus {
   transition: 0.3s;
   font-size: 1.2rem;
   border-radius: 10px;
-  padding: 10px 35px;
+  padding: 5px 35px;
   color: white;
   background: #1a2142;
   background: -moz-linear-gradient(122deg, #3e4fa2 12%, #5570f1 75%, #fa58b6 100%);
@@ -738,7 +739,7 @@ button:focus {
   background: linear-gradient(122deg, #4050a3 12%, #5570f1 75%, #fa58b6 100%);
   border: none; }
   .satin-al:hover {
-    padding: 10px 37px; }
+    padding: 5px 40px; }
 
 .hizmet-wrap-vezu {
   background-color: transparent;
@@ -782,7 +783,7 @@ button:focus {
     transition: 0.3s;
     font-size: 1rem;
     border-radius: 10px;
-    padding: 7px 25px;
+    padding: 3px 20px;
     color: white;
     background: #1a2142;
     background: -moz-linear-gradient(122deg, rgba(62, 79, 162, 0.9) 12%, rgba(85, 112, 241, 0.9) 75%, rgba(250, 88, 182, 0.9) 100%);
@@ -790,7 +791,7 @@ button:focus {
     background: linear-gradient(122deg, rgba(64, 80, 163, 0.9) 12%, rgba(85, 112, 241, 0.9) 75%, rgba(250, 88, 182, 0.9) 100%);
     border: none; }
     .hizmet-wrap-vezu .hizmet-buton:hover {
-      padding: 7px 27px; }
+      padding: 3px 25px; }
 
 /* HİZMETLER BİTİŞ */
 /* MARKETFINDER BAŞLANGIC */
@@ -914,21 +915,9 @@ button:focus {
 
 .finder-result {
   height: 450px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 300; }
-  .finder-result .social .circle, .finder-result .social .circle1, .finder-result .social .flag .circle2, .finder-result .flag .social .circle2, .finder-result .social .flag .circle3, .finder-result .flag .social .circle3, .finder-result .social .flag .circle4, .finder-result .flag .social .circle4, .finder-result .social .flag .circle5, .finder-result .flag .social .circle5 {
-    border: 1px solid rgba(28, 29, 34, 0.1);
-    margin: auto 5px auto 0;
-    border-radius: 50%;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    display: inline-flex; }
-  .finder-result .social .circle1 {
-    max-width: 20px;
-    max-height: 20px; }
-  .finder-result .flag .circle, .finder-result .flag .circle1, .finder-result .flag .circle2, .finder-result .flag .circle3, .finder-result .flag .circle4, .finder-result .flag .circle5 {
+  .finder-result .flag .circle, .finder-result .flag .circle1, .finder-result .flag .circle2 {
     border: 1px solid rgba(28, 29, 34, 0.1);
     margin: auto 5px auto 0;
     border-radius: 50%;
@@ -942,15 +931,6 @@ button:focus {
   .finder-result .flag .circle2 {
     max-width: 52px;
     max-height: 52px; }
-  .finder-result .flag .circle3 {
-    max-width: 50px;
-    max-height: 50px; }
-  .finder-result .flag .circle4 {
-    max-width: 45px;
-    max-height: 45px; }
-  .finder-result .flag .circle5 {
-    max-width: 45px !important;
-    max-height: 45px !important; }
   .finder-result .result-logo {
     max-height: 60px;
     margin: auto auto 1rem auto; }
@@ -959,9 +939,7 @@ button:focus {
     .finder-result .finder-ul p {
       margin: 0; }
   .finder-result .satin-al {
-    float: right;
     transition: 0.3s;
-    font-size: 1rem;
     border-radius: 10px;
     padding: 5px 15px;
     color: white;
@@ -981,6 +959,7 @@ button:focus {
   margin: 2rem auto 2rem auto;
   font-size: 1.4rem; }
 .task-wrapper .task-ul {
+  margin-bottom: 3rem;
   list-style: none;
   padding: 0 3rem; }
   .task-wrapper .task-ul .task-li {
