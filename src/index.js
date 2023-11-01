@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
+  createHashRouter,
   RouterProvider,
 } from "react-router-dom";
 import ErrorPage from "./Pages/Error-page";
@@ -15,7 +16,7 @@ import Services from './Pages/Services';
 import MarketFinder from './Pages/MarketFinder';
 import Task from './Pages/Tasks';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Login/>,
