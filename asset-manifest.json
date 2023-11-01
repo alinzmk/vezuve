@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/vezuve/static/css/main.264697a1.css",
-    "main.js": "/vezuve/static/js/main.9bdf093e.js",
+    "main.js": "/vezuve/static/js/main.5a8e08ba.js",
     "static/js/787.545aecf5.chunk.js": "/vezuve/static/js/787.545aecf5.chunk.js",
     "static/media/walmart.png": "/vezuve/static/media/walmart.212fed78498ea9167afa.png",
     "static/media/messenger.png": "/vezuve/static/media/messenger.7adb29fed3acdb910285.png",
@@ -51,11 +51,11 @@
     "static/media/login.svg": "/vezuve/static/media/login.f032a7095460635ab769.svg",
     "index.html": "/vezuve/index.html",
     "main.264697a1.css.map": "/vezuve/static/css/main.264697a1.css.map",
-    "main.9bdf093e.js.map": "/vezuve/static/js/main.9bdf093e.js.map",
+    "main.5a8e08ba.js.map": "/vezuve/static/js/main.5a8e08ba.js.map",
     "787.545aecf5.chunk.js.map": "/vezuve/static/js/787.545aecf5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.264697a1.css",
-    "static/js/main.9bdf093e.js"
+    "static/js/main.5a8e08ba.js"
   ]
 }
