@@ -6,6 +6,7 @@ $black10: rgba(28, 29, 34, 1);
 $black08: rgba(28, 29, 34, 0.8);
 $black06: rgba(28, 29, 34, 0.6);
 $black01: rgba(28, 29, 34, 0.1);
+$login: #323377;
 $positive: rgba(81, 156, 102,1);
 $negative: rgba(204, 95, 95,1);
 $white: white;
@@ -113,7 +114,7 @@ $white: white;
   /** LOGIN REGISTER **/
 
   .App{
-    background-image: url("Assets/login.png");
+    background-image: url("Assets/login.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -124,49 +125,48 @@ $white: white;
   .login-container{
     position: relative;
     height: 100vh;
-    max-width: 440px;
+    max-width: 500px;
     padding: 0 20px;
     margin:auto;
   }
   .wrapper{
     position: absolute;
-    top: 20%;
+    top: 30%;
     width: 400px;
-    background: #fff;
+    background: none;
     border-radius: 5px;
-    box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
   }
   .wrapper .title{
     height: 90px;
-    background: #270082;
+    background: none;
     border-radius: 5px 5px 0 0;
-    color: #fff;
     font-size: 30px;
     font-weight: 600;
     display: flex;
     align-items: center;
-    justify-content: center;
   }
   .wrapper form{
-    padding: 30px 25px 25px 25px;
+    padding: 0;
   }
   .wrapper form .row{
+    box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
     height: 45px;
     margin-bottom: 15px;
     position: relative;
   }
   .wrapper form .row input{
+    background-color: #E8F0FE;
     height: 100%;
     width: 100%;
     outline: none;
     padding-left: 60px;
     border-radius: 5px;
-    border: 1px solid #270082;
+    border: 1px solid $login;
     font-size: 16px;
     transition: all 0.3s ease;
   }
   form .row input:focus{
-    border-color: #270082;
+    border-color: $login;
     box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
   }
   form .row input::placeholder{
@@ -178,8 +178,8 @@ $white: white;
     height: 100%;
     color: #fff;
     font-size: 18px;
-    background: #270082;
-    border: 1px solid #270082;
+    background: $login;
+    border: 1px solid $login;
     border-radius: 5px 0 0 5px;
     display: flex;
     align-items: center;
@@ -189,7 +189,7 @@ $white: white;
     margin: -8px 0 20px 0;
   }
   .wrapper form .pass a{
-    color: #270082;
+    color: $login;
     font-size: 17px;
     text-decoration: none;
   }
@@ -201,23 +201,22 @@ $white: white;
     font-size: 20px;
     font-weight: 500;
     padding-left: 0px;
-    background: #270082;
-    border: 1px solid #270082;
+    background: $login;
+    border: 1px solid $login;
     cursor: pointer;
   }
   form .button input:hover{
-    background: #FA58B6;
+    background: #D6F2FF;
     border: none;
-    color: #270082;
+    color: $login;
   }
   .wrapper form .signup-link{
-    text-align: center;
     margin-top: 20px;
     font-size: 17px;
-    color: #270082 !important;
+    color: $login !important;
   }
   .wrapper form .signup-link a{
-    color: #270082 !important;
+    color: $login !important;
     text-decoration: none;
   }
   form .signup-link a:hover{

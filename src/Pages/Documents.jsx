@@ -10,39 +10,41 @@ function Documents() {
     const selectedUser = UserData.find(data => data.id === userIdToFind);
 
     if (selectedUser) {
-        var bankInfo = selectedUser.bankInfo;
-        var identityDocument = selectedUser.identityDocument;
-        var activityDocument = selectedUser.activityDocument;
-        var englandCertificate = selectedUser.englandCertificate;
-        var taxPlate = selectedUser.taxPlate;
+        var bankInfo = localStorage.getItem("bankInfo");
+        var identityDocument = localStorage.getItem("identityDocument");
+        var activityDocument = localStorage.getItem("activityDocument");
+        var englandCertificate = localStorage.getItem("englandCertificate");
+        var taxPlate = localStorage.getItem("taxPlate");
+        var billInfo = localStorage.getItem("billInfo");
     }
     else {
     console.log(`User with ID ${userIdToFind} not found`);    
     }
 
     const fileInputRef = useRef(null);
-  const [file, setFile] = useState(null);
+    const [file, setFile] = useState(null);
+    const [docInfo, setDocInfo] = useState(null);
+    
 
+    
   useEffect(() => {
     if (file) {
-      document.getElementById("hiddenSubmitButton").click();
+      document.querySelector("."+docInfo).click();
     }
   }, [file]);
 
-  const handleFileChange = (e) => {
+  const handleFileChange = (infoClass) => (e) => {
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
+    setDocInfo(infoClass)
   };
 
-  const handleSubmit = (e, dataThatGonnaChange) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Handle file upload logic here
     if (file) {
-        console.log(dataThatGonnaChange)
-        updateUserData(userIdToFind, {[dataThatGonnaChange]: file});
-        alert("successful");
-      // Send the file to your server or process it as needed
+        alert(docInfo)
+        localStorage.setItem(docInfo, "true");
+        window.location.reload(true);
     }
   };
 
@@ -86,14 +88,14 @@ function Documents() {
                                         </h5>
                                     </div>
                                     <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                        {bankInfo ? (
-                                            <button className='buton3 m-0' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
-                                        ) : (
+                                        {bankInfo === "false" ? (
                                             <form onSubmit={(e) => handleSubmit(e, "bankInfo")}>
-                                                <label for="file-upload" class="buton4 slideup">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
-                                                <input  id="file-upload" className='d-none' type="file" onChange={handleFileChange} ref={fileInputRef} />
-                                                <button type="submit" style={{ display: 'none' }} id="hiddenSubmitButton"></button>
+                                                <label htmlFor="bankInfo-file-upload" class="buton4 slideup">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
+                                                <input  id="bankInfo-file-upload" className='d-none' type="file" onChange={handleFileChange("bankInfo")} ref={fileInputRef} />
+                                                <button type="submit" style={{ display: 'none' }} class="bankInfo"></button>
                                             </form>
+                                            ) : (
+                                            <button className='buton3 m-0' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
                                         )}
                                     </div>
                                 </div>
@@ -120,18 +122,18 @@ function Documents() {
                                         </h5>
                                     </div>
                                     <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                         {identityDocument ? (
-                                             <button className='buton3 m-0' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
-                                             ) : (
+                                         {identityDocument === "false" ? (
                                                  <form onSubmit={(e) => handleSubmit(e, "identityDocument")}>
-                                                <label for="file-upload" class="buton4 slideup">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
-                                                <input  id="file-upload" className='d-none' type="file" onChange={handleFileChange} ref={fileInputRef} />
-                                                <button type="submit" style={{ display: 'none' }} id="hiddenSubmitButton"></button>
+                                                <label htmlFor="identityDocument-file-upload" class="buton4 slideup">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
+                                                <input  id="identityDocument-file-upload" className='d-none' type="file" onChange={handleFileChange("identityDocument")} ref={fileInputRef} />
+                                                <button type="submit" style={{ display: 'none' }} class="identityDocument"></button>
                                             </form>
+                                             ) : (
+                                                 <button className='buton3 m-0' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
                                         )}
                                     </div>
                                 </div>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="col-10 p-0 slideup">
@@ -154,18 +156,18 @@ function Documents() {
                                         </h5>
                                     </div>
                                     <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                        {activityDocument ? (
-                                            <button className='buton3 m-0 slideup' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
-                                            ) : (
+                                        {activityDocument === "false" ? (
                                                 <form onSubmit={(e) => handleSubmit(e, "activityDocument")}>
-                                                <label for="file-upload" class="buton4 slideup">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
-                                                <input  id="file-upload" className='d-none' type="file" onChange={handleFileChange} ref={fileInputRef} />
-                                                <button type="submit" style={{ display: 'none' }} id="hiddenSubmitButton"></button>
+                                                <label for="activityDocument-file-upload" class="buton4 slideup">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
+                                                <input  id="activityDocument-file-upload" className='d-none' type="file" onChange={handleFileChange("activityDocument")} ref={fileInputRef} />
+                                                <button type="submit" style={{ display: 'none' }} class="activityDocument"></button>
                                             </form>
+                                            ) : (
+                                                <button className='buton3 m-0 slideup' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
                                         )}
                                     </div>
                                 </div>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="col-10 p-0 slideup">
@@ -188,18 +190,18 @@ function Documents() {
                                         </h5>
                                     </div>
                                     <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                        {englandCertificate ? (
-                                            <button className='buton3 m-0 slideup' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
-                                            ) : (
+                                        {englandCertificate === "false" ? (
                                                 <form onSubmit={(e) => handleSubmit(e, "englandCertificate")}>
-                                                <label for="file-upload" class="buton4 slideup">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
-                                                <input  id="file-upload" className='d-none' type="file" onChange={handleFileChange} ref={fileInputRef} />
-                                                <button type="submit" style={{ display: 'none' }} id="hiddenSubmitButton"></button>
+                                                <label for="englandCertificate-file-upload" class="buton4 slideup">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
+                                                <input  id="englandCertificate-file-upload" className='d-none' type="file" onChange={handleFileChange("englandCertificate")} ref={fileInputRef} />
+                                                <button type="submit" style={{ display: 'none' }} class="englandCertificate"></button>
                                             </form>
+                                            ) : (
+                                                <button className='buton3 m-0 slideup' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
                                         )}
                                     </div>
                                 </div>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="col-10 p-0 slideup">
@@ -222,18 +224,18 @@ function Documents() {
                                         </h5>
                                     </div>
                                     <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                        {taxPlate ? (
-                                            <button className='buton3 m-0' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
-                                            ) : (
+                                        {taxPlate === "false" ? (
                                                 <form onSubmit={(e) => handleSubmit(e, "taxPlate")}>
-                                                <label for="file-upload" class="buton4">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
-                                                <input  id="file-upload" className='d-none' type="file" onChange={handleFileChange} ref={fileInputRef} />
-                                                <button type="submit" style={{ display: 'none' }} id="hiddenSubmitButton"></button>
+                                                <label for="taxPlate-file-upload" class="buton4">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
+                                                <input  id="taxPlate-file-upload" className='d-none' type="file" onChange={handleFileChange("taxPlate")} ref={fileInputRef} />
+                                                <button type="submit" style={{ display: 'none' }} class="taxPlate"></button>
                                             </form>
+                                            ) : (
+                                                <button className='buton3 m-0' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
                                         )}
                                     </div>
                                 </div>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="col-10 p-0 slideup">
@@ -257,52 +259,18 @@ function Documents() {
                                         </h5>
                                     </div>
                                     <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                        {taxPlate ? (
-                                            <button className='buton3 m-0' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
-                                            ) : (
-                                                <form onSubmit={(e) => handleSubmit(e, "taxPlate")}>
-                                                <label for="file-upload" class="buton4">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
-                                                <input  id="file-upload" className='d-none' type="file" onChange={handleFileChange} ref={fileInputRef} />
-                                                <button type="submit" style={{ display: 'none' }} id="hiddenSubmitButton"></button>
+                                        {billInfo === "false" ? (
+                                                <form onSubmit={(e) => handleSubmit(e, "billInfo")}>
+                                                <label for="billInfo-file-upload" class="buton4">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
+                                                <input  id="billInfo-file-upload" className='d-none' type="file" onChange={handleFileChange("billInfo")} ref={fileInputRef} />
+                                                <button type="submit" style={{ display: 'none' }} class="billInfo"></button>
                                             </form>
+                                            ) : (
+                                                <button className='buton3 m-0' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
                                         )}
                                     </div>
                                 </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div className="col-10 p-0 slideup d-none">
-                            <div className="col-12 w-auto pb-3">
-                                <div className="pbg">
-
-                                <div className="row p-3">
-                                    <div className="col-1 ms-5 my-auto">
-                                        <h2 className='my-auto mx-0'><i class="fa-regular fa-file"></i></h2>
-                                    </div>
-                                    <div className="col-7 my-auto text-left">
-                                        <h5 className='m-0 d-flex align-items-center'>WAT Kaydı Sertifikası
-                                        <div class="dropdown2 ms-3">
-                                            <button class="d-flex info-btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="fa-solid fa-circle-info"></i>
-                                            </button>
-                                            <div class="dropdown-menu info" aria-labelledby="dropdownMenuButton2">
-                                                WAT Kaydı Info</div>
-                                        </div>
-                                        </h5>
-                                    </div>
-                                    <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                        {taxPlate ? (
-                                            <button className='buton3 m-0' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
-                                            ) : (
-                                                <form onSubmit={(e) => handleSubmit(e, "taxPlate")}>
-                                                <label for="file-upload" class="buton4">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
-                                                <input  id="file-upload" className='d-none' type="file" onChange={handleFileChange} ref={fileInputRef} />
-                                                <button type="submit" style={{ display: 'none' }} id="hiddenSubmitButton"></button>
-                                            </form>
-                                        )}
-                                    </div>
                                 </div>
-                                    </div>
                             </div>
                         </div>
                     </div>

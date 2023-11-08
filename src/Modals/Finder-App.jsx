@@ -45,13 +45,16 @@ export default function App(props) {
       hasTurkeySales,
       hasStore,
       });
+
+      const selectData = Math.floor(Math.random() * (4 - 0 + 1) + 0);
+      onSelectData(data[selectData]); //random çek
+
       setEmployeeCount('');
       setProductCategory('');
       setHasWebsite(null);
       setHasInternationalSales(null);
       setHasTurkeySales(null);
       setHasStore(null);
-      onSelectData(data[1]);
   };
 
   const { onSelectData } = props;
@@ -102,7 +105,7 @@ export default function App(props) {
                     <span className="radio-label">Hayır, Yok.</span>
                   </label>
               </div>
-              <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-angles-right"></i></div>
+              <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -130,8 +133,8 @@ export default function App(props) {
                     <span className="radio-label">Hayır, Yapmıyorum.</span>
                   </label>
               </div>
-                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-angles-left"></i>GERİ</div>
-                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-angles-right"></i></div>
+                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
+                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -161,8 +164,8 @@ export default function App(props) {
 
 
               </div>
-                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-angles-left"></i>GERİ</div>
-                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-angles-right"></i></div>
+                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
+                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -180,8 +183,8 @@ export default function App(props) {
 
 
               </div>
-                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-angles-left"></i>GERİ</div>
-                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-angles-right"></i></div>
+                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
+                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -211,8 +214,8 @@ export default function App(props) {
 
 
               </div>
-                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-angles-left"></i>GERİ</div>
-                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-angles-right"></i></div>
+                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
+                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -234,8 +237,8 @@ export default function App(props) {
                       <option value="Plastik">Plastik</option>
                     </select>
               </div>
-                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-angles-left"></i>GERİ</div>
-                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-angles-right"></i></div>
+                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
+                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -251,8 +254,8 @@ export default function App(props) {
                         <option value="101+">101+</option>
                     </select>
               </div>
-                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-angles-left"></i>GERİ</div>
-                <button className='finder-submit mt-4' onClick={handlePrevto1} type="submit">PAZAR YERİ ÖNER<i class="fa-solid fa-chevron-right ms-2"></i></button>
+                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
+                <button className='finder-submit mt-4' onClick={handlePrevto1} type="submit">PAZAR YERİ ÖNER<i class="fa-solid fa-angles-right ms-2"></i></button>
             </div>
         </SwiperSlide>
       </Swiper>
@@ -264,20 +267,36 @@ export default function App(props) {
 
 const data = 
 [
-  {
-      name: "amazon",
-      logo: 'amazon.png',
-      items: [
-          'Amazon aylık trafik sayısı: 100 milyon',
-          'Amazon aylık trafik sayısı: 500 aaaaaaaaaaaa',
-          'Amazon aylık trafik sayısı: 500 milyon'
-      ],
-      flag: 'amazon.png',
-      items2: [
-          'Online Banka Hesabı',
-          'Online Banka Hesabı'
-      ],
-      buttonText: 'Amazonda Satışa Başla'
+  {   
+    name: "amazon",
+    logo: 'amazon.png',
+    items: [
+      'ABD: Yıllık Satış 314 Milyar Dolar Aylık 3 Milyar Ziyaretçi',
+      'UK: Yıllık Satış 30 Milyar Euro Aylık 400 milyon Ziyaretçi',
+      "AVRUPA: 51 Milyar Euro Yıllık Satış Aylık 800 Milyon Ziyaretçi",
+      "Satıcı Sayısı: 1,9 MİLYON.",
+      "Popüler Pazaryerleri: Youtube, Facebook"
+
+    ],
+    flag: {
+      name: 'us.png',
+      opacity: 1 ,
+    },
+    flag2: {
+      name: 'uk.png',
+      opacity: 0 ,
+    },
+    
+    city: 0 ,
+    items2: [
+      "ABD VE UK İçin şirket kurulumu (tüzel kişilik),AB için Vat kaydı",
+      "Yurt dışı banka hesabı.",
+      "Elektirik/su/doğalgaz faturası (herhangi biri) ",
+      "Uluslararası kargo",
+      "Uluslararası geçerli banka hesabı",
+      "GTIN/UPC GS1 Şirket Ön Ek Numaraları",
+    ],
+    buttonText: "Uzman Ekibimiz ile Hemen Etsy'de"
   },
   {   
       name: "etsy",
@@ -301,12 +320,72 @@ const data =
       
       city: 0 ,
       items2: [
+        "Türkiyede ticaret odasına kayıtlı şirket",
+        "Romanyada şirket kurulumu (tüzel kişilik.)",
+        "uluslararası Lojistik",
+        "Romanya’da veya uluslararası geçerli bir banka hesabı ",
+        "GTIN/UPC GS1 Şirket Ön Ek Numaraları",
+        "Komisyon oranları %18-%21 seviyesindedir.",
+
+      ],
+      buttonText: "Uzman Ekibimiz ile Hemen Emag'de"
+    },
+    {   
+      name: "emag",
+      logo: 'emag.png',
+      items: [
+        'Aylık Trafik: 32.6M',
+        'EMAG BULGARİSTAN 5.5 M- EMAG MACARİSTAN 7.8 MİLYON TARAFİK ALIR',
+        "Satıcı Sayısı: 30-32 BİN",
+        "yıllık CİRO: 8.5 milyar dolarlık",
+        "Popüler Pazaryerleri: Youtube, Facebook"
+
+      ],
+      flag: {
+        name: 'us.png',
+        opacity: 1 ,
+      },
+      flag2: {
+        name: 'uk.png',
+        opacity: 0.1 ,
+      },
+      
+      city: 0 ,
+      items2: [
         "Şirket Vergi Levhası",
         "Şahıs Kimliği",
         "El yapımı ürün ",
         "Uluslararası Kargo",
       ],
-      buttonText: "Uzman Ekibimiz ile Hemen Etsy'de"
+      buttonText: "Uzman Ekibimiz ile Hemen Emag'de"
+    },
+    {   
+      name: "allegro",
+      logo: 'allegro.png',
+      items: [
+        'Aylık Trafik: 213.2M',
+        'Satıcı Sayısı: 135.000',
+        "Yıllık Satış: 8.5 milyar dolar",
+        "Yeni başlayan satıcılara 0 komisyon desteği sunmaktadır.",
+        "Popüler Pazaryerleri: YouTube, Facebook"
+
+      ],
+      flag: {
+        name: 'us.png',
+        opacity: 1 ,
+      },
+      flag2: {
+        name: 'uk.png',
+        opacity: 0.1 ,
+      },
+      
+      city: 0 ,
+      items2: [
+        "Türkiyede ticaret odasına kayıtlı şirket",
+        "Polonyada vergi (vat kaydı)", 
+        "Uluslararası Lojistik",
+      ],
+      buttonText: "Uzman Ekibimiz ile Hemen Allegro'da"
     }
 ];
 

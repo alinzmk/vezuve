@@ -82,7 +82,7 @@ a, a:hover {
 
 /** LOGIN REGISTER **/
 .App {
-  background-image: url("Assets/login.png");
+  background-image: url("Assets/login.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -92,49 +92,48 @@ a, a:hover {
 .login-container {
   position: relative;
   height: 100vh;
-  max-width: 440px;
+  max-width: 500px;
   padding: 0 20px;
   margin: auto; }
 
 .wrapper {
   position: absolute;
-  top: 20%;
+  top: 30%;
   width: 400px;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1); }
+  background: none;
+  border-radius: 5px; }
 
 .wrapper .title {
   height: 90px;
-  background: #270082;
+  background: none;
   border-radius: 5px 5px 0 0;
-  color: #fff;
   font-size: 30px;
   font-weight: 600;
   display: flex;
-  align-items: center;
-  justify-content: center; }
+  align-items: center; }
 
 .wrapper form {
-  padding: 30px 25px 25px 25px; }
+  padding: 0; }
 
 .wrapper form .row {
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
   height: 45px;
   margin-bottom: 15px;
   position: relative; }
 
 .wrapper form .row input {
+  background-color: #E8F0FE;
   height: 100%;
   width: 100%;
   outline: none;
   padding-left: 60px;
   border-radius: 5px;
-  border: 1px solid #270082;
+  border: 1px solid #323377;
   font-size: 16px;
   transition: all 0.3s ease; }
 
 form .row input:focus {
-  border-color: #270082;
+  border-color: #323377;
   box-shadow: inset 0px 0px 2px 2px rgba(26, 188, 156, 0.25); }
 
 form .row input::placeholder {
@@ -146,8 +145,8 @@ form .row input::placeholder {
   height: 100%;
   color: #fff;
   font-size: 18px;
-  background: #270082;
-  border: 1px solid #270082;
+  background: #323377;
+  border: 1px solid #323377;
   border-radius: 5px 0 0 5px;
   display: flex;
   align-items: center;
@@ -157,7 +156,7 @@ form .row input::placeholder {
   margin: -8px 0 20px 0; }
 
 .wrapper form .pass a {
-  color: #270082;
+  color: #323377;
   font-size: 17px;
   text-decoration: none; }
 
@@ -169,23 +168,22 @@ form .row input::placeholder {
   font-size: 20px;
   font-weight: 500;
   padding-left: 0px;
-  background: #270082;
-  border: 1px solid #270082;
+  background: #323377;
+  border: 1px solid #323377;
   cursor: pointer; }
 
 form .button input:hover {
-  background: #FA58B6;
+  background: #D6F2FF;
   border: none;
-  color: #270082; }
+  color: #323377; }
 
 .wrapper form .signup-link {
-  text-align: center;
   margin-top: 20px;
   font-size: 17px;
-  color: #270082 !important; }
+  color: #323377 !important; }
 
 .wrapper form .signup-link a {
-  color: #270082 !important;
+  color: #323377 !important;
   text-decoration: none; }
 
 form .signup-link a:hover {
