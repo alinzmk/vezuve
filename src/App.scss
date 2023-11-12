@@ -95,7 +95,23 @@ $white: white;
     border-radius: 10px;
   }
 
+  .notification {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #4caf50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .notification.visible {
+    opacity: 1;
+  }
 
+  
   .overlay {
     position: fixed;
     top: 0;
@@ -543,8 +559,8 @@ $white: white;
   }
   
   .closeBtn, .closeBtn:hover{
-    position: fixed;
-    top: 10px;
+    position: absolute;
+    top: 0;
     right: 15px;
     color: rgba(12, 18, 17, 1);
     background-color: transparent;
@@ -1170,6 +1186,15 @@ $white: white;
 
 
 /* PROJE ALANI BİTİŞ */
+
+/* video modal başlangıç */
+  .videoModal{
+    width: auto;
+  }
+  .videoThumbnail{
+    max-width: 300px;
+  }
+/* video modal BİTİŞ" */
   
   
   @media only screen and (max-width: 1200px) {

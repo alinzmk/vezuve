@@ -3,6 +3,7 @@ import { UserData } from '../Assets/Mockdata';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import logo from "../Assets/logo-renkli.png";
+import { toast } from 'react-toastify';
 
 function Login() {
   localStorage.setItem('id', null);
@@ -14,14 +15,18 @@ function Login() {
   const handleEmailChange = (event) => {
     setEmailname(event.target.value);
   }
-
+  
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   }
-
+  
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
+  
+
+  const notify = () => toast.success("Başarıyla Giriş Yapıldı");
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,9 +43,9 @@ function Login() {
     }
 
     if (user) {
-      alert('Login successful!');
+      notify();
+      navigate("/Panel");
       localStorage.setItem('id', user.id);
-      navigate('/Panel');
       localStorage.setItem("bankInfo", "false");
       localStorage.setItem("identityDocument", "false");
       localStorage.setItem("activityDocument", "false");
@@ -50,7 +55,9 @@ function Login() {
     } else {
       alert('Invalid email or password');
     }
+    
   };
+  
 
   return (
     <div className="App row m-0">
@@ -89,7 +96,6 @@ function Login() {
 
       </div>
       <div className="col-6">
-
       </div>
     </div>
   );

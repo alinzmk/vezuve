@@ -15,6 +15,9 @@ import Products from './Pages/Products';
 import Services from './Pages/Services';
 import MarketFinder from './Pages/MarketFinder';
 import Task from './Pages/Tasks';
+import Tutorials from './Pages/Tutorials';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -60,11 +63,16 @@ const router = createHashRouter([
     path: "/Proje",
     element: <Task />, 
   },
+  {
+    path: "/Dersler",
+    element: <Tutorials />, 
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
       <RouterProvider router={router} />
+      <ToastContainer />
   </React.StrictMode>
 );
 

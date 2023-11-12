@@ -47,7 +47,7 @@ export default function App(props) {
       });
 
       const selectData = Math.floor(Math.random() * (4 - 0 + 1) + 0);
-      onSelectData(data[selectData]); //random çek
+      onSelectData(data[selectData]); //random çekilecek
 
       setEmployeeCount('');
       setProductCategory('');

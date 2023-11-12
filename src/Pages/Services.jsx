@@ -160,12 +160,12 @@ function Services() {
                                                             <button className={`nav-link ${activeTab === 'amazon' ? 'active' : ''}`} id="amazon-tab" data-bs-toggle="tab" data-bs-target="#amazon" type="button" role="tab" aria-controls="amazon" aria-selected={activeTab === 'amazon' ? 'true' : 'false'}>Amazon</button>
                                                             <button className={`nav-link ${activeTab === 'handmade' ? 'active' : ''}`} id="amazonHandmade-tab" data-bs-toggle="tab" data-bs-target="#amazonHandmade" type="button" role="tab" aria-controls="amazonHandmade" aria-selected={activeTab === 'handmade' ? 'true' : 'false'}>Amazon Handmade</button>
                                                             <button className={`nav-link ${activeTab === 'etsy' ? 'active' : ''}`} id="etsy-tab" data-bs-toggle="tab" data-bs-target="#etsy" type="button" role="tab" aria-controls="etsy" aria-selected="true">Etsy</button>
-                                                            <button class="nav-link" id="allegro-tab" data-bs-toggle="tab" data-bs-target="#allegro" type="button" role="tab" aria-controls="allegro" aria-selected="false">Allegro</button>
-                                                            <button class="nav-link" id="trendyol-tab" data-bs-toggle="tab" data-bs-target="#trendyol" type="button" role="tab" aria-controls="trendyol" aria-selected="false">Trendyol</button>
-                                                            <button class="nav-link" id="walmart-tab" data-bs-toggle="tab" data-bs-target="#walmart" type="button" role="tab" aria-controls="walmart" aria-selected="false">Walmart</button>
-                                                            <button class="nav-link" id="wayfair-tab" data-bs-toggle="tab" data-bs-target="#wayfair" type="button" role="tab" aria-controls="wayfair" aria-selected="false">Wayfair</button>
-                                                            <button class="nav-link" id="emag-tab" data-bs-toggle="tab" data-bs-target="#emag" type="button" role="tab" aria-controls="emag" aria-selected="false">Emag</button>
-                                                            <button class="nav-link" id="ozon-tab" data-bs-toggle="tab" data-bs-target="#ozon" type="button" role="tab" aria-controls="ozon" aria-selected="false">Ozon</button>
+                                                            <button className={`nav-link ${activeTab === 'allegro' ? 'active' : ''}`} id="allegro-tab" data-bs-toggle="tab" data-bs-target="#allegro" type="button" role="tab" aria-controls="allegro" aria-selected="false">Allegro</button>
+                                                            <button className={`nav-link ${activeTab === 'trendyol' ? 'active' : ''}`} id="trendyol-tab" data-bs-toggle="tab" data-bs-target="#trendyol" type="button" role="tab" aria-controls="trendyol" aria-selected="false">Trendyol</button>
+                                                            <button className={`nav-link ${activeTab === 'walmart' ? 'active' : ''}`} id="walmart-tab" data-bs-toggle="tab" data-bs-target="#walmart" type="button" role="tab" aria-controls="walmart" aria-selected="false">Walmart</button>
+                                                            <button className={`nav-link ${activeTab === 'wayfair' ? 'active' : ''}`} id="wayfair-tab" data-bs-toggle="tab" data-bs-target="#wayfair" type="button" role="tab" aria-controls="wayfair" aria-selected="false">Wayfair</button>
+                                                            <button className={`nav-link ${activeTab === 'emag' ? 'active' : ''}`} id="emag-tab" data-bs-toggle="tab" data-bs-target="#emag" type="button" role="tab" aria-controls="emag" aria-selected="false">Emag</button>
+                                                            <button className={`nav-link ${activeTab === 'ozon' ? 'active' : ''}`} id="ozon-tab" data-bs-toggle="tab" data-bs-target="#ozon" type="button" role="tab" aria-controls="ozon" aria-selected="false">Ozon</button>
                                                         </div>
                                                     </nav>
                                                     <div class="tab-content" id="nav-tabContent">
@@ -268,7 +268,7 @@ function Services() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="allegro" role="tabpanel" aria-labelledby="allegro-tab">
+                                                        <div className={`tab-pane fade ${activeTab === 'allegro' ? 'show active' : ''}`} id="allegro" role="tabpanel" aria-labelledby="allegro-tab">
                                                             <div className="row mt-4">
                                                                 <div className="col-3 mb-4">
                                                                     
@@ -292,7 +292,7 @@ function Services() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="trendyol" role="tabpanel" aria-labelledby="trendyol-tab">
+                                                        <div className={`tab-pane fade ${activeTab === 'trendyol' ? 'show active' : ''}`} id="trendyol" role="tabpanel" aria-labelledby="trendyol-tab">
                                                             <div className="row mt-4">
                                                                 <div className="col-3 mb-4">
                                                                     
@@ -317,7 +317,7 @@ function Services() {
                                                                 
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="walmart" role="tabpanel" aria-labelledby="walmart-tab">
+                                                        <div className={`tab-pane fade ${activeTab === 'walmart' ? 'show active' : ''}`} id="walmart" role="tabpanel" aria-labelledby="walmart-tab">
                                                             <div className="row mt-4">
                                                                 <div className="col-3 mb-4">
                                                                     
@@ -341,7 +341,7 @@ function Services() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="wayfair" role="tabpanel" aria-labelledby="wayfair-tab">
+                                                        <div className={`tab-pane fade ${activeTab === 'wayfair' ? 'show active' : ''}`} id="wayfair" role="tabpanel" aria-labelledby="wayfair-tab">
                                                             <div className="row mt-4">
                                                                 <div className="col-3 mb-4">
                                                                     
@@ -365,7 +365,7 @@ function Services() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="emag" role="tabpanel" aria-labelledby="emag-tab">
+                                                        <div className={`tab-pane fade ${activeTab === 'emag' ? 'show active' : ''}`} id="emag" role="tabpanel" aria-labelledby="emag-tab">
                                                             <div className="row mt-4">
                                                                 <div className="col-3 mb-4">
                                                                     
@@ -379,7 +379,7 @@ function Services() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="ozon" role="tabpanel" aria-labelledby="ozon-tab">
+                                                        <div className={`tab-pane fade ${activeTab === 'ozon' ? 'show active' : ''}`} id="ozon" role="tabpanel" aria-labelledby="ozon-tab">
                                                             <div className="row mt-4">
                                                                 <div className="col-3 mb-4">
                                                                     

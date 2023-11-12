@@ -53,6 +53,11 @@ const Sidebar2 = () => {
                             <i class="fa-solid fa-file"></i>
                          </NavLink>
                     </li>
+                    <li className={splitLocation[1] === "Dersler" ? "side-active sidebar-li2" : "sidebar-li2"}>
+                         <NavLink to={"/Dersler"} className='sidebar-link' activeClassName="side-active">
+                              <i class="fa-brands fa-youtube"></i>
+                         </NavLink>
+                    </li>
                 </ul>
             </div>
         </div>

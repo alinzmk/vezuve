@@ -2,12 +2,23 @@ import '../App.css';
 import logo from "../Assets/logo-renkli.png"
 import { useState, useRef, useEffect } from 'react';
 import { updateUserData, UserData } from '../Assets/Mockdata';
+import { toast } from 'react-toastify';
 import Sidebar2 from '../Modals/Sidebar2';
 
 function Documents() {
 
     const userIdToFind = parseInt(localStorage.getItem("id")); // Replace with the ID you're looking for
     const selectedUser = UserData.find(data => data.id === userIdToFind);
+    const docNotify = () => toast.success('Dosya Başarıyla Yüklendi!', {
+        position: "bottom-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
 
     if (selectedUser) {
         var bankInfo = localStorage.getItem("bankInfo");
@@ -18,14 +29,17 @@ function Documents() {
         var billInfo = localStorage.getItem("billInfo");
     }
     else {
-    console.log(`User with ID ${userIdToFind} not found`);    
+    console.log(`User with ID ${userIdToFind} not found`);
     }
 
     const fileInputRef = useRef(null);
     const [file, setFile] = useState(null);
     const [docInfo, setDocInfo] = useState(null);
     
-
+    const [seed, setSeed] = useState(1);
+       const reset = () => {
+            setSeed(Math.random());
+        }
     
   useEffect(() => {
     if (file) {
@@ -42,9 +56,9 @@ function Documents() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (file) {
-        alert(docInfo)
+        reset();
         localStorage.setItem(docInfo, "true");
-        window.location.reload(true);
+        docNotify();
     }
   };
 
@@ -65,7 +79,7 @@ function Documents() {
                                 <img src={logo} className='sidebar-logo' alt="" />
                             </div>
                         </div>
-                        <div className="col-10 p-0 ">
+                        <div className="col-10 p-0" key={seed}>
                             <div className="col-12 w-auto pb-3">
                                 <div className="pbg">
 
