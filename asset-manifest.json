@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/vezuve/static/css/main.e974f770.css",
-    "main.js": "/vezuve/static/js/main.a8eab824.js",
+    "main.css": "/vezuve/static/css/main.77d5344f.css",
+    "main.js": "/vezuve/static/js/main.24091d10.js",
     "static/js/787.545aecf5.chunk.js": "/vezuve/static/js/787.545aecf5.chunk.js",
     "static/media/walmart.png": "/vezuve/static/media/walmart.212fed78498ea9167afa.png",
     "static/media/messenger.png": "/vezuve/static/media/messenger.7adb29fed3acdb910285.png",
@@ -50,12 +50,12 @@
     "static/media/canada.png": "/vezuve/static/media/canada.8a3e36157777e77e1129.png",
     "static/media/login.svg": "/vezuve/static/media/login.f032a7095460635ab769.svg",
     "index.html": "/vezuve/index.html",
-    "main.e974f770.css.map": "/vezuve/static/css/main.e974f770.css.map",
-    "main.a8eab824.js.map": "/vezuve/static/js/main.a8eab824.js.map",
+    "main.77d5344f.css.map": "/vezuve/static/css/main.77d5344f.css.map",
+    "main.24091d10.js.map": "/vezuve/static/js/main.24091d10.js.map",
     "787.545aecf5.chunk.js.map": "/vezuve/static/js/787.545aecf5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e974f770.css",
-    "static/js/main.a8eab824.js"
+    "static/css/main.77d5344f.css",
+    "static/js/main.24091d10.js"
   ]
 }
