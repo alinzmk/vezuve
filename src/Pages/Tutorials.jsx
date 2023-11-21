@@ -12,6 +12,7 @@ function Tutorials() {
     
     const video = "jRg9e428tNo"
     const thumb = "https://img.youtube.com/vi/"+video+"/sddefault.jpg"
+    
 
     const openModal = (videoId) => {
         setSelectedVideoId(videoId);
@@ -49,26 +50,29 @@ function Tutorials() {
                             <div className="row slideleft">
                                 <div className='col-11 pbg'>
                                     <div className="row my-5">
-                                        <div className="col-4">
-                                            <div className='text-center mx-5' onClick={() => openModal(video)}>
-                                                <img className='videoThumbnail' src={thumb} alt="Video Thumbnail" />
+                                        <div className="col-12 col-md-6 col-xl-3 videoWrapper">
+                                            <div className='text-center videoInner mx-5' onClick={() => openModal(video)}>
+                                                
                                             </div>
                                         </div>
-
-                                        <div className="col-4 ">
-                                            <div className='text-center mx-5' onClick={() => openModal(video)}>
-                                                <img className='videoThumbnail' src={thumb} alt="Video Thumbnail" />
+                                        <div className="col-12 col-lg-6 col-xl-3 videoWrapper">
+                                            <div className='text-center videoInner mx-5' onClick={() => openModal(video)}>
+                                                
                                             </div>
                                         </div>
-
-                                        <div className="col-4 ">
-                                            <div className='text-center mx-5' onClick={() => openModal(video)}>
-                                                <img className='videoThumbnail' src={thumb} alt="Video Thumbnail" />
+                                        <div className="col-12 col-md-6 col-xl-3 videoWrapper">
+                                            <div className='text-center videoInner mx-5' onClick={() => openModal(video)}>
+                                                
+                                            </div>
+                                        </div>
+                                        <div className="col-12 col-md-6 col-xl-3 videoWrapper">
+                                            <div className='text-center videoInner mx-5' onClick={() => openModal(video)}>
+                                                
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>         
                         </div>
                     </div>
                 </div>

@@ -25,7 +25,16 @@ function Login() {
   };
   
 
-  const notify = () => toast.success("Başarıyla Giriş Yapıldı");
+  const notify = () => toast.success("Başarıyla Giriş Yapıldı",{
+    position: "bottom-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+  });
 
 
   const handleSubmit = (e) => {

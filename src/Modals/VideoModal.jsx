@@ -11,12 +11,14 @@ const videoid = "https://www.youtube.com/embed/"+videoId
       contentLabel="Video Modal"
       style={
         {content: {
-          width: "1250px",
-          height: "700px",
-          margin: "auto"
+          width: "1020px",
+          height: "650px",
+          margin: "auto",
+          backgroundColor: "transparent",
+          border: "none",
         },
         overlay:{
-          backgroundColor: "rgba(0,0,0,0.8)"
+          backgroundColor: "rgba(0,0,0,0.6)"
         }
       }
       }
@@ -25,8 +27,7 @@ const videoid = "https://www.youtube.com/embed/"+videoId
           <div className='row'>
             <div className='col-12 text-center position-relative'>
               <button onClick={closeModal} class="closeBtn"><i class="fa-solid fa-x"></i></button>
-              <h5>Lorem Ipsum Dolor Sit Amet</h5>
-              <iframe width="1200" height="600" src={videoid}
+              <iframe width="1000" height="600" src={videoid}
                   title="Yaşam Standardını Düşüren Şey Nedir?"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 

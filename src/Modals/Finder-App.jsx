@@ -34,6 +34,8 @@ export default function App(props) {
     const [hasTurkeySales, setHasTurkeySales] = useState(null);
     const [hasInternationalSales, setHasInternationalSales] = useState(null);
     const [hasStore, setHasStore] = useState(null);
+    const [desiInfo, setDesiInfo] = useState(null);
+    
 
   const handleSubmit = (e) => {
       e.preventDefault();
@@ -47,7 +49,9 @@ export default function App(props) {
       });
 
       const selectData = Math.floor(Math.random() * (4 - 0 + 1) + 0);
-      onSelectData(data[selectData]); //random çekilecek
+      const selectData2 = Math.floor(Math.random() * (4 - 0 + 1) + 0);
+
+      onSelectData(data[selectData], data[selectData2]); //random çekilecek
 
       setEmployeeCount('');
       setProductCategory('');
@@ -242,6 +246,24 @@ export default function App(props) {
             </div>
         </SwiperSlide>
         <SwiperSlide>
+          <div className='col-12 slide mt-5 text-center px-3'>
+              <div className="col-12">
+                  <h5>
+                    Ürünleriniz ortalama hangi desi aralığındadır ?
+                  </h5>
+                    <select className='custom-select text-center mt-3'defaultValue="100.000-250.000" value={desiInfo} onChange={(e) => setDesiInfo(e.target.value)}>
+                      <option value="0-1">0-1 desi</option>
+                      <option value="1-5">1-5 desi</option>
+                      <option value="5-10">5-10 desi</option>
+                      <option value="10-20">10-20 desi</option>
+                      <option value="20+">20+ desi</option>
+                    </select>
+              </div>
+                <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
+                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+        </SwiperSlide>
+        <SwiperSlide>
             <div className='col-12 slide mt-5 text-center px-3'>
               <div className="col-12">
                   <h5>
@@ -328,7 +350,7 @@ const data =
         "Komisyon oranları %18-%21 seviyesindedir.",
 
       ],
-      buttonText: "Uzman Ekibimiz ile Hemen Emag'de"
+      buttonText: "Uzman Ekibimiz ile Hemen Etsy'de"
     },
     {   
       name: "emag",
