@@ -471,11 +471,42 @@ $white: white;
     font-size: 13px;
     border-bottom: 1px solid $primary03;
     padding: 0.7rem 0 0.7rem 0.5rem;
+    margin: 0;
   }
   
   .profile-info{
-    padding: 0.5rem 0 1rem 1rem;
+    margin: 0;
+    padding: 1rem 0 1rem 1rem;
   }
+
+  .buton2{
+    padding: 0.7rem;
+    background-color: transparent;
+    border: 1px solid #270082;
+    color: #270082;
+    border-radius: 10px;
+      &:hover{
+        padding: 0.7rem 1rem;
+        background-color: transparent;
+        border: 1px solid #FA58B6;
+        color: #FA58B6;
+        border-radius: 10px;
+      }
+  }
+  .profile-button{
+    @extend .buton2;
+    padding: 0.3rem 0.7rem;
+    &:hover{
+      padding: 0.3rem 0.9rem;
+    }
+  }
+  .profile-input{
+    margin: 0 auto;
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid rgba(85, 112, 241, 0.3);
+  } 
+  
   
   #profile-photo{
       position: relative;
@@ -495,24 +526,28 @@ $white: white;
     left: 27px;
   }
 
-  .buton2{
-    padding: 0.7rem;
-    background-color: transparent;
-    border: 1px solid #270082;
-    color: #270082;
-    border-radius: 10px;
-  
-  }
-  .buton2:hover{
-    padding: 0.7rem 1rem;
-    background-color: transparent;
-    border: 1px solid #FA58B6;
-    color: #FA58B6;
-    border-radius: 10px;
-  }
+ 
   
   .add-product{
     cursor: pointer;
+  }
+
+  .profil-guncelle-buton{
+    margin: 0 0 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 3px 20px;
+    color: $white;
+    background: rgb(26,33,66);
+    background: -moz-linear-gradient(122deg, rgba(62, 79, 162, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
+    background: -webkit-linear-gradient(122deg, rgba(61, 77, 157, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
+    background: linear-gradient(122deg, rgba(64, 80, 163, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
+    border:none;
+    &:hover{
+      padding: 3px 25px;
+    }
   }
   
 
@@ -942,6 +977,9 @@ $white: white;
 
 
 .finder-wrapper{
+  .swiper-slide {
+    height: 450px !important;
+  }
   .map{
     max-width: 400px;
   }
@@ -995,9 +1033,7 @@ $white: white;
   min-height: 10rem;
 }
 
-.swiper-slide {
-  height: 450px !important;
-}
+
 
 .swiper-pagination-progressbar-fill {
   background-image: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%) !important; /* Replace with your desired gradient colors */
@@ -1172,10 +1208,19 @@ $white: white;
 
 /* video modal başlangıç */
   .videoWrapper{
+      .swiper{
+        overflow: visible;
+      }
+      .swiper-slide {
+        padding: 20px 10px 20px 10px;
+        height: auto;
+      }
+      .swiper-wrapper{
+        min-height: 220px;
+      }
     .videoInner{
       height: 10rem;
       transition: 0.5s;
-      background-image: url("https://img.youtube.com/vi/jRg9e428tNo/sddefault.jpg");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -1189,6 +1234,44 @@ $white: white;
     }
   }
 /* video modal BİTİŞ" */
+
+.reqModal{
+  display: flex;
+  justify-content: center;
+  $border: 3px solid $black10;
+  .reqWrapper{
+    height: 650px;
+    width: 1300px;
+    .reqTitle{
+      padding-top: 30px;
+      padding-bottom: 10px;
+    }
+    .reqTable{
+      background-color: $primary01;
+      max-width: 900px;
+      font-size: 17px;
+      border: $border;
+      .column1{
+        color: $black10;
+        padding-left: 30px;
+        max-width: 60px;
+      }
+      .column2{
+        color: $black08;
+        padding-left: 30px;
+        max-width: 100px;
+        border-left: $border;
+      }
+      td{
+          padding: 10px;
+      }
+      tr{
+          border-bottom: $border;
+      }
+    }
+  }
+}
+
 .ReactModal__Overlay{
   z-index: 9;
 }

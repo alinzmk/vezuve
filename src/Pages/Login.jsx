@@ -4,16 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import logo from "../Assets/logo-renkli.png";
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 function Login() {
   localStorage.setItem('id', null);
   const navigate = useNavigate();
-  const [email, setEmailname] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleEmailChange = (event) => {
-    setEmailname(event.target.value);
+  const handleUsername = (event) => {
+    setUsername(event.target.value);
   }
   
   const handlePasswordChange = (event) => {
@@ -37,38 +38,64 @@ function Login() {
   });
 
 
+// Function to handle login and get access token
+const loginUser = async (username, password) => {
+  try {
+    const response = await axios.post('https://localhost:6161/user_token', {
+      username: username,
+      password: password
+    });
+    
+    // Assuming the response contains access_token and token_type
+    const { access_token, token_type } = response.data;
+    
+    // You can do something with the token here (e.g., store it in localStorage)
+    console.log('Access Token:', access_token);
+    console.log('Token Type:', token_type);
+    
+    localStorage.setItem("token", access_token);
+    
+    return { access_token, token_type };
+  } catch (error) {
+
+    // Handle error here
+    console.error('Login failed:', error);
+    throw error;
+  }
+};
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const user = UserData.find(user => user.email === email && user.password === password);
 
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(username)) {
       alert('Please enter a valid email address');
       return;
     }
-    if (password.length < 5) {
+    if (password.length < 8) {
       alert('Password should be at least 8 characters long');
       return;
     }
 
-    if (user) {
-      notify();
-      navigate("/Panel");
-      localStorage.setItem('id', user.id);
-      localStorage.setItem("bankInfo", "false");
-      localStorage.setItem("identityDocument", "false");
-      localStorage.setItem("activityDocument", "false");
-      localStorage.setItem("englandCertificate", "false");
-      localStorage.setItem("taxPlate", "false");
-      localStorage.setItem("billInfo", "false");
-    } else {
-      alert('Invalid email or password');
-    }
+    loginUser(username, password)
+      .then((response) => {
+        // Use the access token or perform further actions
+        console.log('Login successful!', response);
+        notify();
+        navigate("/Panel");
+
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the login process
+        console.error('Login error:', error);
+        alert('Invalid email or password');
+      });
     
   };
   
 
   return (
+    
     <div className="App row m-0">
       <div className="col-5">
         <div className="login-container">
@@ -77,7 +104,7 @@ function Login() {
             <form action="#">
               <div className="row">
                 <i className="fas fa-user"></i>
-                <input value={email} onChange={handleEmailChange} type="email" placeholder="E-posta veya Telefon*" required />
+                <input value={username} onChange={handleUsername} type="email" placeholder="E-posta veya Telefon*" required />
               </div>
               <div className="row">
                 <i className="fas fa-lock"></i>
@@ -98,11 +125,10 @@ function Login() {
               <div className="row button">
                 <input onClick={handleSubmit} type="submit" value="Giriş Yap" />
               </div>
-              <div className="signup-link">Hala VezüPort ile tanışmadın mı? <a href="#">Hemen bizimle iletişime geçebilirsin.</a></div>
+              <div className="signup-link" onClick={()=>navigate("/Kayıt")}>Hala VezüPort ile tanışmadın mı? Hemen bizimle iletişime geçebilirsin</div>
             </form>
           </div>
         </div>
-
       </div>
       <div className="col-6">
       </div>

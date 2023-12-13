@@ -1,4 +1,5 @@
 import '../App.css';
+import { useEffect } from 'react';
 import logo from "../Assets/logo-renkli.png"
 import { Link } from 'react-router-dom';
 import Sidebar from "../Modals/Sidebar";
@@ -7,37 +8,71 @@ import LineChart from '../Modals/Linechart';
 import { useState } from 'react';
 import { UserData } from '../Assets/Mockdata';
 import Sidebar2 from '../Modals/Sidebar2';
-
+import axios from 'axios';
 
 
 function Dashboard() {
 
-    const userIdToFind = parseInt(localStorage.getItem("id")); // Replace with the ID you're looking for
+    const [userPortfolio, setUserPortfolio] = useState(null); // State to store user portfolio data
+    const [userPlan, setUserPlan] = useState(null); // State to store user plan data
 
-    const selectedUser = UserData.find(data => data.id === userIdToFind);
+  // Function to fetch user plan data
+  const fetchUserPlan = async (accessToken) => {
+    try {
+      const response = await axios.get('http://your-backend-url/get_user_plan', {
+        headers: {
+          Authorization: `Bearer ${accessToken}`, // Include the JWT token in the header
+        },
+      });
 
-    if (selectedUser) {
-    var sale = selectedUser.totalSales;
-    var purchase = selectedUser.totalPurchase;
-    var order = selectedUser.totalOrder;
-    var growth = selectedUser.totalGrowth;
-    var plan = selectedUser.currentPlan;
-    var expert = selectedUser.expert;
-    var expertmail = selectedUser.expertmail;
+      // Assuming the response contains userPlan
+      const userPlanResponse = response.data.userPlan;
 
+      // Set the userPlan in the component state
+      setUserPlan(userPlanResponse);
+    } catch (error) {
+      // Handle error here
+      console.error('Error fetching user plan:', error);
+      // Handle error state or notify the user about the error
     }
-    else {
-    
-    console.log(`User with ID ${userIdToFind} not found`);
-    
-    }
+  };
+
+    // Function to fetch user portfolio data
+    const fetchUserPortfolio = async (accessToken) => {
+        try {
+            const response = await axios.get('https://localhost:6161/get_user_portfolio', {
+                headers: {
+                Authorization: `Bearer ${accessToken}`, // Include the JWT token in the header
+                },
+            });
+
+            // Assuming the response contains userPortfolio
+            const userPortfolioResponse = response.data.userPortfolio;
+
+            // Set the userPortfolio in the component state
+            setUserPortfolio(userPortfolioResponse);
+        } 
+        catch (error) {
+            // Handle error here
+            console.error('Error fetching user portfolio:', error);
+            // Handle error state or notify the user about the error
+        }
+    };
+
+    useEffect(() => {
+        const accessToken = localStorage.getItem("token"); // Replace with the actual access token
+        fetchUserPortfolio(accessToken);
+        fetchUserPlan(accessToken);
+    }, []); // Run only once on component mount
 
 
-    const [graphData, setGraphData] = useState({
-        labels: selectedUser.reportGraph.map((data) => data.month),
+    const [graphData, setGraphData] = useState(null);
+
+    setGraphData({
+        labels: userPortfolio.reportGraph.map((data) => data.month),
         datasets: [
           {
-            data: selectedUser.reportGraph.map((data) => data.value),
+            data: userPortfolio.reportGraph.map((data) => data.value),
             backgroundColor: "rgba(28, 29, 34, 1)",
             borderColor: "rgba(28, 29, 34, 1)",
             borderWidth: 1,
@@ -66,28 +101,28 @@ function Dashboard() {
                                     <div className='col-lg-4 col-12 trans mainhov' id='total-sales'>
                                         <div className='col-12 slideup position-relative'>
                                             <h6>Toplam Satış</h6>
-                                            <h2>{sale}₺<span className='aylık'>/aylık</span></h2>
+                                            <h2>{userPortfolio.totalSales}₺<span className='aylık'>/aylık</span></h2>
                                             <p className='plus' >+%3</p>
                                         </div>
                                     </div>
                                     <div className='col-lg-3 col-12  trans mainhov' id='total-purchases'>
                                     <div className='col-12 slideup'>
                                             <h6>Toplam Alış</h6>
-                                            <h2>{purchase}₺<span className='aylık'>/aylık</span></h2>
+                                            <h2>{userPortfolio.totalPurchase}₺<span className='aylık'>/aylık</span></h2>
                                             <p className='minus'>-%3</p>
                                         </div>
                                     </div>
                                     <div className='col-lg-3 col-12 trans mainhov' id='total-orders'>
                                     <div className='col-12 slideup'>
                                             <h6>Toplam Sipariş</h6>
-                                            <h2>{order}₺<span className='aylık'>/aylık</span></h2>
+                                            <h2>{userPortfolio.totalOrder}₺<span className='aylık'>/aylık</span></h2>
                                             <p className='plus' >+%7</p>
                                         </div>
                                     </div>
                                     <div className='col-12 trans mainhov' id='total-growth'>
                                         <div className='col-12 slideup position-relative'>
                                                 <h6>Toplam Büyüme</h6>
-                                                <h1>{growth}₺<span className='aylık'>/aylık</span></h1>
+                                                <h1>{userPortfolio.totalGrowth}₺<span className='aylık'>/aylık</span></h1>
                                                 <p className='plus2' >+%7</p>
                                         </div>
                                     </div>
@@ -95,13 +130,13 @@ function Dashboard() {
                             </div>
                             <div className="col-6 mb-3 d-flex justify-content-between" id='customer-info'>                           
                                 <div className="col-12 ps-5 my-auto">
-                                    <h5 className='main-info' >Aktif hizmetiniz <i class="fa-solid fa-box-open"></i> : <span className='main-info2' >{plan}</span></h5>
+                                    <h5 className='main-info' >Aktif hizmetiniz <i class="fa-solid fa-box-open"></i> : <span className='main-info2' >{userPlan.plan}</span></h5>
                                     <hr className='info-hr' />
-                                    <h5 className='main-info' >E-Ticaret Uzmanınız <i class="fa-regular fa-user"></i> : <span className='main-info2' >{expert}</span></h5>  
+                                    <h5 className='main-info' >E-Ticaret Uzmanınız <i class="fa-regular fa-user"></i> : <span className='main-info2' >{userPlan.expert}</span></h5>  
                                     <hr  className='info-hr'/>                                  
-                                    <h5 className='main-info' >Uzman İletişim Bilgileri <i class="fa-regular fa-user"></i> : <span className='main-info2' >{expertmail}</span></h5>  
+                                    <h5 className='main-info' >Uzman İletişim Bilgileri <i class="fa-regular fa-user"></i> : <span className='main-info2' >{userPlan.expertmail}</span></h5>  
                                     <hr className='info-hr' />
-                                    <h5 className='main-info' >Kalan Abonelik Süreniz <i class="fa-regular fa-clock"></i> : <span className='main-info2' > 25 gün</span></h5>
+                                    <h5 className='main-info' >Kalan Abonelik Süreniz <i class="fa-regular fa-clock"></i> : <span className='main-info2' >{userPlan.startDate} {userPlan.finishDate}</span></h5>
                                 </div>
                             </div>
                         </div>

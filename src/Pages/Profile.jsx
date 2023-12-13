@@ -1,48 +1,139 @@
 import '../App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import logo from "../Assets/logo-renkli.png"
 import { useNavigate } from 'react-router-dom';
 import Plan from '../Modals/Plan';
-import { UserData } from '../Assets/Mockdata';
 import Sidebar2 from '../Modals/Sidebar2';
-
+import { WhatsAppWidget } from 'react-whatsapp-widget';
+import 'react-whatsapp-widget/dist/index.css';
+import axios from 'axios';
 
 function Profile() {
 
-    const navigate = useNavigate();    
+    const navigate = useNavigate();
     const [openModal, setModalOpen] = useState(false);
-    const userIdToFind = parseInt(localStorage.getItem("id")); // Replace with the ID you're looking for
+    const [userData, setUserData] = useState(null);
+    const [editable, setEditable] = useState("");
 
-    const selectedUser = UserData.find(data => data.id === userIdToFind);
+    //------------------------------------------------------------------------------
 
-    if (selectedUser) {
-    var name = selectedUser.name;
-    var plan = selectedUser.currentPlan;
-    var phone = selectedUser.phone;
-    var mail = selectedUser.email;
-    var accaountName = selectedUser.accountName;
-    var companyTitle = selectedUser.companyTitle;
-    var taxAdmin = selectedUser.taxAdmin;
-    var taxNumber = selectedUser.taxNumber;
-    var city = selectedUser.city;
-    var adress = selectedUser.adress;
-    }
-    else {
-        
-    console.log(`User with ID ${userIdToFind} not found`);
     
+    //------------------------------------------------------------------------------
+    
+    const [column, setColumn] = useState(''); // State to store column value
+    const [newValue, setNewValue] = useState(''); // State to store newValue value
+    const [responseStatus, setResponseStatus] = useState(null); // State to store response status
+  
+    console.log(newValue);
+
+    // Function to send user data to the backend
+    const postUserdata = async () => {
+      try {
+        const accessToken = localStorage.getItem("token"); // Replace with the actual access token
+        const response = await axios.post('https://localhost:6161/set_user_data', {
+          column: column,
+          newValue: newValue,
+        }, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // Include the JWT token in the header
+          },
+        });
+  
+        // Assuming the response contains status
+        const status = response.data.status;
+        
+        if(status===200){
+            alert("CALL NOTIFY HERE");
+        }
+        // Set the response status in the component state
+        setResponseStatus(status);
+      } catch (error) {
+        // Handle error here
+        console.error('Error setting user data:', error);
+        // Handle error state or notify the user about the error
+      }
+    };
+
+    const updateUserData = (state) =>{
+        setColumn(state);
+        postUserdata();
+        setEditable(null);
     }
-    const toServices = () => {
-        navigate('/Hizmetler');
-      };
+    
+    //---------------------------------------------------
+
+    // Function to fetch user data
+    const fetchUserData = async (accessToken) => {
+    try {
+        const response = await axios.get('https://localhost:6161/get_user_data', {
+        headers: {
+            Authorization: `Bearer ${accessToken}`, // Include the JWT token in the header
+        },
+        });
+
+        // Assuming the response contains userData
+        const userDataResponse = response.data.userData;
+        setUserData(userDataResponse);
+
+        // Use the userData object or perform further actions
+        console.log('User Data:', userData);
+
+        return userData;
+    } 
+    catch (error) {
+        // Handle error here
+        console.error('Error fetching user data:', error);
+        throw error;
+    }
+    };
+
+    // Usage: Assuming you have the access token stored after successful login
+    const accessToken = localStorage.getItem("token"); // Replace this with the actual access token
+
+    fetchUserData(accessToken)
+    .then((userData) => {
+        // Use the user data or perform further actions
+        console.log('Fetched user data:', userData);
+    })
+    .catch((error) => {
+        // Handle any errors that occurred during data fetching
+        console.error('Error fetching user data:', error);
+    });
+
+
+    
   return (
     <>
+
+
+
+        {/* <div>
+      <input
+        type="text"
+        placeholder="Column"
+        value={column}
+        onChange={(e) => setColumn(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="New Value"
+        value={newValue}
+        onChange={(e) => setNewValue(e.target.value)}
+      />
+      <button onClick={setUserdata}>Set User Data</button>
+      {responseStatus && <p>Status: {responseStatus}</p>}
+    </div> */}
+
+
+
+
         <div className="dashboard m-0">
         <div className='slideup'>
             <Plan open={openModal} onClose={()=>setModalOpen(false)}/>
         </div> 
             <div className="row">
                 <div className="p-0">
+            
                  <Sidebar2/>
                 </div>
                 <div className="container mt-4 slideleft right">
@@ -57,38 +148,74 @@ function Profile() {
                            <div className="row ps-0 my-3 slideup ">
                                 <div className="col-9 my-auto">
                                     <div className="col-12">
-                                        <h3 className='ms-4 purple'>Hoş geldiniz<i class="fa-solid fa-hands"></i>, Sayın {name}.</h3>
+                                        <h3 className='ms-4 purple'>Hoş geldiniz<i class="fa-solid fa-hands"></i>, Sayın {userData ? (
+                                            <h6 className='profile-info'>{userData.name}</h6>
+                                            ) : (
+                                            <>Müşterimiz </>
+                                        )}.</h3>
 
                                     </div>
                                     <div className="col-12 ms-4 purple ">
-                                        <h6 className=''>Şu anda ödeme planınız; {plan}  
-                                        <button class="buton2 ms-2 mt-2 trans" onClick={toServices} ><i class="fa-solid fa-repeat"></i> Değiştir</button></h6>
+                                        <h6 className=''>Şu anda ödeme planınız; {userData ?(
+                                            <>{userData.Plan}</>
+                                        ) : (
+                                            <>Aktif Planınız yok</>
+                                        )}  
+                                        <button class="buton2 ms-2 mt-2 trans" onClick={()=>navigate('/Hizmetler')} ><i class="fa-solid fa-repeat"></i> Değiştir</button></h6>
                                     </div>
                                 </div>
-                                
                             </div>
                         </div>
+                        <form>
                         <div className="col-12 slideleft">
+                        <WhatsAppWidget 
+                                        companyName="Vezüve Destek Hattı"
+                                        phoneNumber="+905377638075"
+                                        message="Merhabalar, yardım almak istiyorum."
+                                        textReplyTime=""
+                                        inputPlaceHolder="Mesajınızı giriniz."
+
+                                    />
                             <div className="row mb-3">
                                 <div className="col-4 ps-0 pe-3">
                                     <div className="pbg">
                                         <p className='profile-title'>Hesap Adı</p>
-                                        <h6 className='profile-info'>{accaountName}</h6>
+                                        {userData ? (
+                                            <h6 className='profile-info'>{userData.accountName}</h6>
+                                            ) : (
+                                            <h6 className='profile-info'> </h6>
+                                        )}
 
                                     </div>
                                 </div>
                                 <div className="col-4 ps-0 pe-3">
                                     <div className="pbg">
                                         <p className='profile-title'>E-mail</p>
-                                        <h6 className='profile-info'>{mail}</h6>
+                                        {userData ? (
+                                            <h6 className='profile-info'>{userData.mail}</h6>
+                                            ) : (
+                                            <h6 className='profile-info'> </h6>
+                                        )}
 
                                     </div>
                                 </div>
+                                
                                 <div className="col-4 ps-0 pe-3">
                                     <div className="pbg">
                                         <p className='profile-title'>Telefon</p>
-                                        <h6 className='profile-info'>{phone}</h6>
-
+                                        {editable==="phone" ? (
+                                                // Content to display when editable is true (empty in this case)
+                                                <input type='text' className='profile-input' placeholder="Telefonunuz" ></input>
+                                            ) : (
+                                                userData ? (
+                                                    // Display user address if userData exists
+                                                    <h6 className='profile-info'>{userData.phoneNumber}</h6>
+                                                ) : (
+                                                    // Display an empty h6 element if userData doesn't exist
+                                                    <h6 className='profile-info'> </h6>
+                                                )
+                                        )}
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -96,21 +223,62 @@ function Profile() {
                                 <div className="col-4 ps-0 pe-3">
                                     <div className="pbg">
                                         <p className='profile-title'>Şirket Ünvanı</p>
-                                        <h6 className='profile-info'>{companyTitle}</h6>
+                                        {editable==="companyTitle" ? (
+                                                // Content to display when editable is true (empty in this case)
+                                                <div className="d-flex align-items-center">
+                                                    <input type='text' className='profile-input' placeholder="Şirket Ünvanınız" onChange={(e) => setNewValue(e.target.value)}></input>
+                                                    <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData(editable)} ><i class="fa-solid fa-floppy-disk"></i></button>
+                                                </div>
+                                            ) : (
+                                                userData ? (
+                                                    // Display user address if userData exists
+                                                    <h6 className='profile-info'>{userData.companyTitle}</h6>
+                                                ) : (
+                                                    // Display an empty h6 element if userData doesn't exist
+                                                    <div className="d-flex align-items-center">
+                                                        <h6 className='profile-info'>Trabzon</h6>
+                                                        <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("companyTitle")}>
+                                                            <i className="fa-solid fa-pen-to-square"></i>
+                                                        </button>
+                                                    </div>
+                                                )
+                                        )}
 
                                     </div>
                                 </div>
                                 <div className="col-4 ps-0 pe-3">
                                     <div className="pbg">
                                         <p className='profile-title'>Vergi Dairesi</p>
-                                        <h6 className='profile-info'>{taxAdmin}</h6>
-
+                                        {editable==="taxAdmin" ? (
+                                                // Content to display when editable is true (empty in this case)
+                                                <div className="d-flex align-items-center">
+                                                    <input type='text' className='profile-input' placeholder="Vergi Daireniz" onChange={(e) => setNewValue(e.target.value)}></input>
+                                                    <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData(editable)} ><i class="fa-solid fa-floppy-disk"></i></button>
+                                                </div>
+                                            ) : (
+                                                userData ? (
+                                                    // Display user address if userData exists
+                                                    <h6 className='profile-info'>{userData.taxAdmin}</h6>
+                                                ) : (
+                                                    // Display an empty h6 element if userData doesn't exist
+                                                    <div className="d-flex align-items-center">
+                                                        <h6 className='profile-info'>Trabzon</h6>
+                                                        <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("taxAdmin")}>
+                                                            <i className="fa-solid fa-pen-to-square"></i>
+                                                        </button>
+                                                    </div>
+                                                )
+                                        )}
                                     </div>
                                 </div>
                                 <div className="col-4 ps-0 pe-3">
                                     <div className="pbg">
                                         <p className='profile-title'>Vergi Numarası</p>
-                                        <h6 className='profile-info'>{taxNumber}</h6>
+                                        {userData ? (
+                                            <h6 className='profile-info'>{userData.taxNumber}</h6>
+                                            ) : (
+                                            <h6 className='profile-info'> </h6>
+                                        )}
 
                                     </div>
                                 </div>
@@ -119,19 +287,60 @@ function Profile() {
                                 <div className="col-4 ps-0 pe-3">
                                     <div className="pbg">
                                         <p className='profile-title'>Şehir</p>
-                                        <h6 className='profile-info'>{city}</h6>
+                                        {editable==="city" ? (
+                                                // Content to display when editable is true (empty in this case)
+                                                <div className="d-flex align-items-center">
+                                                    <input type='text' className='profile-input' placeholder="Şehriniz" onChange={(e) => setNewValue(e.target.value)}></input>
+                                                    <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData(editable)} ><i class="fa-solid fa-floppy-disk"></i></button>
+                                                </div>
+                                            ) : (
+                                                userData ? (
+                                                    // Display user address if userData exists
+                                                    <h6 className='profile-info'>{userData.city}</h6>
+                                                ) : (
+                                                    // Display an empty h6 element if userData doesn't exist
+                                                    <div className="d-flex align-items-center">
+                                                        <h6 className='profile-info'>No data</h6>
+                                                        <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("city")}>
+                                                            <i className="fa-solid fa-pen-to-square"></i>
+                                                        </button>
+                                                    </div>
+                                                )
+                                        )}
 
                                     </div>
                                 </div>
                                 <div className="col-8 ps-0 pe-3">
                                     <div className="pbg">
                                         <p className='profile-title'>Açık Adres</p>
-                                        <h6 className='profile-info'>{adress}</h6>
-
+                                        {editable==="adress" ? (
+                                                // Content to display when editable is true (empty in this case)
+                                                <div className="d-flex align-items-center">
+                                                    <input type='text' className='profile-input' placeholder="Adresiniz" onChange={(e) => setNewValue(e.target.value)} ></input>
+                                                    <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData(editable)} ><i class="fa-solid fa-floppy-disk"></i></button>
+                                                </div>
+                                            ) : (
+                                                userData ? (
+                                                    // Display user address if userData exists
+                                                    <>
+                                                        <h6 className='profile-info'>{userData.address}</h6>
+                                                        <button class="buton2 ms-2 mt-2 trans" onClick={()=>updateUserData(true)} ><i class="fa-solid fa-pen-to-square"></i> </button>
+                                                    </>
+                                                ) : (
+                                                    // Display an empty h6 element if userData doesn't exist
+                                                    <div className="d-flex align-items-center">
+                                                        <h6 className='profile-info'>No data</h6>
+                                                        <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("adress")}>
+                                                            <i className="fa-solid fa-pen-to-square"></i>
+                                                        </button>
+                                                    </div>
+                                                )
+                                            )}
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

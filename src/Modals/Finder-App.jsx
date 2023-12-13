@@ -7,46 +7,58 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import { EffectCreative } from 'swiper/modules';
 import { useCallback } from "react";
+import { toast } from 'react-toastify';
 
 export default function App(props) {
+  
+    const [employeeCount, setEmployeeCount] = useState("");
+    const [productCategory, setProductCategory] = useState("");
+    const [TurkeySalesVolume, setTurkeySalesVolume] = useState("");
+    const [hasWebsite, setHasWebsite] = useState(null);
+    const [hasTurkeySales, setHasTurkeySales] = useState(null);
+    const [hasInternationalSales, setHasInternationalSales] = useState(null);
+    const [hasStore, setHasStore] = useState(null);
+    const [desiInfo, setDesiInfo] = useState(null);
     const sliderRef = useRef(null);
+
+    const notify = () => toast.warning("Lütfen bir seçenek işaretleyiniz",{
+      position: "bottom-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+    });
 
     const handlePrev = useCallback(() => {
         if (!sliderRef.current) return;
         sliderRef.current.swiper.slidePrev();
     }, []);
 
-    const handlePrevto1 = useCallback(() => {
+    const handlePrevto1 = useCallback((x) => {
+      if (x===null || x===""){
+        return;
+      }
       if (!sliderRef.current) return;
       sliderRef.current.swiper.slideTo(0);
   }, []);
 
-    const handleNext = useCallback(() => {
+    const handleNext = useCallback((x) => {
+        if (x===null || x===""){
+          notify();
+          return;
+        }
         if (!sliderRef.current) return;
         sliderRef.current.swiper.slideNext();
     }, []);
 
 
-    const [employeeCount, setEmployeeCount] = useState('1-10');
-    const [productCategory, setProductCategory] = useState('Mobilya');
-    const [TurkeySalesVolume, setTurkeySalesVolume] = useState("100.000-250.000");
-    const [hasWebsite, setHasWebsite] = useState(null);
-    const [hasTurkeySales, setHasTurkeySales] = useState(null);
-    const [hasInternationalSales, setHasInternationalSales] = useState(null);
-    const [hasStore, setHasStore] = useState(null);
-    const [desiInfo, setDesiInfo] = useState(null);
     
 
   const handleSubmit = (e) => {
       e.preventDefault();
-      console.log({
-      employeeCount,
-      productCategory,
-      hasWebsite,
-      hasInternationalSales,
-      hasTurkeySales,
-      hasStore,
-      });
 
       const selectData = Math.floor(Math.random() * (4 - 0 + 1) + 0);
       const selectData2 = Math.floor(Math.random() * (4 - 0 + 1) + 0);
@@ -109,7 +121,7 @@ export default function App(props) {
                     <span className="radio-label">Hayır, Yok.</span>
                   </label>
               </div>
-              <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
+              <div className="next-arrow" onClick={()=>handleNext(hasWebsite)}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -138,7 +150,7 @@ export default function App(props) {
                   </label>
               </div>
                 <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
-                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
+                <div className="next-arrow" onClick={()=>handleNext(hasTurkeySales)}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -169,7 +181,7 @@ export default function App(props) {
 
               </div>
                 <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
-                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
+                <div className="next-arrow" onClick={()=>handleNext(hasInternationalSales)}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -178,7 +190,7 @@ export default function App(props) {
                   <h5>
                       Türkiye pazarında online veya geleneksel ticaret ile firmanızın toplam satış geliri ortalaması hangi aralıktadır?
                   </h5>
-                    <select className='custom-select text-center mt-3'defaultValue="100.000-250.000" value={TurkeySalesVolume} onChange={(e) => setTurkeySalesVolume(e.target.value)}>
+                    <select className='custom-select text-center mt-3'defaultValue="" value={TurkeySalesVolume} onChange={(e) => setTurkeySalesVolume(e.target.value)}>
                         <option className="" value="100.000-250.000">100.000₺-250.000₺</option>
                         <option className="" value="250.000-500.000">250.000₺-500.000₺</option>
                         <option className="" value="500.000-1.000.000">500.000₺-1.000.000₺</option>
@@ -188,7 +200,7 @@ export default function App(props) {
 
               </div>
                 <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
-                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
+                <div className="next-arrow" onClick={()=>handleNext(TurkeySalesVolume)}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -219,7 +231,7 @@ export default function App(props) {
 
               </div>
                 <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
-                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
+                <div className="next-arrow" onClick={()=>handleNext(hasStore)}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -228,7 +240,7 @@ export default function App(props) {
                   <h5>
                     Satışını yaptığınız ürün grubunun ana kategorisisi nedir ?
                   </h5>
-                    <select className='custom-select text-center mt-3'defaultValue="100.000-250.000" value={TurkeySalesVolume} onChange={(e) => setTurkeySalesVolume(e.target.value)}>
+                    <select className='custom-select text-center mt-3'defaultValue="100.000-250.000" value={productCategory} onChange={(e) => setProductCategory(e.target.value)}>
                       <option value="Mobilya">Mobilya</option>
                       <option value="Kozmetik">Kozmetik</option>
                       <option value="Takı">Takı</option>
@@ -242,7 +254,7 @@ export default function App(props) {
                     </select>
               </div>
                 <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
-                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
+                <div className="next-arrow" onClick={()=>handleNext(productCategory)}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -260,7 +272,7 @@ export default function App(props) {
                     </select>
               </div>
                 <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
-                <div className="next-arrow" onClick={handleNext}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
+                <div className="next-arrow" onClick={()=>handleNext(desiInfo)}>İLERİ<i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -269,7 +281,7 @@ export default function App(props) {
                   <h5>
                     Türkiyede ki işletmenizde tüm birimler dahil kaç tam zamanlı çalışana sahipsiniz? 
                   </h5>
-                    <select className='custom-select text-center mt-3'defaultValue="100.000-250.000" value={TurkeySalesVolume} onChange={(e) => setTurkeySalesVolume(e.target.value)}>
+                    <select className='custom-select text-center mt-3'defaultValue="100.000-250.000" value={employeeCount} onChange={(e) => setEmployeeCount(e.target.value)}>
                         <option value="1-10">1-10</option>
                         <option value="11-50">11-50</option>
                         <option value="51-100">51-100</option>
@@ -277,7 +289,7 @@ export default function App(props) {
                     </select>
               </div>
                 <div className="prev-arrow" onClick={handlePrev}><i class="fa-solid fa-chevron-left"></i>GERİ</div>
-                <button className='finder-submit mt-4' onClick={handlePrevto1} type="submit">PAZAR YERİ ÖNER<i class="fa-solid fa-angles-right ms-2"></i></button>
+                <button className='finder-submit mt-4' onClick={()=>handlePrevto1(employeeCount)} type="submit">PAZAR YERİ ÖNER<i class="fa-solid fa-angles-right ms-2"></i></button>
             </div>
         </SwiperSlide>
       </Swiper>
@@ -293,11 +305,11 @@ const data =
     name: "amazon",
     logo: 'amazon.png',
     items: [
-      'ABD: Yıllık Satış 314 Milyar Dolar Aylık 3 Milyar Ziyaretçi',
-      'UK: Yıllık Satış 30 Milyar Euro Aylık 400 milyon Ziyaretçi',
-      "AVRUPA: 51 Milyar Euro Yıllık Satış Aylık 800 Milyon Ziyaretçi",
-      "Satıcı Sayısı: 1,9 MİLYON.",
-      "Popüler Pazaryerleri: Youtube, Facebook"
+      "ABD Yıllık Satış 314 Milyar Dolar Aylık 3 Milyar Ziyaretçi",
+      "UK Yıllık Satış 30 Milyar Euro Aylık 400 milyon Ziyaretçi",
+      "AVRUPA 51 Milyar Euro Yıllık Satış Aylık 800 Milyon Ziyaretçi",
+      "Satıcı Sayısı: 1,9 MİLYON",
+      "Popüler Pazaryerleri: YouTube, Facebook",
 
     ],
     flag: {
@@ -311,14 +323,14 @@ const data =
     
     city: 0 ,
     items2: [
-      "ABD VE UK İçin şirket kurulumu (tüzel kişilik),AB için Vat kaydı",
-      "Yurt dışı banka hesabı.",
-      "Elektirik/su/doğalgaz faturası (herhangi biri) ",
-      "Uluslararası kargo",
-      "Uluslararası geçerli banka hesabı",
-      "GTIN/UPC GS1 Şirket Ön Ek Numaraları",
+      {"ŞİRKET KURULUMU": "200-250 dolar"},
+      {"Amazon aylık kira bedeli"	: "40 DOLAR"},
+      {"EAN Barkod":	"1750-5000 tl"},
+      {"Lojistik":	"50X60X60 Amazon standarlarında 10 koli 750 dolar"},
+      {"Günlük reklam maliyeti	Minimum": "35-50 dolar"},
+      {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 dolar ürün fiyatı aralığı için 500-750 dolar"},
     ],
-    buttonText: "Uzman Ekibimiz ile Hemen Etsy'de"
+    buttonText: "Uzman Ekibimiz ile Hemen Amazon'da"
   },
   {   
       name: "etsy",
@@ -342,13 +354,12 @@ const data =
       
       city: 0 ,
       items2: [
-        "Türkiyede ticaret odasına kayıtlı şirket",
-        "Romanyada şirket kurulumu (tüzel kişilik.)",
-        "uluslararası Lojistik",
-        "Romanya’da veya uluslararası geçerli bir banka hesabı ",
-        "GTIN/UPC GS1 Şirket Ön Ek Numaraları",
-        "Komisyon oranları %18-%21 seviyesindedir.",
-
+        {"ŞİRKET KURULUMU": "200-250 dolar"},
+        {"Amazon aylık kira bedeli"	: "40 DOLAR"},
+        {"EAN Barkod":	"1750-5000 tl"},
+        {"Lojistik":	"50X60X60 Amazon standarlarında 10 koli 750 dolar"},
+        {"Günlük reklam maliyeti	Minimum": "35-50 dolar"},
+        {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 dolar ürün fiyatı aralığı için 500-750 dolar"},
       ],
       buttonText: "Uzman Ekibimiz ile Hemen Etsy'de"
     },
@@ -374,10 +385,12 @@ const data =
       
       city: 0 ,
       items2: [
-        "Şirket Vergi Levhası",
-        "Şahıs Kimliği",
-        "El yapımı ürün ",
-        "Uluslararası Kargo",
+        {"ŞİRKET KURULUMU": "200-250 dolar"},
+        {"Amazon aylık kira bedeli"	: "40 DOLAR"},
+        {"EAN Barkod":	"1750-5000 tl"},
+        {"Lojistik":	"50X60X60 Amazon standarlarında 10 koli 750 dolar"},
+        {"Günlük reklam maliyeti	Minimum": "35-50 dolar"},
+        {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 dolar ürün fiyatı aralığı için 500-750 dolar"},
       ],
       buttonText: "Uzman Ekibimiz ile Hemen Emag'de"
     },
@@ -403,9 +416,12 @@ const data =
       
       city: 0 ,
       items2: [
-        "Türkiyede ticaret odasına kayıtlı şirket",
-        "Polonyada vergi (vat kaydı)", 
-        "Uluslararası Lojistik",
+        {"ŞİRKET KURULUMU": "200-250 dolar"},
+        {"Amazon aylık kira bedeli"	: "40 DOLAR"},
+        {"EAN Barkod":	"1750-5000 tl"},
+        {"Lojistik":	"50X60X60 Amazon standarlarında 10 koli 750 dolar"},
+        {"Günlük reklam maliyeti	Minimum": "35-50 dolar"},
+        {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 dolar ürün fiyatı aralığı için 500-750 dolar"},
       ],
       buttonText: "Uzman Ekibimiz ile Hemen Allegro'da"
     }

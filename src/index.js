@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import ErrorPage from "./Pages/Error-page";
 import Login from './Pages/Login';
+import Register from './Pages/Register';
 import Dashboard from './Pages/Dashboard';
 import Profile from './Pages/Profile';
 import Documents from './Pages/Documents';
@@ -25,6 +26,11 @@ const router = createHashRouter([
   {
     path: "/",
     element: <Login/>,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/Kayıt",
+    element: <Register/>,
     errorElement: <ErrorPage />
   },
   {

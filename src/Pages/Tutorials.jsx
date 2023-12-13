@@ -3,6 +3,15 @@ import { useState } from 'react';
 import logo from "../Assets/logo-renkli.png"
 import Sidebar2 from '../Modals/Sidebar2';
 import VideoModal from '../Modals/VideoModal';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation } from 'swiper/modules';
+import { EffectCreative } from 'swiper/modules';
+
+import api from '../ApiService.js';
+api();
 
 
 function Tutorials() {
@@ -10,9 +19,13 @@ function Tutorials() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectedVideoId, setSelectedVideoId] = useState("");
     
-    const video = "jRg9e428tNo"
-    const thumb = "https://img.youtube.com/vi/"+video+"/sddefault.jpg"
     
+    const videos = [
+        { id: 1, name: "Amazon", url: ['jRg9e428tNo', "jRg9e428tNo", "jRg9e428tNo", 'jRg9e428tNo', "jRg9e428tNo", "jRg9e428tNo"] },
+        { id: 2, name: "Etsy", url: ['sYFyacD_OlE', "sYFyacD_OlE", "sYFyacD_OlE", 'sYFyacD_OlE', "sYFyacD_OlE", "sYFyacD_OlE"] },
+        { id: 3, name: "Emag", url: ['FyQ_5uLyFMo', "FyQ_5uLyFMo", "FyQ_5uLyFMo", 'FyQ_5uLyFMo', "FyQ_5uLyFMo", "FyQ_5uLyFMo"] },
+        { id: 4, name: "Allegro", url: ['jRg9e428tNo', "jRg9e428tNo", "jRg9e428tNo", 'jRg9e428tNo', "jRg9e428tNo", "jRg9e428tNo"] },
+      ];
 
     const openModal = (videoId) => {
         setSelectedVideoId(videoId);
@@ -24,6 +37,9 @@ function Tutorials() {
         setModalIsOpen(false);
     };
     
+    const getThumbnail = (link) =>{
+        return "url('https://img.youtube.com/vi/"+link+"/sddefault.jpg')";
+    }
     
 
 
@@ -48,29 +64,34 @@ function Tutorials() {
                                 <img src={logo} className='sidebar-logo' alt="" />
                             </div>
                             <div className="row slideleft">
-                                <div className='col-11 pbg'>
-                                    <div className="row my-5">
-                                        <div className="col-12 col-md-6 col-xl-3 videoWrapper">
-                                            <div className='text-center videoInner mx-5' onClick={() => openModal(video)}>
-                                                
-                                            </div>
+                                <div style={{overflow:"hidden"}} className='col-11 pbg videoWrapper'>
+                                    {videos.map((video, index) => (
+                                        <div className="row mt-3">
+                                            <h5>{video.name} Eğitim Videoları</h5>
+                                            <Swiper
+                                                slidesPerView={3}
+                                                spaceBetween={0}
+                                                pagination={{
+                                                clickable: true,
+                                                dynamicBullets: true,
+                                                }}
+                                                modules={[Pagination]}
+                                                className=""
+                                            >
+                                                    {video.url.map((url, idx) => (
+                                                <SwiperSlide>
+                                                        <div key={index} className="col-12 ">
+                                                            <div key={idx} style={{backgroundImage:getThumbnail(url)}} className='text-center videoInner mx-5' onClick={() => openModal(url)}>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                </SwiperSlide>
+                                                    ))}
+                                                    
+
+                                            </Swiper>
                                         </div>
-                                        <div className="col-12 col-lg-6 col-xl-3 videoWrapper">
-                                            <div className='text-center videoInner mx-5' onClick={() => openModal(video)}>
-                                                
-                                            </div>
-                                        </div>
-                                        <div className="col-12 col-md-6 col-xl-3 videoWrapper">
-                                            <div className='text-center videoInner mx-5' onClick={() => openModal(video)}>
-                                                
-                                            </div>
-                                        </div>
-                                        <div className="col-12 col-md-6 col-xl-3 videoWrapper">
-                                            <div className='text-center videoInner mx-5' onClick={() => openModal(video)}>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
+                                    ))}
                                 </div>
                             </div>         
                         </div>

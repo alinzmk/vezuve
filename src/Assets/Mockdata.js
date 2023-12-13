@@ -33,11 +33,6 @@ export let UserData = [
         { month: 'Aug', value: 531 },
         { month: 'Sep', value: 933 }
       ],
-      status:[
-        { month: 'January', value: 374 },
-        { month: 'February', value: 200 },
-        { month: 'March', value: 400 },
-      ],
       bankInfo: false,
       identityDocument: false,
       activityDocument: false,

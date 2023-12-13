@@ -17,8 +17,8 @@ function MarketFinder() {
     const [selectedData, setSelectedData] = useState(null);
     const [selectedData2, setSelectedData2] = useState(null);
 
-    const openModal = (videoId) => {
-        setSelectedVideoId(videoId);
+    const openModal = (x) => {
+        setSelectedVideoId(x);
         setModalIsOpen(true);
     };
     
@@ -33,11 +33,8 @@ function MarketFinder() {
         setSelectedData2(data2);
     };
 
-    const navigate = useNavigate();
-
-    const handleClick = (tabId) => {
-        localStorage.setItem("tab", JSON.stringify(tabId.name));
-        openModal("aaa");
+    const handleClick = (fullData) => {
+        openModal(fullData);
     };
 
   return (
@@ -45,7 +42,7 @@ function MarketFinder() {
       <Requirements
             isOpen={modalIsOpen}
             closeModal={closeModal}
-            videoId={selectedVideoId}
+            fullData={{selectedVideoId}}
         />
         <div className="dashboard m-0 h-100">
             <div className="row h-100">
@@ -88,6 +85,8 @@ function MarketFinder() {
                                         </div>
                                         <div>
                                             {selectedData && selectedData2 && <ResultComponent
+                                                full={selectedData}
+                                                
                                                 name={selectedData.name}
                                                 logo={selectedData.logo}
                                                 title={selectedData.title}
@@ -98,6 +97,7 @@ function MarketFinder() {
                                                 items2={selectedData.items2}
                                                 buttonText={selectedData.buttonText}
 
+                                                full_2={selectedData2}
                                                 name_2={selectedData2.name}
                                                 logo_2={selectedData2.logo}
                                                 title_2={selectedData2.title}
@@ -127,7 +127,7 @@ export default MarketFinder;
 
 
 
-const ResultComponent = ({ name, logo, items, flag, flag2, items2, buttonText, handleClick, name_2, logo_2, title_2, items_2, flag_2, flag2_2, title2_2, items2_2, buttonText_2}) => (
+const ResultComponent = ({ full, name, logo, items, flag, flag2, items2, buttonText, handleClick, full_2, name_2, logo_2, title_2, items_2, flag_2, flag2_2, title2_2, items2_2, buttonText_2}) => (
     <div className='row finder-result slideUp fadeIn'>
         <div className="col-6 mt-2">
             <img className='result-logo' src={require(`../Assets/${logo}`)} alt="" />
@@ -146,7 +146,7 @@ const ResultComponent = ({ name, logo, items, flag, flag2, items2, buttonText, h
                  <p  className=' mb-2'>
                     {buttonText}
                 </p>
-                {buttonText && <button className='satin-al' onClick={() => handleClick({name})}>Satışa Başla</button>}
+                {buttonText && <button className='satin-al' onClick={() => handleClick(full)}>Satışa Başla</button>}
             </div>
         </div>
         <div className="col-6 mt-2">
@@ -164,9 +164,9 @@ const ResultComponent = ({ name, logo, items, flag, flag2, items2, buttonText, h
             </ul>
             <div className='mt-5' style={{textAlign: "center", fontSize: "1.1rem"}} >
                  <p className=' mb-2'>
-                    {buttonText}
+                    {buttonText_2}
                 </p>
-                {buttonText && <button className='satin-al' onClick={() => handleClick({name})}>Satışa Başla</button>}
+                {buttonText_2 && <button className='satin-al' onClick={() => handleClick(full_2)}>Satışa Başla</button>}
             </div>
         </div>
     </div>

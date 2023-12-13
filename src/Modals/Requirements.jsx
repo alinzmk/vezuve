@@ -1,9 +1,19 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { useNavigate } from 'react-router-dom';
 
-const Requirements = ({ isOpen, closeModal}) => {
-    
-const videoid = "https://www.youtube.com/embed/"
+const Requirements = ({ isOpen, closeModal, fullData}) => {
+
+  function upperCase(word){
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+  const navigate = useNavigate();
+
+  function toServices(){
+    localStorage.setItem("tab", JSON.stringify(fullData.selectedVideoId.name))
+    navigate("/Hizmetler");
+  }
 
   return (
     <Modal
@@ -12,8 +22,10 @@ const videoid = "https://www.youtube.com/embed/"
       contentLabel="Video Modal"
       style={
         {content: {
-          width: "1020px",
-          height: "650px",
+          width: "1100px",
+          height: "auto",
+          
+          overflow: "none",
           margin: "auto",
           backgroundColor: "transparent",
           border: "none",
@@ -24,9 +36,34 @@ const videoid = "https://www.youtube.com/embed/"
       }
       }
       >
-        <div className='videoModal' style={{zIndex: "99"}}>
-          <div className='row'>
-          </div>
+        <div className='reqModal' style={{zIndex: "99"}}>
+          <div className='reqWrapper pbg'>
+              {fullData.selectedVideoId ? (
+                <div className="row">
+                  <h3 className='reqTitle text-center'>{upperCase(fullData.selectedVideoId.name)} için Pazar Gereklilikleri</h3>
+                  <table className='reqTable m-auto'>
+                  {fullData.selectedVideoId.items2.map((item, index) => (
+                    Object.entries(item).map(([key, value], innerIndex) => (
+                        <tr key={index + innerIndex}>
+                          <td className='column1'>{key}</td>
+                          <td className='column2'>{value}</td>
+                        </tr>
+                    ))
+                  ))}
+                      </table>
+                  <div className='mt-5' style={{textAlign: "center", fontSize: "1.1rem"}} >
+                      <p className=' mb-2'>
+                          {fullData.selectedVideoId.buttonText}
+                      </p>
+                       <button className='satin-al' onClick={toServices}>Satışa Başla</button>
+                  </div>
+                </div>
+              ) : (
+                <p>ERROR</p>
+              )}
+              
+            </div>
+          
         </div>
     </Modal>
   );
