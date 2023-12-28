@@ -112,7 +112,7 @@ function Dashboard() {
                                             ) : (
                                                 <>
                                                     <h2>0000₺<span className='aylık'>/aylık</span></h2>
-                                                    <p className='plus' >+%3</p>
+                                                    <p className='plus' >+%0</p>
                                                 </>
                                         )}
                                         </div>
@@ -123,11 +123,12 @@ function Dashboard() {
                                             {userPortfolio ? (
                                                 <>
                                                     <h2>{userPortfolio.totalPurchase}₺<span className='aylık'>/aylık</span></h2>
-                                                    <p className='plus' >+%3</p>
+                                                    <p className='plus'>+%3</p>
                                                 </>
                                             ) : (
                                                 <>
                                                     <h2>0000₺<span className='aylık'>/aylık</span></h2>
+                                                    <p className='plus'>+%0</p>
                                                 </>
                                             )}
                                         </div>
@@ -138,12 +139,13 @@ function Dashboard() {
                                             {userPortfolio ? (
                                                     <>
                                                         <h2>{userPortfolio.totalOrder}₺<span className='aylık'>/aylık</span></h2>
-                                                        <p className='plus' >+%3</p>
+                                                        <p className='plus'>+%3</p>
                                                         
                                                     </>
                                                 ) : (
                                                     <>
                                                         <h2>0000₺<span className='aylık'>/aylık</span></h2>
+                                                        <p className='minus'>-%0</p>
                                                     </>
                                             )}
                                         </div>
@@ -159,7 +161,7 @@ function Dashboard() {
                                             ) : (
                                                 <>
                                                     <h2>0000₺<span className='aylık'>/aylık</span></h2>
-                                                    <p className='plus2' >+%3</p>
+                                                    <p className='plus2' >+%0</p>
                                                 </>
                                         )}
                                                 

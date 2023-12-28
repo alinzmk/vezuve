@@ -63,6 +63,7 @@ export default function App(props) {
       const selectData = Math.floor(Math.random() * (4 - 0 + 1) + 0);
       const selectData2 = Math.floor(Math.random() * (4 - 0 + 1) + 0);
 
+
       onSelectData(data[selectData], data[selectData2]); //random çekilecek
 
       setEmployeeCount('');

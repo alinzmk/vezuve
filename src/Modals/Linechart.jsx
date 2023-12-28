@@ -9,9 +9,9 @@ function LineChart() {
     datasets: [
       {
         label: "My Dataset",
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: [0, 59, 80, 81, 56, 55, 70],
         fill: false,
-        borderColor: "rgba(75,192,192,1)",
+        borderColor: "rgba(85, 112, 241, 0.6)",
         tension: 0.1
       }
     ]
@@ -20,10 +20,10 @@ function LineChart() {
   return <Line data={chartData} options={{
     scales: {
       y: {
-        ticks: { color: 'rgba(28, 29, 34, 1)', beginAtZero: true }
+        ticks: { beginAtZero: true }
       },
       x: {
-        ticks: { color: 'rgba(28, 29, 34, 1)', beginAtZero: true }
+        ticks: { beginAtZero: true }
       }
     },
     plugins:{
