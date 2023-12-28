@@ -38,8 +38,9 @@ function Login() {
   });
 
 
-// Function to handle login and get access token
+/* // Function to handle login and get access token
 const loginUser = async (username, password) => {
+  
   try {
     const response = await axios.post('https://localhost:6161/user_token', {
       username: username,
@@ -62,7 +63,7 @@ const loginUser = async (username, password) => {
     console.error('Login failed:', error);
     throw error;
   }
-};
+}; */
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,12 +73,12 @@ const loginUser = async (username, password) => {
       alert('Please enter a valid email address');
       return;
     }
-    if (password.length < 8) {
+    if (password.length < 1) {
       alert('Password should be at least 8 characters long');
       return;
     }
 
-    loginUser(username, password)
+    /* loginUser(username, password)
       .then((response) => {
         // Use the access token or perform further actions
         console.log('Login successful!', response);
@@ -89,7 +90,10 @@ const loginUser = async (username, password) => {
         // Handle any errors that occurred during the login process
         console.error('Login error:', error);
         alert('Invalid email or password');
-      });
+      }); */
+
+      notify();
+      navigate("/Panel");
     
   };
   

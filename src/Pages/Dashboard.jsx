@@ -14,35 +14,35 @@ import axios from 'axios';
 function Dashboard() {
 
     const [userPortfolio, setUserPortfolio] = useState(null); // State to store user portfolio data
-    const [userPlan, setUserPlan] = useState(null); // State to store user plan data
-
-  // Function to fetch user plan data
-  const fetchUserPlan = async (accessToken) => {
+     const [userPlan, setUserPlan] = useState(null); // State to store user plan data
+    
+/*   // Function to fetch user plan data
+    const fetchUserPlan = async (accessToken) => {
     try {
-      const response = await axios.get('http://your-backend-url/get_user_plan', {
-        headers: {
-          Authorization: `Bearer ${accessToken}`, // Include the JWT token in the header
+        const response = await axios.get('http://your-backend-url/get_user_plan', {
+            headers: {
+                Authorization: `Bearer ${accessToken}`, // Include the JWT token in the header
         },
-      });
-
-      // Assuming the response contains userPlan
-      const userPlanResponse = response.data.userPlan;
-
-      // Set the userPlan in the component state
-      setUserPlan(userPlanResponse);
-    } catch (error) {
+    });
+    
+    // Assuming the response contains userPlan
+    const userPlanResponse = response.data.userPlan;
+    
+    // Set the userPlan in the component state
+    setUserPlan(userPlanResponse);
+} catch (error) {
       // Handle error here
       console.error('Error fetching user plan:', error);
       // Handle error state or notify the user about the error
     }
   };
-
-    // Function to fetch user portfolio data
-    const fetchUserPortfolio = async (accessToken) => {
-        try {
+  
+  // Function to fetch user portfolio data
+  const fetchUserPortfolio = async (accessToken) => {
+      try {
             const response = await axios.get('https://localhost:6161/get_user_portfolio', {
                 headers: {
-                Authorization: `Bearer ${accessToken}`, // Include the JWT token in the header
+                    Authorization: `Bearer ${accessToken}`, // Include the JWT token in the header
                 },
             });
 
@@ -58,27 +58,30 @@ function Dashboard() {
             // Handle error state or notify the user about the error
         }
     };
-
+    
     useEffect(() => {
         const accessToken = localStorage.getItem("token"); // Replace with the actual access token
         fetchUserPortfolio(accessToken);
         fetchUserPlan(accessToken);
-    }, []); // Run only once on component mount
+    }, []); // Run only once on component mount */
+    
+    
+  /*   const [graphData, setGraphData] = useState(null);
+    
+    const reportGraph = [];
 
-
-    const [graphData, setGraphData] = useState(null);
-
+    
     setGraphData({
-        labels: userPortfolio.reportGraph.map((data) => data.month),
+        labels: (reportGraph.map((data) => data.month)),
         datasets: [
           {
-            data: userPortfolio.reportGraph.map((data) => data.value),
+            data: reportGraph.map((data) => data.value),
             backgroundColor: "rgba(28, 29, 34, 1)",
             borderColor: "rgba(28, 29, 34, 1)",
             borderWidth: 1,
           },
         ],
-      });
+      }); */
 
   return (
       <>
@@ -101,42 +104,121 @@ function Dashboard() {
                                     <div className='col-lg-4 col-12 trans mainhov' id='total-sales'>
                                         <div className='col-12 slideup position-relative'>
                                             <h6>Toplam Satış</h6>
-                                            <h2>{userPortfolio.totalSales}₺<span className='aylık'>/aylık</span></h2>
-                                            <p className='plus' >+%3</p>
+                                            {userPortfolio ? (
+                                                <>
+                                                    <h2>{userPortfolio.totalSales}₺<span className='aylık'>/aylık</span></h2>
+                                                    <p className='plus' >+%3</p>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <h2>0000₺<span className='aylık'>/aylık</span></h2>
+                                                    <p className='plus' >+%3</p>
+                                                </>
+                                        )}
                                         </div>
                                     </div>
                                     <div className='col-lg-3 col-12  trans mainhov' id='total-purchases'>
-                                    <div className='col-12 slideup'>
-                                            <h6>Toplam Alış</h6>
-                                            <h2>{userPortfolio.totalPurchase}₺<span className='aylık'>/aylık</span></h2>
-                                            <p className='minus'>-%3</p>
+                                        <div className='col-12 slideup'>
+                                            <h6>Toplam Satın Alım</h6>
+                                            {userPortfolio ? (
+                                                <>
+                                                    <h2>{userPortfolio.totalPurchase}₺<span className='aylık'>/aylık</span></h2>
+                                                    <p className='plus' >+%3</p>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <h2>0000₺<span className='aylık'>/aylık</span></h2>
+                                                </>
+                                            )}
                                         </div>
                                     </div>
                                     <div className='col-lg-3 col-12 trans mainhov' id='total-orders'>
-                                    <div className='col-12 slideup'>
+                                        <div className='col-12 slideup'>
                                             <h6>Toplam Sipariş</h6>
-                                            <h2>{userPortfolio.totalOrder}₺<span className='aylık'>/aylık</span></h2>
-                                            <p className='plus' >+%7</p>
+                                            {userPortfolio ? (
+                                                    <>
+                                                        <h2>{userPortfolio.totalOrder}₺<span className='aylık'>/aylık</span></h2>
+                                                        <p className='plus' >+%3</p>
+                                                        
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <h2>0000₺<span className='aylık'>/aylık</span></h2>
+                                                    </>
+                                            )}
                                         </div>
                                     </div>
                                     <div className='col-12 trans mainhov' id='total-growth'>
                                         <div className='col-12 slideup position-relative'>
-                                                <h6>Toplam Büyüme</h6>
-                                                <h1>{userPortfolio.totalGrowth}₺<span className='aylık'>/aylık</span></h1>
-                                                <p className='plus2' >+%7</p>
+                                            <h6>Toplam Büyüme</h6>
+                                            {userPortfolio ? (
+                                                <>
+                                                    <h2>{userPortfolio.totalGrowth}₺<span className='aylık'>/aylık</span></h2>
+                                                    <p className='plus2' >+%3</p>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <h2>0000₺<span className='aylık'>/aylık</span></h2>
+                                                    <p className='plus2' >+%3</p>
+                                                </>
+                                        )}
+                                                
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-6 mb-3 d-flex justify-content-between" id='customer-info'>                           
                                 <div className="col-12 ps-5 my-auto">
-                                    <h5 className='main-info' >Aktif hizmetiniz <i class="fa-solid fa-box-open"></i> : <span className='main-info2' >{userPlan.plan}</span></h5>
+                                    <h5 className='main-info' >Aktif hizmetiniz <i class="fa-solid fa-box-open"></i> : <span className='main-info2' >
+                                        {userPlan ? (
+                                                <>
+                                                    <span className='main-info2'>{userPlan.plan}₺<span className='aylık'>/</span></span>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    No Data
+                                                </>
+                                        )}
+                                        {}</span></h5>
                                     <hr className='info-hr' />
-                                    <h5 className='main-info' >E-Ticaret Uzmanınız <i class="fa-regular fa-user"></i> : <span className='main-info2' >{userPlan.expert}</span></h5>  
+                                    <h5 className='main-info' >E-Ticaret Uzmanınız <i class="fa-regular fa-user"></i> : <span className='main-info2' >
+                                        {userPlan ? (
+                                                <>
+                                                    <span className='main-info2'>{userPlan.expert}₺<span className='aylık'>/aylık</span></span>
+                                                    <p className='plus' >+%3</p>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    No Data
+                                                </>
+                                        )}
+                                        </span></h5>  
                                     <hr  className='info-hr'/>                                  
-                                    <h5 className='main-info' >Uzman İletişim Bilgileri <i class="fa-regular fa-user"></i> : <span className='main-info2' >{userPlan.expertmail}</span></h5>  
+                                    <h5 className='main-info' >Uzman İletişim Bilgileri <i class="fa-regular fa-user"></i> : <span className='main-info2' >
+                                        {userPlan ? (
+                                                <>
+                                                    <span className='main-info2'>{userPlan.expertmail}₺<span className='aylık'>/aylık</span></span>
+                                                    <p className='plus' >+%3</p>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    No Data
+                                                </>
+                                        )}
+                                        </span></h5>  
                                     <hr className='info-hr' />
-                                    <h5 className='main-info' >Kalan Abonelik Süreniz <i class="fa-regular fa-clock"></i> : <span className='main-info2' >{userPlan.startDate} {userPlan.finishDate}</span></h5>
+                                    <h5 className='main-info' >Kalan Abonelik Süreniz <i class="fa-regular fa-clock"></i> : <span className='main-info2' >
+                                        {userPlan ? (
+                                                <>
+                                                    <span className='main-info2'>{userPlan.startDate}{userPlan.finishDate}</span> 
+                                                    <p className='plus' >+%3</p>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    No Data
+                                                </>
+                                        )}
+                                        </span></h5>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +229,10 @@ function Dashboard() {
                                             <h3 className='p-3'>Satış Raporu</h3>
                                     </div>
                                     <div className="col-12 m-0 chart-wrapper">
-                                            <LineChart chartData={graphData}/>
+                                       
+                                                <LineChart/>
+                                  
+
                                     </div>
                                 </div>
                             </div>

@@ -183,7 +183,7 @@ function Profile() {
                                         {userData ? (
                                             <h6 className='profile-info'>{userData.accountName}</h6>
                                             ) : (
-                                            <h6 className='profile-info'> </h6>
+                                            <h6 className='profile-info'>No data</h6>
                                         )}
 
                                     </div>
@@ -194,7 +194,7 @@ function Profile() {
                                         {userData ? (
                                             <h6 className='profile-info'>{userData.mail}</h6>
                                             ) : (
-                                            <h6 className='profile-info'> </h6>
+                                            <h6 className='profile-info'>No data </h6>
                                         )}
 
                                     </div>
@@ -212,7 +212,7 @@ function Profile() {
                                                     <h6 className='profile-info'>{userData.phoneNumber}</h6>
                                                 ) : (
                                                     // Display an empty h6 element if userData doesn't exist
-                                                    <h6 className='profile-info'> </h6>
+                                                    <h6 className='profile-info'>No data </h6>
                                                 )
                                         )}
                                         
@@ -236,7 +236,7 @@ function Profile() {
                                                 ) : (
                                                     // Display an empty h6 element if userData doesn't exist
                                                     <div className="d-flex align-items-center">
-                                                        <h6 className='profile-info'>Trabzon</h6>
+                                                        <h6 className='profile-info'>No data</h6>
                                                         <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("companyTitle")}>
                                                             <i className="fa-solid fa-pen-to-square"></i>
                                                         </button>
@@ -262,7 +262,7 @@ function Profile() {
                                                 ) : (
                                                     // Display an empty h6 element if userData doesn't exist
                                                     <div className="d-flex align-items-center">
-                                                        <h6 className='profile-info'>Trabzon</h6>
+                                                        <h6 className='profile-info'>No data</h6>
                                                         <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("taxAdmin")}>
                                                             <i className="fa-solid fa-pen-to-square"></i>
                                                         </button>
@@ -277,7 +277,7 @@ function Profile() {
                                         {userData ? (
                                             <h6 className='profile-info'>{userData.taxNumber}</h6>
                                             ) : (
-                                            <h6 className='profile-info'> </h6>
+                                            <h6 className='profile-info'>No data</h6>
                                         )}
 
                                     </div>

@@ -17,6 +17,7 @@ import Services from './Pages/Services';
 import MarketFinder from './Pages/MarketFinder';
 import Task from './Pages/Tasks';
 import Tutorials from './Pages/Tutorials';
+import Payment from './Payment.jsx';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -72,6 +73,10 @@ const router = createHashRouter([
   {
     path: "/Dersler",
     element: <Tutorials />, 
+  },
+  {
+    path: "/api",
+    element: <Payment/>, 
   },
 ]);
 

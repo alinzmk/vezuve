@@ -10,7 +10,7 @@ function Documents() {
 
     const [userDocuments, setUserDocuments] = useState(null); // State to store user documents data
 
-    // Function to fetch user documents data
+/*     // Function to fetch user documents data
     const fetchUserDocuments = async (accessToken) => {
         try {
         const response = await axios.get('http://your-backend-url/get_user_documents', {
@@ -34,7 +34,7 @@ function Documents() {
     useEffect(() => {
         const accessToken = 'yourAccessTokenHere'; // Replace with the actual access token
         fetchUserDocuments(accessToken);
-    }, []); // Run only once on component mount
+    }, []); // Run only once on component mount */
 
 
     const docNotify = () => toast.success('Dosya Başarıyla Yüklendi!', {
@@ -49,6 +49,14 @@ function Documents() {
         });
 
     //ALT TARAF ESKİ KODDAN KALMADIR DENENECEKTİR
+        
+    var bankInfo = localStorage.getItem("bankInfo");
+    var identityDocument = localStorage.getItem("identityDocument");
+    var activityDocument = localStorage.getItem("activityDocument");
+    var englandCertificate = localStorage.getItem("englandCertificate");
+    var taxPlate = localStorage.getItem("taxPlate");
+    var billInfo = localStorage.getItem("billInfo");
+
 
     const fileInputRef = useRef(null);
     const [file, setFile] = useState(null);
@@ -120,7 +128,7 @@ function Documents() {
                                         </h5>
                                     </div>
                                     <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                        {userDocuments.bankInfo === false ? (
+                                        {bankInfo === "false" ? (
                                             <form onSubmit={(e) => handleSubmit(e, "bankInfo")}>
                                                 <label htmlFor="bankInfo-file-upload" class="buton4 slideup">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
                                                 <input  id="bankInfo-file-upload" className='d-none' type="file" onChange={handleFileChange("bankInfo")} ref={fileInputRef} />
@@ -154,7 +162,7 @@ function Documents() {
                                         </h5>
                                     </div>
                                     <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                         {userDocuments.identityDocument === false ? (
+                                         {identityDocument === "false" ? (
                                                  <form onSubmit={(e) => handleSubmit(e, "identityDocument")}>
                                                 <label htmlFor="identityDocument-file-upload" class="buton4 slideup">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
                                                 <input  id="identityDocument-file-upload" className='d-none' type="file" onChange={handleFileChange("identityDocument")} ref={fileInputRef} />
@@ -188,7 +196,7 @@ function Documents() {
                                         </h5>
                                     </div>
                                     <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                        {userDocuments.activityDocument === false ? (
+                                        {activityDocument === "false" ? (
                                                 <form onSubmit={(e) => handleSubmit(e, "activityDocument")}>
                                                 <label for="activityDocument-file-upload" class="buton4 slideup">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
                                                 <input  id="activityDocument-file-upload" className='d-none' type="file" onChange={handleFileChange("activityDocument")} ref={fileInputRef} />
@@ -222,7 +230,7 @@ function Documents() {
                                         </h5>
                                     </div>
                                     <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                        {userDocuments.englandCertificate === "false" ? (
+                                        {englandCertificate === "false" ? (
                                                 <form onSubmit={(e) => handleSubmit(e, "englandCertificate")}>
                                                 <label for="englandCertificate-file-upload" class="buton4 slideup">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
                                                 <input  id="englandCertificate-file-upload" className='d-none' type="file" onChange={handleFileChange("englandCertificate")} ref={fileInputRef} />
@@ -256,7 +264,7 @@ function Documents() {
                                         </h5>
                                     </div>
                                     <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                        {userDocuments.taxPlate === false ? (
+                                        {taxPlate === "false" ? (
                                                 <form onSubmit={(e) => handleSubmit(e, "taxPlate")}>
                                                 <label for="taxPlate-file-upload" class="buton4">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
                                                 <input  id="taxPlate-file-upload" className='d-none' type="file" onChange={handleFileChange("taxPlate")} ref={fileInputRef} />
@@ -291,7 +299,7 @@ function Documents() {
                                         </h5>
                                     </div>
                                     <div className="col-3 my-auto p-0 justify-content-center d-flex">
-                                        {userDocuments.billInfo === false ? (
+                                        {billInfo === "false" ? (
                                                 <form onSubmit={(e) => handleSubmit(e, "billInfo")}>
                                                 <label for="billInfo-file-upload" class="buton4">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
                                                 <input  id="billInfo-file-upload" className='d-none' type="file" onChange={handleFileChange("billInfo")} ref={fileInputRef} />

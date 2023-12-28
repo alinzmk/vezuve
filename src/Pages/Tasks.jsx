@@ -5,23 +5,23 @@ import Sidebar2 from '../Modals/Sidebar2';
 import { useEffect } from 'react';
 import axios from 'axios';
 
-/* const tasksData = [
-    { status: "process", title: "Fba depolarına gönderim", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "process", title: "Lojistik Firmasını belirlemek", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "process", title: "Giveaway çalışması", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "process", title: "Kupon ve indirimler", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "plan", title: "Amazon PPC Reklamları", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "plan", title: "Amazon Marka Kaydı", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "plan", title: "A+ Content ", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "plan", title: "Amazon Store Tasarımı", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "plan", title: "Request Review", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "plan", title: "Stok Yenileme", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "plan", title: "Ürün Listeleme", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "plan", title: "Gümrük Kaydı ve Gümrük Müşaviri", description: ""},
-    { status: "plan", title: "Gs1 Barkodlarının Alınması", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "finished", title: "Amazon Mağaza Açılışı", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-    { status: "finished", title: "Amazon Pazar Araştırması", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-  ]; */
+const tasksData = [
+    { status: "process", taskName: "Fba depolarına gönderim", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "process", taskName: "Lojistik Firmasını belirlemek", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "process", taskName: "Giveaway çalışması", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "process", taskName: "Kupon ve indirimler", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", taskName: "Amazon PPC Reklamları", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", taskName: "Amazon Marka Kaydı", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", taskName: "A+ Content ", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", taskName: "Amazon Store Tasarımı", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", taskName: "Request Review", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", taskName: "Stok Yenileme", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", taskName: "Ürün Listeleme", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "plan", taskName: "Gümrük Kaydı ve Gümrük Müşaviri", description: ""},
+    { status: "plan", taskName: "Gs1 Barkodlarının Alınması", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "finished", taskName: "Amazon Mağaza Açılışı", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+    { status: "finished", taskName: "Amazon Pazar Araştırması", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
+  ]; 
 
 function Products() {
 
@@ -34,7 +34,7 @@ function Products() {
 
     const [userTasks, setUserTasks] = useState(null); // State to store user tasks data
     
-    // Function to fetch user tasks data
+   /*  // Function to fetch user tasks data
     const fetchUserTasks = async (accessToken) => {
         try {
             const response = await axios.get('https://localhost:6161/get_user_tasks', {
@@ -59,12 +59,15 @@ function Products() {
     useEffect(() => {
         const accessToken = localStorage.getItem("token"); // Replace with the actual access token
         fetchUserTasks(accessToken);
-    }, []); // Run only once on component mount
+    }, []); // Run only once on component mount */
 
 
-    const planTasks = userTasks.filter(task => task.status === 'plan');
-    const processTasks = userTasks.filter(task => task.status === 'process');
-    const finishedTasks = userTasks.filter(task => task.status === 'finished');
+
+
+    const planTasks = tasksData.filter(task => task.status === 'plan');
+    const processTasks = tasksData.filter(task => task.status === 'process');
+    const finishedTasks = tasksData.filter(task => task.status === 'finished');
+    
   return (
     <>
         <div className="dashboard m-0">
