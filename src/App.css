@@ -203,6 +203,7 @@ form .signup-link a:hover {
 /** LOGIN REGISTER FINISH**/
 /** SIDEBAR**/
 .sidebar2 {
+  z-index: 99;
   position: fixed;
   display: flex;
   max-width: 133px; }
@@ -1002,6 +1003,11 @@ button:focus {
       position: absolute;
       text-align: end;
       top: 15px;
+      right: 10px; }
+    .task-wrapper .task-ul .task-li .task-icon-admin {
+      position: absolute;
+      text-align: end;
+      top: 8px;
       right: 10px; }
 .task-wrapper .task-seperator {
   min-height: 30vh;

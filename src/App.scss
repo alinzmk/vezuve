@@ -36,6 +36,8 @@ $white: white;
      }
   }
   
+
+
   .fadeIn{
     animation: fadeInAnimation ease 0.5s;
     animation-iteration-count: 1;
@@ -240,6 +242,7 @@ $white: white;
   /** SIDEBAR**/
   
   .sidebar2{
+    z-index: 99;
     position: fixed;
     display: flex;
     max-width: 133px;
@@ -1192,6 +1195,12 @@ $white: white;
         position: absolute;
         text-align: end;
         top: 15px;
+        right: 10px;
+      }
+      .task-icon-admin{
+        position: absolute;
+        text-align: end;
+        top: 8px;
         right: 10px;
       }
     }

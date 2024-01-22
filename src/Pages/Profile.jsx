@@ -4,9 +4,10 @@ import logo from "../Assets/logo-renkli.png"
 import { useNavigate } from 'react-router-dom';
 import Plan from '../Modals/Plan';
 import Sidebar2 from '../Modals/Sidebar2';
-import { WhatsAppWidget } from 'react-whatsapp-widget';
 import 'react-whatsapp-widget/dist/index.css';
 import axios from 'axios';
+import Whatsapp from '../Modals/Whatsapp';
+
 
 function Profile() {
 
@@ -133,7 +134,7 @@ function Profile() {
         </div> 
             <div className="row">
                 <div className="p-0">
-            
+                    <Whatsapp/>
                  <Sidebar2/>
                 </div>
                 <div className="container mt-4 slideleft right">
@@ -151,7 +152,7 @@ function Profile() {
                                         <h3 className='ms-4 purple'>Hoş geldiniz<i class="fa-solid fa-hands"></i>, Sayın {userData ? (
                                             <h6 className='profile-info'>{userData.name}</h6>
                                             ) : (
-                                            <>Müşterimiz </>
+                                            <>Ali Bertay Solak</>
                                         )}.</h3>
 
                                     </div>
@@ -168,14 +169,7 @@ function Profile() {
                         </div>
                         <form>
                         <div className="col-12 slideleft">
-                        <WhatsAppWidget 
-                                        companyName="Vezüve Destek Hattı"
-                                        phoneNumber="+905377638075"
-                                        message="Merhabalar, yardım almak istiyorum."
-                                        textReplyTime=""
-                                        inputPlaceHolder="Mesajınızı giriniz."
-
-                                    />
+                        
                             <div className="row mb-3">
                                 <div className="col-4 ps-0 pe-3">
                                     <div className="pbg">
@@ -183,7 +177,7 @@ function Profile() {
                                         {userData ? (
                                             <h6 className='profile-info'>{userData.accountName}</h6>
                                             ) : (
-                                            <h6 className='profile-info'>No data</h6>
+                                            <h6 className='profile-info'>Dalos Yazılım Hizmetleri</h6>
                                         )}
 
                                     </div>
@@ -194,7 +188,7 @@ function Profile() {
                                         {userData ? (
                                             <h6 className='profile-info'>{userData.mail}</h6>
                                             ) : (
-                                            <h6 className='profile-info'>No data </h6>
+                                            <h6 className='profile-info'>alibertay@dalos.com</h6>
                                         )}
 
                                     </div>
@@ -212,7 +206,7 @@ function Profile() {
                                                     <h6 className='profile-info'>{userData.phoneNumber}</h6>
                                                 ) : (
                                                     // Display an empty h6 element if userData doesn't exist
-                                                    <h6 className='profile-info'>No data </h6>
+                                                    <h6 className='profile-info'>555 555 6161</h6>
                                                 )
                                         )}
                                         
@@ -236,14 +230,13 @@ function Profile() {
                                                 ) : (
                                                     // Display an empty h6 element if userData doesn't exist
                                                     <div className="d-flex align-items-center">
-                                                        <h6 className='profile-info'>No data</h6>
+                                                        <h6 className='profile-info'>Dalos Yazılım Ltd. Şti.</h6>
                                                         <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("companyTitle")}>
                                                             <i className="fa-solid fa-pen-to-square"></i>
                                                         </button>
                                                     </div>
                                                 )
                                         )}
-
                                     </div>
                                 </div>
                                 <div className="col-4 ps-0 pe-3">
@@ -262,7 +255,7 @@ function Profile() {
                                                 ) : (
                                                     // Display an empty h6 element if userData doesn't exist
                                                     <div className="d-flex align-items-center">
-                                                        <h6 className='profile-info'>No data</h6>
+                                                        <h6 className='profile-info'>Trabzon</h6>
                                                         <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("taxAdmin")}>
                                                             <i className="fa-solid fa-pen-to-square"></i>
                                                         </button>
@@ -277,7 +270,7 @@ function Profile() {
                                         {userData ? (
                                             <h6 className='profile-info'>{userData.taxNumber}</h6>
                                             ) : (
-                                            <h6 className='profile-info'>No data</h6>
+                                            <h6 className='profile-info'>1000000000</h6>
                                         )}
 
                                     </div>
@@ -300,7 +293,7 @@ function Profile() {
                                                 ) : (
                                                     // Display an empty h6 element if userData doesn't exist
                                                     <div className="d-flex align-items-center">
-                                                        <h6 className='profile-info'>No data</h6>
+                                                        <h6 className='profile-info'>Trabzon</h6>
                                                         <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("city")}>
                                                             <i className="fa-solid fa-pen-to-square"></i>
                                                         </button>
@@ -329,7 +322,7 @@ function Profile() {
                                                 ) : (
                                                     // Display an empty h6 element if userData doesn't exist
                                                     <div className="d-flex align-items-center">
-                                                        <h6 className='profile-info'>No data</h6>
+                                                        <h6 className='profile-info'>Trabzon</h6>
                                                         <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("adress")}>
                                                             <i className="fa-solid fa-pen-to-square"></i>
                                                         </button>

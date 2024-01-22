@@ -91,9 +91,8 @@ function Login() {
               </div>
               <div className="pass"><a href="#">Şifremi Unuttum</a></div>
               <div className="row button">
-                <input onClick={handleSubmit} type="submit" value="Giriş Yap"/>
+                <input onClick={handleSubmit} type="submit" value="Kayıt Ol"/>
               </div>
-              <div className="signup-link">Hala VezüPort ile tanışmadın mı? <a href="#">Hemen bizimle iletişime geçebilirsin.</a></div>
             </form>
           </div>
         </div>

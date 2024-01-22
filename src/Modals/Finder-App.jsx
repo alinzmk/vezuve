@@ -331,7 +331,8 @@ const data =
       {"Günlük reklam maliyeti	Minimum": "35-50 dolar"},
       {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 dolar ürün fiyatı aralığı için 500-750 dolar"},
     ],
-    buttonText: "Uzman Ekibimiz ile Hemen Amazon'da"
+    buttonText: "Uzman Ekibimiz ile Hemen Amazon'da",
+    marketLink: "https://vezuve.com.tr/wp-content/uploads/2023/10/vezuve-guncel-amazon-ekim-tanitim-sunumu.pdf"
   },
   {   
       name: "etsy",
@@ -362,7 +363,8 @@ const data =
         {"Günlük reklam maliyeti	Minimum": "35-50 dolar"},
         {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 dolar ürün fiyatı aralığı için 500-750 dolar"},
       ],
-      buttonText: "Uzman Ekibimiz ile Hemen Etsy'de"
+      buttonText: "Uzman Ekibimiz ile Hemen Etsy'de",
+      marketLink: "https://vezuve.com.tr/wp-content/uploads/2023/09/ETSY-Vezuve-Hizmet-Tanitim-Sunumlari-Agustos-2023_compressed.pdf"
     },
     {   
       name: "emag",
@@ -393,7 +395,8 @@ const data =
         {"Günlük reklam maliyeti	Minimum": "35-50 dolar"},
         {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 dolar ürün fiyatı aralığı için 500-750 dolar"},
       ],
-      buttonText: "Uzman Ekibimiz ile Hemen Emag'de"
+      buttonText: "Uzman Ekibimiz ile Hemen Emag'de",
+      marketLink: "https://vezuve.com.tr/wp-content/uploads/2023/10/vezuve-eihracat-sitesi-kurulumu-guncel-tanitim-sunumu-eylul_compressed.pdf"
     },
     {   
       name: "allegro",
@@ -424,7 +427,8 @@ const data =
         {"Günlük reklam maliyeti	Minimum": "35-50 dolar"},
         {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 dolar ürün fiyatı aralığı için 500-750 dolar"},
       ],
-      buttonText: "Uzman Ekibimiz ile Hemen Allegro'da"
+      buttonText: "Uzman Ekibimiz ile Hemen Allegro'da",
+      marketLink: "https://vezuve.com.tr/wp-content/uploads/2023/10/vezuve-eihracat-sitesi-kurulumu-guncel-tanitim-sunumu-eylul_compressed.pdf"
     }
 ];
 

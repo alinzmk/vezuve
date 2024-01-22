@@ -6,9 +6,9 @@ import Sidebar from "../Modals/Sidebar";
 import { ResponsiveLine } from '@nivo/line';
 import LineChart from '../Modals/Linechart';
 import { useState } from 'react';
-import { UserData } from '../Assets/Mockdata';
 import Sidebar2 from '../Modals/Sidebar2';
 import axios from 'axios';
+import { WhatsAppWidget } from 'react-whatsapp-widget';
 
 
 function Dashboard() {
@@ -86,6 +86,7 @@ function Dashboard() {
   return (
       <>
         <div className="dashboard m-0 h-100">
+        
             <div className="row h-100">
                 <div className="p-0 h-100">
         <Sidebar2/>
@@ -111,7 +112,7 @@ function Dashboard() {
                                                 </>
                                             ) : (
                                                 <>
-                                                    <h2>0000₺<span className='aylık'>/aylık</span></h2>
+                                                    <h2>1,200₺<span className='aylık'>/aylık</span></h2>
                                                     <p className='plus' >+%0</p>
                                                 </>
                                         )}
@@ -127,7 +128,7 @@ function Dashboard() {
                                                 </>
                                             ) : (
                                                 <>
-                                                    <h2>0000₺<span className='aylık'>/aylık</span></h2>
+                                                    <h2>1,600₺<span className='aylık'>/aylık</span></h2>
                                                     <p className='plus'>+%0</p>
                                                 </>
                                             )}
@@ -144,7 +145,7 @@ function Dashboard() {
                                                     </>
                                                 ) : (
                                                     <>
-                                                        <h2>0000₺<span className='aylık'>/aylık</span></h2>
+                                                        <h2>2,100₺<span className='aylık'>/aylık</span></h2>
                                                         <p className='minus'>-%0</p>
                                                     </>
                                             )}
@@ -160,7 +161,7 @@ function Dashboard() {
                                                 </>
                                             ) : (
                                                 <>
-                                                    <h2>0000₺<span className='aylık'>/aylık</span></h2>
+                                                    <h2>1,722,400₺<span className='aylık'>/aylık</span></h2>
                                                     <p className='plus2' >+%0</p>
                                                 </>
                                         )}
@@ -178,7 +179,7 @@ function Dashboard() {
                                                 </>
                                             ) : (
                                                 <>
-                                                    No Data
+                                                    Amazon Aylık
                                                 </>
                                         )}
                                         {}</span></h5>
@@ -191,7 +192,7 @@ function Dashboard() {
                                                 </>
                                             ) : (
                                                 <>
-                                                    No Data
+                                                    Burak Can Toplar
                                                 </>
                                         )}
                                         </span></h5>  
@@ -204,7 +205,7 @@ function Dashboard() {
                                                 </>
                                             ) : (
                                                 <>
-                                                    No Data
+                                                    burak@vezuve.com
                                                 </>
                                         )}
                                         </span></h5>  
@@ -217,7 +218,7 @@ function Dashboard() {
                                                 </>
                                             ) : (
                                                 <>
-                                                    No Data
+                                                    45 gün 
                                                 </>
                                         )}
                                         </span></h5>

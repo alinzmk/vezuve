@@ -96,6 +96,7 @@ function MarketFinder() {
                                                 title2={selectedData.title2}
                                                 items2={selectedData.items2}
                                                 buttonText={selectedData.buttonText}
+                                                link={selectedData.marketLink}
 
                                                 full_2={selectedData2}
                                                 name_2={selectedData2.name}
@@ -107,6 +108,8 @@ function MarketFinder() {
                                                 title2_2={selectedData2.title2}
                                                 items2_2={selectedData2.items2}
                                                 buttonText_2={selectedData2.buttonText}
+                                                link_2={selectedData2.marketLink}
+
                                                 
                                                 handleClick={handleClick}
                                             />}
@@ -127,7 +130,7 @@ export default MarketFinder;
 
 
 
-const ResultComponent = ({ full, name, logo, items, flag, flag2, items2, buttonText, handleClick, full_2, name_2, logo_2, title_2, items_2, flag_2, flag2_2, title2_2, items2_2, buttonText_2}) => (
+const ResultComponent = ({ full, name, logo, items, flag, flag2, items2, link, link_2, buttonText, handleClick, full_2, name_2, logo_2, title_2, items_2, flag_2, flag2_2, title2_2, items2_2, buttonText_2}) => (
     <div className='row finder-result slideUp fadeIn'>
         <div className="col-6 mt-2">
             <img className='result-logo' src={require(`../Assets/${logo}`)} alt="" />
@@ -139,7 +142,7 @@ const ResultComponent = ({ full, name, logo, items, flag, flag2, items2, buttonT
                     </li>
                 ))}
                     <li className='finder-li'>
-                        <p>Daha fazla bilgi almak için <strong><a target='_blank' href={flag}>TIKLAYINIZ</a></strong>.</p>
+                        <p>Daha fazla bilgi almak için <strong><a target='_blank' href={link}>TIKLAYINIZ</a></strong>.</p>
                     </li>
             </ul>
             <div className='mt-5' style={{textAlign: "center", fontSize: "1.1rem"}} >
@@ -159,7 +162,7 @@ const ResultComponent = ({ full, name, logo, items, flag, flag2, items2, buttonT
                     </li>
                 ))}
                     <li className='finder-li'>
-                        <p>Daha fazla bilgi almak için <strong><a target='_blank' href={flag}>TIKLAYINIZ</a></strong>.</p>
+                        <p>Daha fazla bilgi almak için <strong><a target='_blank' href={link_2}>TIKLAYINIZ</a></strong>.</p>
                     </li>
             </ul>
             <div className='mt-5' style={{textAlign: "center", fontSize: "1.1rem"}} >

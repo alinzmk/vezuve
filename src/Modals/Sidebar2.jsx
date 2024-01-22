@@ -3,6 +3,7 @@ import '../App.css';
 import { Link, NavLink } from 'react-router-dom';
 import logo from "../Assets/kare-logo.jpg";
 import { useLocation } from "react-router-dom";
+import Whatsapp from './Whatsapp';
 
 const Sidebar2 = () => {
 
@@ -13,6 +14,7 @@ const Sidebar2 = () => {
   return (
     <>
     <div className="sidebar2 m-0 p-0">
+    <Whatsapp/>
         <div className="sidebar-wrapper2">
             <div className="col-12 mt-0 ms-2 ps-2 text-center">
                              <img className='small-logo' src={logo} alt="" />
