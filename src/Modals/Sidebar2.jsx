@@ -60,6 +60,11 @@ const Sidebar2 = () => {
                               <i class="fa-brands fa-youtube"></i>
                          </NavLink>
                     </li>
+                    <li className="sidebar-li2">
+                         <NavLink to={"/"} className='sidebar-link' activeClassName="side-active">
+                         <i class="fa-solid fa-right-from-bracket"></i>
+                         </NavLink>
+                    </li>
                 </ul>
             </div>
         </div>

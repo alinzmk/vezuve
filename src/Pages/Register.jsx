@@ -63,15 +63,15 @@ function Login() {
                 <input value={surname}  type="text" placeholder="Soyadınız" required />
               </div>
               <div className="row">
-                <i className="fas fa-user"></i>
+              <i class="fa-solid fa-at"></i>
                 <input value={registerMail}  type="email" placeholder="E-posta" required />
               </div>
               <div className="row">
-                <i className="fas fa-user"></i>
+              <i class="fa-solid fa-phone"></i>
                 <input value={registerMail}  type="email" placeholder="Telefon" required />
               </div>
               <div className="row">
-                <i className="fas fa-user"></i>
+              <i class="fa-regular fa-building"></i>
                 <input value={registerMail}  type="email" placeholder="Şirket Ünvanı" required />
               </div>
               <div className="row">
@@ -89,10 +89,11 @@ function Login() {
                   onClick={handleTogglePassword}
                 ></i>
               </div>
-              <div className="pass"><a href="#">Şifremi Unuttum</a></div>
               <div className="row button">
-                <input onClick={handleSubmit} type="submit" value="Kayıt Ol"/>
+                <input onClick={handleSubmit} type="submit" value="Giriş Yap"/>
               </div>
+              
+              <div className="signup-link" onClick={()=>navigate("/")} >Hesabın var mı? Giriş yap.</div>
             </form>
           </div>
         </div>

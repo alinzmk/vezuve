@@ -230,7 +230,7 @@ function Profile() {
                                                 ) : (
                                                     // Display an empty h6 element if userData doesn't exist
                                                     <div className="d-flex align-items-center">
-                                                        <h6 className='profile-info'>Dalos Yazılım Ltd. Şti.</h6>
+                                                        <h6 className='profile-info'>Dalos Yazılım Hiz. Ltd. Şti.</h6>
                                                         <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("companyTitle")}>
                                                             <i className="fa-solid fa-pen-to-square"></i>
                                                         </button>

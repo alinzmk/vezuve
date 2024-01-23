@@ -59,12 +59,28 @@ export default function App(props) {
 
   const handleSubmit = (e) => {
       e.preventDefault();
+      
+      const getRandomNumber = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      };
+      
+      // Generate two random numbers
+      var selectData = getRandomNumber(0, 4);
+      var selectData2 = getRandomNumber(0, 4);
+      
+      // Ensure the two numbers are not equal
+      while (selectData === selectData2) {
+        selectData2 = getRandomNumber(0, 4);
+      }
 
-      const selectData = Math.floor(Math.random() * (4 - 0 + 1) + 0);
-      const selectData2 = Math.floor(Math.random() * (4 - 0 + 1) + 0);
-
+      
+      console.log(selectData, selectData2);
 
       onSelectData(data[selectData], data[selectData2]); //random çekilecek
+
+      console.log(selectData, selectData2);
+
+      console.log(desiInfo, hasStore, hasTurkeySales, hasInternationalSales, hasWebsite, TurkeySalesVolume, productCategory, employeeCount);
 
       setEmployeeCount('');
       setProductCategory('');
@@ -401,6 +417,38 @@ const data =
     {   
       name: "allegro",
       logo: 'allegro.png',
+      items: [
+        'Aylık Trafik: 213.2M',
+        'Satıcı Sayısı: 135.000',
+        "Yıllık Satış: 8.5 milyar dolar",
+        "Yeni başlayan satıcılara 0 komisyon desteği sunmaktadır.",
+        "Popüler Pazaryerleri: YouTube, Facebook"
+
+      ],
+      flag: {
+        name: 'us.png',
+        opacity: 1 ,
+      },
+      flag2: {
+        name: 'uk.png',
+        opacity: 0.1 ,
+      },
+      
+      city: 0 ,
+      items2: [
+        {"ŞİRKET KURULUMU": "200-250 dolar"},
+        {"Amazon aylık kira bedeli"	: "40 DOLAR"},
+        {"EAN Barkod":	"1750-5000 tl"},
+        {"Lojistik":	"50X60X60 Amazon standarlarında 10 koli 750 dolar"},
+        {"Günlük reklam maliyeti	Minimum": "35-50 dolar"},
+        {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 dolar ürün fiyatı aralığı için 500-750 dolar"},
+      ],
+      buttonText: "Uzman Ekibimiz ile Hemen Allegro'da",
+      marketLink: "https://vezuve.com.tr/wp-content/uploads/2023/10/vezuve-eihracat-sitesi-kurulumu-guncel-tanitim-sunumu-eylul_compressed.pdf"
+    },
+    {   
+      name: "trendyol",
+      logo: 'trendyol.png',
       items: [
         'Aylık Trafik: 213.2M',
         'Satıcı Sayısı: 135.000',

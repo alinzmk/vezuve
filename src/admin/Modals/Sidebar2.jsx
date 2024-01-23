@@ -57,6 +57,12 @@ const Sidebar2 = () => {
                               <i class="fa-brands fa-youtube"></i>
                          </NavLink>
                     </li>
+                    <li className={splitLocation[1] === "admin/Dersler" ? "side-active sidebar-li2" : "sidebar-li2"}>
+                         <NavLink to={"/admin/Dersler"} className='sidebar-link' activeClassName="side-active">
+                         <i class="fa-solid fa-right-from-bracket"></i>
+                         </NavLink>
+                    </li>
+                    
                 </ul>
             </div>
         </div>

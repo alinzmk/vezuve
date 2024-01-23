@@ -313,6 +313,41 @@ function Documents() {
                                 </div>
                             </div>
                         </div>
+                        <div className="col-10 p-0 slideup">
+                            <div className="col-12 w-auto pb-3">
+                                <div className="pbg">
+
+                                <div className="row p-3">
+                                    <div className="col-1 ms-5 my-auto">
+                                        <h2 className='my-auto mx-0'><i class="fa-regular fa-file"></i></h2>
+                                    </div>
+                                    <div className="col-7 my-auto text-left">
+                                        <h5 className='m-0 d-flex align-items-center'>WAT Kaydı veya diğer belgeler
+                                        <div class="dropdown2 ms-3">
+                                            <button class="d-flex info-btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa-solid fa-circle-info"></i>
+                                            </button>
+                                            <div class="dropdown-menu info" aria-labelledby="dropdownMenuButton2">
+                                                Şirketin en büyük hissedarına ait, doğrudan kendi adına kayıtlı Elektirik, doğalgaz, cep telefonu, internet faturasını 
+                                                PDF Formatında yükleyin.</div>
+                                        </div>
+                                        </h5>
+                                    </div>
+                                    <div className="col-3 my-auto p-0 justify-content-center d-flex">
+                                        {billInfo === "false" ? (
+                                                <form onSubmit={(e) => handleSubmit(e, "billInfo")}>
+                                                <label for="billInfo-file-upload" class="buton4">Yükle <i class="fa-solid fa-cloud-arrow-up"></i></label>
+                                                <input  id="billInfo-file-upload" className='d-none' type="file" onChange={handleFileChange("billInfo")} ref={fileInputRef} />
+                                                <button type="submit" style={{ display: 'none' }} class="billInfo"></button>
+                                            </form>
+                                            ) : (
+                                                <button className='buton3 m-0' style={{cursor:"default"}}>Yüklendi <i class="fa-solid fa-check-double"></i></button>
+                                        )}
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

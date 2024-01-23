@@ -121,7 +121,7 @@ function Products() {
                                          {(selectedProduct || selectedProduct === 0) && (
                                              <div className='slideleft'>
                                             <p className='profile-title'>Firma Stok Kodu: {products[selectedProduct].productID}</p>
-                                            <div className="row ps-3">
+                                            <div className="row ps-3 pt-3">
                                                 <div className="col-3 image-wrap">
                                                     <img id="product-image" src={products[selectedProduct].image} alt="" />
                                                 </div>

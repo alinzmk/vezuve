@@ -255,7 +255,7 @@ function Dashboard() {
                                                 Belge Onayı
                                             </div>
                                             <div className="col-2 my-auto text-center">
-                                                21.12.2023
+                                                01.01.2024
                                             </div>
                                         <div className="col-3 my-auto text-center">
                                             Tamamlandı <i class="fa-solid fa-check-double"></i>
@@ -266,7 +266,7 @@ function Dashboard() {
                                             <h2><i class="fa-regular fa-folder-open"></i></h2>
                                         </div>
                                             <div className="col-3 my-auto text-center">
-                                                Şirket Kurulumu
+                                                Giveaway çalışması
                                             </div>
                                             <div className="col-2 my-auto text-center">
                                                 Belge Onayı
@@ -283,13 +283,13 @@ function Dashboard() {
                                             <h2><i class="fa-regular fa-folder-open"></i></h2>
                                         </div>
                                             <div className="col-3 my-auto text-center">
-                                                Şirket Kurulumu
+                                            Amazon Store Tasarımı
                                             </div>
                                             <div className="col-2 my-auto text-center">
                                                 Belge Onayı
                                             </div>
                                             <div className="col-2 my-auto text-center">
-                                                21.12.2023
+                                                31.12.2023
                                             </div>
                                         <div className="col-3 my-auto text-center">
                                             Bekleniyor <i class="fa-regular fa-clock"></i>
@@ -300,7 +300,7 @@ function Dashboard() {
                                             <h2><i class="fa-regular fa-folder-open"></i></h2>
                                         </div>
                                             <div className="col-3 my-auto text-center">
-                                                Şirket Kurulumu
+                                            Ürün Listeleme
                                             </div>
                                             <div className="col-2 my-auto text-center">
                                                 Belge Onayı

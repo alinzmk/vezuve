@@ -4,6 +4,8 @@ import logo from "../Assets/logo-renkli.png"
 import Sidebar2 from '../Modals/Sidebar2';
 import { useEffect } from 'react';
 import axios from 'axios';
+import DropdownExample from '../Modals/Dropdown';
+
 
 const tasksData = [
     { status: "process", taskName: "Fba depolarına gönderim", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
@@ -21,7 +23,7 @@ const tasksData = [
     { status: "plan", taskName: "Gs1 Barkodlarının Alınması", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
     { status: "finished", taskName: "Amazon Mağaza Açılışı", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
     { status: "finished", taskName: "Amazon Pazar Araştırması", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto repellendus debitis "},
-  ]; 
+  ];
 
 function Products() {
 
@@ -62,8 +64,6 @@ function Products() {
     }, []); // Run only once on component mount */
 
 
-
-
     const planTasks = tasksData.filter(task => task.status === 'plan');
     const processTasks = tasksData.filter(task => task.status === 'process');
     const finishedTasks = tasksData.filter(task => task.status === 'finished');
@@ -79,7 +79,7 @@ function Products() {
                     <div className="row">
                         <div className="col-12">
                             <div className="row mb-4 d-flex justify-content-between me-5">
-                                <h2 className='purple w-auto mt-3'>Proje Alanı</h2>
+                                <h2 className='purple w-auto mt-3 d-flex'>Proje Alanı  <DropdownExample/></h2> 
                                 <img src={logo} className='sidebar-logo' alt="" />
                             </div>
                             <div className="row slideleft task-wrapper">
@@ -139,5 +139,3 @@ function Products() {
 }
 
 export default Products;
-
-
